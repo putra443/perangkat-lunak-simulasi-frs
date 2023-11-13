@@ -1,5 +1,4 @@
 import { Inter } from 'next/font/google'
-import './globals.css'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,13 +12,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-          {/* <div className='space-x-5 p-5 bg-teal-600'>
+          <div className='space-x-5 p-5 bg-teal-600'>
             <a href='#' className='float-left text-xl hover:bg-teal-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
             <a href="#" className='hover:bg-teal-700 text-white rounded-md px-3 py-2'>Home</a>
             <a href='#' className='hover:bg-teal-700 text-white rounded-md px-3 py-2'>Daftar Nilai</a>
             <a href='#' className='hover:bg-teal-700 text-white rounded-md px-3 py-2'>Simulasi FRS</a>
           </div>
-           */}
+          
         {children}
       </body>
     </html>
