@@ -1,0 +1,28 @@
+{
+  "mataKuliah": [
+    {
+      "id": 1,
+      "nama": "ASD",
+      "jamMulai": "10:00",
+      "jamSelesai": "12:00"
+    },
+    {
+      "id": 2,
+      "nama": "Tugas Akhir 1",
+      "jamMulai": "12:00",
+      "jamSelesai": "15:00"
+    },
+    {
+      "id": 3,
+      "nama": "Tugas Akhir 2",
+      "jamMulai": "11:00",
+      "jamSelesai": "12:00"
+    },
+    {
+      "nama": "Artificial Intelligence",
+      "jamMulai": "13:00",
+      "jamSelesai": "15:00",
+      "id": 5
+    }
+  ]
+}
