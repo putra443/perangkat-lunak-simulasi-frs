@@ -22,11 +22,13 @@ export default async function Simulasi(){
                 <table className='mt-5 rounded-2xl bg-gray-200'>
                     <thead>
                         <tr className='bg-cyan-600 text-white'>
-                            <th className='p-5'>ID</th>
+                            <th className='p-5'>No</th>
                             <th className='p-5'>Nama Mata Kuliah</th>
                             <th className='p-5'>Hari</th>
                             <th className='p-5'>Jam Mulai</th>
                             <th className='p-5'>Jam Selesai</th>
+                            <th className='p-5'>Kelas</th>
+                            <th className='p-5'>Sesi</th>
                             <th className='p-5'>Actions</th>
                         </tr>
                     </thead>
@@ -38,6 +40,8 @@ export default async function Simulasi(){
                                 <td className=" font-semibold" key={mataKuliah.id}>Senin</td>
                                 <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jamMulai}</td>
                                 <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jamSelesai}</td>
+                                <td className='font-semibold' key={mataKuliah.id}>A</td>
+                                <td className='font-semibold' key={mataKuliah.id}>Kuliah</td>
                                 <td className=" font-semibold" key={mataKuliah.id}>
                                     <button type='submit' className='m-5 text-white rounded-2xl px-4 py-2 bg-red-500 hover:bg-red-700'>Delete</button>
                                     </td>

@@ -24,5 +24,37 @@
       "jamSelesai": "15:00",
       "id": 5
     }
+  ],
+  "nilaiMataKuliah" : [
+    {
+      "id": 1,
+      "nama": "Matematika Dasar",
+      "nilaiAkhir" : "D"
+    },
+    {
+      "id": 2,
+      "nama": "Dasar Pemrograman",
+      "nilaiAkhir" : "B"
+    },
+    {
+      "id": 3,
+      "nama": "Matematika Diskret",
+      "nilaiAkhir" : "C"
+    },
+    {
+      "id": 4,
+      "nama": "Kewarganegaraan",
+      "nilaiAkhir" : "B-"
+    },
+    {
+      "id": 5,
+      "nama": "Logika",
+      "nilaiAkhir" : "B"
+    },
+    {
+      "id": 6,
+      "nama": "Bahasa Indonesia",
+      "nilaiAkhir" : "B+"
+    }
   ]
 }
