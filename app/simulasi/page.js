@@ -1,6 +1,7 @@
 import bg from '../../assets/background_unpar.jpg'
 import LayoutUser from '../layoutUser'
 import AddMataKuliah from './addMataKuliah';
+import DeleteMataKuliah from './deleteMataKuliah'
 
 async function getMataKuliah(){
     const res = await fetch('http://localhost:5001/mataKuliah',{cache:'no-store'});
@@ -10,7 +11,7 @@ async function getMataKuliah(){
 
 export default async function Simulasi(){
     const mataKuliah = await getMataKuliah();
-    console.log(mataKuliah);
+    // console.log(mataKuliah[0]);
     return(
         <main className="flex min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
@@ -23,7 +24,7 @@ export default async function Simulasi(){
                 </div>
 
 
-                <table className='mt-5 rounded-2xl bg-gray-200'>
+                <table className='table text-center mt-5 rounded-2xl bg-gray-200'>
                     <thead>
                         <tr className='bg-cyan-600 text-white'>
                             <th className='p-5'>No</th>
@@ -46,8 +47,8 @@ export default async function Simulasi(){
                                 <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jamSelesai}</td>
                                 <td className='font-semibold' key={mataKuliah.id}>A</td>
                                 <td className='font-semibold' key={mataKuliah.id}>Kuliah</td>
-                                <td className=" font-semibold" key={mataKuliah.id}>
-                                    <button type='submit' className='m-5 text-white rounded-2xl px-4 py-2 bg-red-500 hover:bg-red-700'>Delete</button>
+                                <td className=" font-semibold pt-3 pb-3" key={mataKuliah.id}>
+                                    <DeleteMataKuliah{...mataKuliah} className="m-3"/>
                                     </td>
 
                             </tr>
