@@ -1,5 +1,6 @@
 import bg from '../../assets/background_unpar.jpg'
 import LayoutUser from '../layoutUser'
+import AddMataKuliah from './addMataKuliah';
 
 async function getMataKuliah(){
     const res = await fetch('http://localhost:5001/mataKuliah',{cache:'no-store'});
@@ -15,10 +16,13 @@ export default async function Simulasi(){
            <LayoutUser/>
             <div className='flex flex-col px-20 w-screen h-screen bg-gradient-to-br from-teal-500'>
                 <p className='text-4xl text-left m-4 text-white'>Simulasi FRS</p>
-                
-                <div>
+                <p className='text-xl text-left text-white bg-cyan-600 w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
+                <div className=' justify-start text-left m-5'>
                     {/* untuk add mata kuliah */}
+                    <AddMataKuliah/>
                 </div>
+
+
                 <table className='mt-5 rounded-2xl bg-gray-200'>
                     <thead>
                         <tr className='bg-cyan-600 text-white'>
@@ -50,6 +54,9 @@ export default async function Simulasi(){
                         ))}
                     </tbody>
                 </table>
+
+                <p className='text-xl text-left text-white mt-5 bg-cyan-600 w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
+
             </div>
         </main>
     )
