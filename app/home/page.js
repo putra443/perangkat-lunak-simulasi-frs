@@ -10,8 +10,8 @@ export default function Home() {
             <p className='text-l text-white'> Rencanakan Studimu untuk semester selanjutnya dengan baik!</p>
           </div>
           <div className='flex text-xl mt-2 p-5 space-x-10'>
-            <a href="/daftarNilai" className='px-4 py-2 rounded-3xl bg-teal-800 text-white hover:bg-teal-700'>Lihat Nilai</a>
-            <a href="/simulasi" className='px-4 py-2 rounded-3xl bg-teal-800 text-white hover:bg-teal-700'>Simulasi FRS</a>
+            <a href="/daftarNilai" className='btn border-none hover:bg-teal-900 text-lg px-4 py-2 rounded-3xl bg-teal-800 text-white hover:bg-teal-700'>Lihat Nilai</a>
+            <a href="/simulasi"    className='btn border-none hover:bg-teal-900 text-lg px-4 py-2 rounded-3xl bg-teal-800 text-white hover:bg-teal-700'>Simulasi FRS</a>
           </div>
         </div>
         

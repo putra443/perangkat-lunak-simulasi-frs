@@ -9,9 +9,10 @@ export default function Home() {
           <div className='border-2 w-10 border-black inline-block mb-2'></div>
           <form action="" method="get" className='mt-8 space-y-6'>
             <div className='flex flex-col items-center'>
-              <input className='mb-2 p-3 bg-gray-100 rounded-xl' type="email" name="email" id="email" placeholder="....@student.unpar.ac.id" required />
-              <input className='mb-10 p-3 bg-gray-100 rounded-xl' type="password" name="password" id="password" placeholder="Password" required />
-              <input type='submit' value='Submit' className='bg-teal-500 rounded-2xl px-5 py-2'></input>
+              <input className='input mb-2 p-3 bg-gray-100 rounded-xl' type="email" name="email" id="email" placeholder="....@student.unpar.ac.id" required />
+              <input className='input mb-10 p-3 bg-gray-100 rounded-xl' type="password" name="password" id="password" placeholder="Password" required />
+              <input type='submit' value='Sign In' className='btn bg-teal-500 hover:bg-teal-600 text-white border-none rounded-2xl px-5 py-2'></input>
+              <input type='submit' value='Sign In as Admin' className='btn bg-teal-500 hover:bg-teal-600 text-white border-none rounded-2xl px-5 py-2 mt-5'></input>
             </div>
           </form>
         </div> {/*sign in */}

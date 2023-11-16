@@ -1,8 +1,11 @@
 "use client"
-import { SyntheticEvent,useState } from "react"
+import { SyntheticEvent,useEffect,useState } from "react"
 import { useRouter } from "next/navigation"
+import { list } from "postcss"
+import { data } from "autoprefixer"
 
-export default function addMataKuliah(){
+export default function addMataKuliah(mataKuliah){
+    const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
     const [nama, setNama] = useState("")
     const [jamMulai, setJamMulai] = useState("")
     const [jamSelesai, setJamSelesai] = useState("")
@@ -38,7 +41,9 @@ export default function addMataKuliah(){
         router.refresh()
         setModal(false)
     }
-    
+    const data = mataKuliah
+    // console.log(data);
+
     return (
         <div>
 
@@ -51,15 +56,18 @@ export default function addMataKuliah(){
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label font-bold">Nama Mata Kuliah</label>
-                            <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input>
+                            {/* <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input> */}
+                            <select className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                                <option value="" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">Pilih Mata Kuliah</option> 
+                                
+                            </select>
                         </div>
                         <div className="form-control">
-                            <label className="label font-bold">Jam Mulai</label>
-                            <input type="text" value={jamMulai} onChange={(e)=> setJamMulai(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Jam Mulai"></input>
-                        </div>
-                        <div className="form-control">
-                            <label className="label font-bold">Jam Selesai</label>
-                            <input type="text" value={jamSelesai} onChange={(e)=> setJamSelesai(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Jam Selesai"></input>
+                            <label className="label font-bold">Kelas</label>
+                            <select className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                                <option value="" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">Pilih Kelas</option> 
+                                
+                            </select>
                         </div>
                         <div className="modal-action">
                             <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>

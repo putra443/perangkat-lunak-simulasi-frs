@@ -47,7 +47,7 @@ export default async function DaftarNilai(){
                     </tbody>
                 </table>
                 <div>
-                    <a href='#' className='float-right text-white text-center rounded-2xl w-1/5 px-4 py-2 mt-3 text-lg bg-green-700'>Edit Nilai</a>
+                    <a href='#' className='btn border-none hover:bg-green-800 float-right text-white text-center rounded-2xl w-1/6 px-4 py-2 mt-3 text-lg bg-green-700'>Edit Nilai</a>
                 </div>
             </div>
             

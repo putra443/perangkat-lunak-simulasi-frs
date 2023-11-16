@@ -1,0 +1,29 @@
+Program Cek Jadwal Bentrok
+
+Deklarasi
+schedule : kelas schedule(indexHari, namaMataKuliah, startTime, endTime)
+timeWindow :  array 2 dimensi 7x24
+bentrok : boolean
+
+Algoritma 
+bentrok = false
+untuk setiap schedule :
+    startToken[] = schedule.startTime.split(":")
+    endToken[] = schedule.endTime.split(":")
+
+    startHour = startToken[0]
+    endHour = endToken[0]
+
+    startIndex = startHour
+    endIndex = endHour
+
+    for(i=startIndex; i<endIndex; i++)
+        if(timeWindow[schedule.indexHari][i] != null)
+            bentrok = true
+            print "terjadi konflik"
+        else
+            timeWindow[schedule.indexHari][i] = schedule
+    
+    jika bentrok == false 
+        print "tidak ada bentrok dalam jadwal"
+        
