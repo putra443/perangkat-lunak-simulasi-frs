@@ -12,14 +12,15 @@ async function getMataKuliah(){
 
 export default async function Simulasi(){
     const mataKuliah = await getMataKuliah();
+    // console.log(mataKuliah);
     return(
-        <main className="flex min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
+        <main className="flex min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
             <div className='flex flex-col px-20 w-screen h-screen bg-gradient-to-br from-teal-500'>
                 <p className='text-4xl text-left m-4 text-white'>Simulasi FRS</p>
                 <div className=' justify-start text-left m-5'>
                     {/* untuk add mata kuliah */}
-                    <AddMataKuliah{...mataKuliah}/>
+                    <AddMataKuliah>{...mataKuliah}</AddMataKuliah>
                 </div>
                 <p className='text-xl text-left text-white bg-cyan-600 w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
 

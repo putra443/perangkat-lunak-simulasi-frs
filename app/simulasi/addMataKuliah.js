@@ -1,8 +1,7 @@
 "use client"
 import { SyntheticEvent,useEffect,useState } from "react"
 import { useRouter } from "next/navigation"
-import { list } from "postcss"
-import { data } from "autoprefixer"
+import { Josefin_Sans } from "next/font/google"
 
 export default function addMataKuliah(mataKuliah){
     const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
@@ -41,9 +40,8 @@ export default function addMataKuliah(mataKuliah){
         router.refresh()
         setModal(false)
     }
-    const data = mataKuliah
-    // console.log(data);
-
+    // const data = Array.prototype.map.call(mataKuliah, item => item)
+    console.log(mataKuliah);
     return (
         <div>
 
@@ -55,17 +53,19 @@ export default function addMataKuliah(mataKuliah){
                     <h3 className="font-bold text-lg">Tambah Mata Kuliah</h3>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
-                            <label className="label font-bold">Nama Mata Kuliah</label>
+                            <label className="label font-bold">Pilih Mata Kuliah</label>
                             {/* <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input> */}
                             <select className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option value="" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">Pilih Mata Kuliah</option> 
-                                
+                                {mataKuliah.children.map((mataKuliah)=>(
+                                    <option key={mataKuliah.id}>{mataKuliah.nama}</option>
+                                ))}
                             </select>
                         </div>
                         <div className="form-control">
-                            <label className="label font-bold">Kelas</label>
+                            <label className="label font-bold">Pilih Kelas</label>
                             <select className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option value="" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">Pilih Kelas</option> 
+                                <option value="A" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">A</option> 
+                                <option value="B" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">B</option> 
                                 
                             </select>
                         </div>

@@ -10,7 +10,7 @@ export default function cekBentrok(hasilCek){
     function handleChange(){
         setModal(!modal)
     }
-    console.log(hasil.children)
+    // console.log(hasil.children)
     if(hasil.children==true){
         const string = "asdasd"
     }else{
