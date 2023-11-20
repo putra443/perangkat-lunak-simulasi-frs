@@ -49,7 +49,7 @@ export default function addMataKuliah(mataKuliah){
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal">
-                <div className="modal-box bg-white text-black">
+                <div className="w-3/5  overflow-scroll overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
                     <h3 className="font-bold text-lg">Tambah Mata Kuliah</h3>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
@@ -72,7 +72,7 @@ export default function addMataKuliah(mataKuliah){
                         <div className="modal-action">
                             <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
                             {!isMutating? (
-                            <button className="btn btn-primary bg-cyan-700 text-white border-none" type="submit">Save</button>   
+                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Save</button>   
                             ):(
                             <button type="button" className="btn loading">Saving . . .</button>
                             )}
