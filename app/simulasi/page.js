@@ -16,7 +16,7 @@ export default async function Simulasi(){
     return(
         <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
-            <div className='flex flex-col px-20 w-screen bg-gradient-to-br from-teal-500'>
+            <div className='flex flex-col px-20 w-screen h-max bg-gradient-to-br from-teal-500'>
                 <p className='text-4xl text-left m-4 text-white'>Simulasi FRS</p>
                 <div className=' justify-start text-left m-5'>
                     {/* untuk add mata kuliah */}
