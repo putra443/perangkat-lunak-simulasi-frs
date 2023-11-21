@@ -82,11 +82,21 @@ public class ScheduleSpread {
         schedules[2] = new Schedule("senin","Daspro", "10:00", "12:00"); 
         schedules[3] = new Schedule("senin","Tugas Akhir 2", "11:00", "12:00"); 
         schedules[4] = new Schedule("selasa","Struktur Diskret", "13:00", "16:00"); 
+        System.out.println("Cek Schedule 1 : ");
         checkConflicts(schedules);
+        System.out.println();
         Schedule[] schedules2 =new Schedule[2];
         schedules2[0] = (new Schedule("Rabu","Tugas Akhir 1","12:00", "15:00"));
         schedules2[1] = (new Schedule("Rabu","RPL","14:00", "17:00"));
+        System.out.println("Cek Schedule 2: ");
         checkConflicts(schedules2);
+        System.out.println();
+        Schedule[] schedules3 = new Schedule[2];
+        schedules3[0] = new Schedule("Jumat","MPB","13:00","16:00");
+        schedules3[1] = new Schedule("Jumat", "AI", "09:00", "11:00");
+        System.out.println("Cek Schedule 3: ");
+        checkConflicts(schedules3);
+        System.out.println();
     }
 }
 // Dalam contoh Java di atas, kami menggunakan kelas Schedule untuk merepresentasikan jadwal dengan waktu mulai dan waktu selesai. Fungsi checkConflicts memeriksa tumpang tindih waktu dalam jendela waktu dengan menghitung berapa kali setiap jam di dalam jendela waktu diisi oleh kegiatan. Jika ada lebih dari satu kegiatan yang mengisi jendela waktu yang sama, maka ada konflik.
