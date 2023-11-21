@@ -2,6 +2,7 @@ import LayoutAdmin from '../layoutAdmin'
 import AddMataKuliah from './addMataKuliah';
 import UpdateMataKuliah from './updateMataKuliah';
 import DeleteMataKuliah from './deleteMataKuliah';
+import CsvUpload from './csvUpload';
 import SearchBar from './searchBar';
 import bg from '../../assets/background_unpar.jpg'
 
@@ -22,6 +23,7 @@ export default async function HomeAdmin(){
                     <p className='text-4xl text-white'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
                     <p className='text-l text-white bg-cyan-600 rounded-2xl p-2 m-5 w-1/6 text-center'> Kelola Mata kuliah</p>
                     <AddMataKuliah/>
+                    <CsvUpload/>
                     <div className='w-2/5 mt-3 mb-3'>
                         <SearchBar></SearchBar>
                     </div>
