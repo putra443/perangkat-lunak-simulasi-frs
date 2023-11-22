@@ -25,7 +25,7 @@ export default async function HomeAdmin(){
                     <AddMataKuliah/>
                     <CsvUpload/>
                     <div className='w-2/5 mt-3 mb-3'>
-                        <SearchBar></SearchBar>
+                        {/* <SearchBar></SearchBar> */}
                     </div>
                     <div className='overflow-scroll no-scrollbar'>
                         <table className='mb-10 table text-center mt-5 rounded-2xl bg-gray-200'>
