@@ -24,9 +24,6 @@ export default function addMataKuliah(){
         e.preventDefault();
         await fetch("http://localhost:3000/api/homeAdmin",{
             method:"POST",
-            headers:{
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify({
                 nama:nama,
                 hari:hari,

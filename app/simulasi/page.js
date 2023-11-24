@@ -4,14 +4,21 @@ import AddMataKuliah from './addMataKuliah';
 import DeleteMataKuliah from './deleteMataKuliah'
 import CekBentrok from './cekBentrok'
 
-async function getMataKuliah(){
-    const res = await fetch('http://localhost:5001/mataKuliah',{cache:'no-store'});
+async function getJadwalMataKuliah(){
+    const res = await fetch('http://localhost:3000/api/simulasi/',{cache:'no-store'});
     const result = await res.json()
     return result
 }
 
+// async function getJadwalMaster(){
+//     const res = await fetch('http://localhost:3000/api/simulasi/',{cache:'no-store'});
+//     const result = await res.json()
+//     return result
+// }
+
 export default async function Simulasi(){
-    const mataKuliah = await getMataKuliah();
+    const mataKuliah = await getJadwalMataKuliah();
+    // const dataMaster = await getJadwalMaster()
     // console.log(mataKuliah);
     return(
         <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
@@ -42,14 +49,14 @@ export default async function Simulasi(){
                             {mataKuliah.map((mataKuliah, index)=>(
                                 <tr  key={mataKuliah.id}>
                                     <td className=" font-semibold">{index+1}</td>
-                                    <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.nama}</td>
+                                    <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.namaMataKuliah}</td>
                                     <td className=" font-semibold" key={mataKuliah.id}>Senin</td>
-                                    <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jamMulai}</td>
-                                    <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jamSelesai}</td>
-                                    <td className='font-semibold' key={mataKuliah.id}>A</td>
-                                    <td className='font-semibold' key={mataKuliah.id}>Kuliah</td>
+                                    <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jam_mulai}</td>
+                                    <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jam_selesai}</td>
+                                    <td className='font-semibold' key={mataKuliah.id}>{mataKuliah.kelas}</td>
+                                    <td className='font-semibold' key={mataKuliah.id}>{mataKuliah.sesi}</td>
                                     <td className=" font-semibold pt-3 pb-3" key={mataKuliah.id}>
-                                        <DeleteMataKuliah{...mataKuliah} className="m-3"/>
+                                        <DeleteMataKuliah key={mataKuliah.id}{...mataKuliah} className="m-3"/>
                                         </td>
 
                                 </tr>
@@ -78,7 +85,7 @@ export default async function Simulasi(){
                             {mataKuliah.map((mataKuliah, index)=>(
                                 <tr  key={mataKuliah.id}>
                                     <td className=" font-semibold">{index+1}</td>
-                                    <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.nama}</td>
+                                    <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.namaMataKuliah}</td>
                                     <td className=" font-semibold" key={mataKuliah.id}>31/10/2023</td>
                                     <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jamMulai}</td>
                                     <td className=" font-semibold" key={mataKuliah.id}>{mataKuliah.jamSelesai}</td>

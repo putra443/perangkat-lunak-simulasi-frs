@@ -1,3 +1,4 @@
+import { NextRequest } from 'next/server';
 import pool from '../../../db';
 
 export async function GET (req, res){
@@ -15,26 +16,21 @@ export async function GET (req, res){
   };
 
   
-  export async function POST(req,res){
-    try{
+export async function POST(req,res){
+    try {
       const request = await req.json()
-    // console.log(request.nama);
-    // console.log(request.nama);
-    // console.log(request.jamMulai);
-    // console.log(request.jamSelesai);
-    // console.log(request.hari);
-    // console.log(request.kelas)
-    // console.log(request.sesiKelas);
       const client = await pool.connect();
       const result = await client.query(`INSERT INTO jadwal_mata_kuliah
       ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
       ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
       return new Response(result);
-    }catch (err){
-      console.error(err);
-      return new Response(json({error: 'an error occured'}),{status:500});
+    } catch (e) {
+      console.log(e);
+      return new Response(e)
     }
+
   }
+
   
   export async function PATCH(req, res){
     try{

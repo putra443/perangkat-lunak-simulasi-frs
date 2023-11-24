@@ -45,12 +45,12 @@ export default async function HomeAdmin(){
                         {mataKuliah.map((mataKuliah, index)=>(
                             <tr  key={mataKuliah.idJadwalMataKuliah}>
                                 <td className=" font-semibold">{index+1}</td>
-                                <td className=" font-semibold" key={mataKuliah.idJadwalMataKuliah}>{mataKuliah.namaMataKuliah}</td>
-                                <td className=" font-semibold" key={mataKuliah.idJadwalMataKuliah}>{mataKuliah.hari}</td>
-                                <td className=" font-semibold" key={mataKuliah.idJadwalMataKuliah}>{mataKuliah.jam_mulai}</td>
-                                <td className=" font-semibold" key={mataKuliah.idJadwalMataKuliah}>{mataKuliah.jam_selesai}</td>
-                                <td className='font-semibold' key={mataKuliah.idJadwalMataKuliah}>{mataKuliah.kelas}</td>
-                                <td className='font-semibold' key={mataKuliah.idJadwalMataKuliah}>{mataKuliah.sesi}</td>
+                                <td className=" font-semibold" >{mataKuliah.namaMataKuliah}</td>
+                                <td className=" font-semibold" >{mataKuliah.hari}</td>
+                                <td className=" font-semibold" >{mataKuliah.jam_mulai}</td>
+                                <td className=" font-semibold" >{mataKuliah.jam_selesai}</td>
+                                <td className='font-semibold' >{mataKuliah.kelas}</td>
+                                <td className='font-semibold' >{mataKuliah.sesi}</td>
                                 <td className=" font-semibold pt-3 pb-3" key={mataKuliah.idJadwalMataKuliah}>
                                     <UpdateMataKuliah {...mataKuliah}></UpdateMataKuliah>
                                     <DeleteMataKuliah {...mataKuliah}/>

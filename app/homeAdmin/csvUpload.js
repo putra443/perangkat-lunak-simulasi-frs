@@ -1,8 +1,10 @@
 'use client'
-import { data } from "autoprefixer"
+import { Kelly_Slab } from "next/font/google"
 import { useRouter } from "next/navigation"
-import Papa from 'papaparse'
+import PapaParser from 'papaparse'
 import { useState } from 'react'
+
+
 export default function CsvUpload(){
     const [hari, setHari] = useState("Senin")
 
@@ -13,69 +15,74 @@ export default function CsvUpload(){
 
     const router = useRouter();
 
+    class jadwal{
+        constructor(nama,hari, jamMulai, jamSelesai, kelas, sesi){
+            this.nama = nama
+            this.hari = hari
+            this.jamMulai = jamMulai
+            this.jamSelesai = jamSelesai
+            this.kelas = kelas
+            this.sesi = sesi
+        }  
+    } 
+
     const acceptableCSVFileTypes = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .csv"
-    let tempNama =""
-    let tempKelas =""
-    let tempSesi =""
-    let tempWaktuMulai = 0
-    let tempWaktuSelesai = 0
 
     function handleChange(){
         setModal(!modal)
     }
 
-    function onFileChangeHandler(e){
-        // e.preventDefault();
-        setIsMutating(true)
-        const file = dataExcel
-        Papa.parse(file,{
-            skipEmptyLines: true,
-            worker:true,
-            complete: function(results) {
-                console.log(results.data);
-                console.log(results.data.length);
-                console.log(results.data[0].length);
-                for (let i = 1; i < results.data.length; i++) {
-                    for (let j = 0; j < 5; j++) {
-                        if(j==0){
-                            tempNama = results.data[i][j]
-                        }
-                        else if(j==1){
-                            tempWaktuMulai = results.data[i][j]
-                        }
-                        else if(j==2){
-                            tempWaktuSelesai = results.data[i][j]
-                        }
-                        else if(j==3){
-                            tempKelas = results.data[i][j]
-                        }
-                        else if(j==4){
-                            tempSesi = results.data[i][j]
-                            upload()
-                            
-                        }
-                    }
-                }
-            }
-        })
-        setIsMutating(false)
-        router.refresh()
+    function checkValue(value){
+        console.log(value);
     }
-    async function upload(){
-        await fetch("http://localhost:3000/api/homeAdmin",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                nama:tempNama,
-                hari:hari,
-                jamMulai: tempWaktuMulai,
-                jamSelesai: tempWaktuSelesai,
-                sesiKelas:tempSesi,
-                kelas:tempKelas
+
+   
+
+    async function onFileChangeHandler(e){
+            e.preventDefault();
+            setIsMutating(true)
+            if(!dataExcel)return
+            
+            let tempNama = ""
+            let tempJamMulai = ""
+            let tempJamSelesai = ""
+            let tempKelas = ""
+            let tempSesi=""
+            let datas = []
+            
+
+            PapaParser.parse(dataExcel,{
+                skipEmptyLines:true,
+                skipFirstNLines: 1,
+                fastMode:true,
+                worker:true,
+                step: function(results){
+                    tempNama = results.data[0]
+                    tempJamMulai = results.data[2]
+                    tempJamSelesai = results.data[3]
+                    tempKelas = results.data[4]
+                    tempSesi = results.data[5]
+                    datas.push (new jadwal(tempNama,hari,tempJamMulai,tempJamSelesai,tempKelas,tempSesi))
+                },
+                complete:console.log("data masuk")
             })
-        })
+            setHari("Senin")
+            setIsMutating(false)
+            setModal(false)
+            router.refresh()   
+    }
+    async function upload(element){
+        await fetch("http://localhost:3000/api/homeAdmin",{
+                    method:"POST",
+                    body:JSON.stringify({
+                        nama:element.nama,
+                        hari:hari,
+                        jamMulai:element.jamMulai,
+                        jamSelesai:element.jamSelesai,
+                        kelas:element.kelas,
+                        sesiKelas:element.sesi
+                    })
+                    })
     }
 
         return(
@@ -99,7 +106,7 @@ export default function CsvUpload(){
                             </div>
                             <div className="form-control">
                                 <label className="label font-bold">Upload File Excel Disini : </label>
-                                <input onChange={(e)=>setDataExcel(e.target.files[0])} type="file" id="csvFileSelector" accept={acceptableCSVFileTypes} className="m-3 p-3 rounded-2xl btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none"></input>
+                                <input onChange={(e)=>setDataExcel(e.target.files[0])} type="file" name="file" id="file" accept={acceptableCSVFileTypes} className="m-3 p-3 rounded-2xl btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none"></input>
                             </div>
                             <div className="modal-action">
                                     <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
