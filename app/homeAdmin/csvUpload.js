@@ -48,26 +48,22 @@ export default function CsvUpload(){
             let tempJamSelesai = ""
             let tempKelas = ""
             let tempSesi=""
-            let datas = []
+            let dataJson
             
 
             PapaParser.parse(dataExcel,{
                 skipEmptyLines:true,
                 skipFirstNLines: 1,
                 fastMode:true,
-                worker:true,
-                step: function(results){
-                    tempNama = results.data[0]
-                    tempJamMulai = results.data[2]
-                    tempJamSelesai = results.data[3]
-                    tempKelas = results.data[4]
-                    tempSesi = results.data[5]
-                    datas.push (new jadwal(tempNama,hari,tempJamMulai,tempJamSelesai,tempKelas,tempSesi))
-                },
-                complete:console.log("data masuk")
+                delimiter:';',
+                complete:function (results) {
+                    const res = results.data
+                    console.log(JSON.stringify({data:res}))
+                }
             })
             setHari("Senin")
             setIsMutating(false)
+            
             setModal(false)
             router.refresh()   
     }
