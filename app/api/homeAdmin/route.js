@@ -1,4 +1,3 @@
-import { NextRequest } from 'next/server';
 import pool from '../../../db';
 
 export async function GET (req, res){
@@ -18,12 +17,36 @@ export async function GET (req, res){
   
 export async function POST(req,res){
     try {
-      const request = await req.json()
-      const client = await pool.connect();
-      const result = await client.query(`INSERT INTO jadwal_mata_kuliah
-      ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
-      ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
-      return new Response(result);
+        const request = await req.json()
+      if(!request.dataExcel){
+        const client = await pool.connect();
+        const result = await client.query(`INSERT INTO jadwal_mata_kuliah
+        ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
+        ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
+        return new Response(result);
+      }
+      else{
+        const data = request.dataExcel
+        const client = await pool.connect()
+        data.map((element)=>{
+          const nama = element.nama_mata_kuliah
+          const jam_mulai = element.jam_mulai
+          const jam_selesai = element.jam_selesai
+          const kelas = element.kelas
+          const sesi = element.sesi
+          const result = client.query(`INSERT INTO jadwal_mata_kuliah
+          ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
+          ('${nama}','${request.hari}','${jam_mulai}','${jam_selesai}','${kelas}','${sesi}')`)
+          return new Response(result) 
+        })
+        // const result = "data masuk"
+        
+        // const client = await pool.connect();
+        // const result = await client.query(`INSERT INTO jadwal_mata_kuliah
+        // ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
+        // ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
+        return new Response()
+      }
     } catch (e) {
       console.log(e);
       return new Response(e)

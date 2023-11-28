@@ -1,30 +1,19 @@
 'use client'
-import { Kelly_Slab } from "next/font/google"
 import { useRouter } from "next/navigation"
 import PapaParser from 'papaparse'
-import { useState } from 'react'
+import { useState} from 'react'
 
 
 export default function CsvUpload(){
     const [hari, setHari] = useState("Senin")
 
-    const [dataExcel, setDataExcel] = useState()
+    const [dataExcel, setDataExcel] = useState(null)
+    const [parsedData, setParsedData] = useState(null)
 
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
 
     const router = useRouter();
-
-    class jadwal{
-        constructor(nama,hari, jamMulai, jamSelesai, kelas, sesi){
-            this.nama = nama
-            this.hari = hari
-            this.jamMulai = jamMulai
-            this.jamSelesai = jamSelesai
-            this.kelas = kelas
-            this.sesi = sesi
-        }  
-    } 
 
     const acceptableCSVFileTypes = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .csv"
 
@@ -36,54 +25,46 @@ export default function CsvUpload(){
         console.log(value);
     }
 
-   
 
-    async function onFileChangeHandler(e){
-            e.preventDefault();
+    function onFileChangeHandler(e){
+            // e.preventDefault();
             setIsMutating(true)
-            if(!dataExcel)return
-            
-            let tempNama = ""
-            let tempJamMulai = ""
-            let tempJamSelesai = ""
-            let tempKelas = ""
-            let tempSesi=""
-            let dataJson
-            
 
+            if(!dataExcel){
+                alert("please select file")
+                setIsMutating(false)
+                return
+            }
+            
             PapaParser.parse(dataExcel,{
+                header:true,
                 skipEmptyLines:true,
-                skipFirstNLines: 1,
-                fastMode:true,
-                delimiter:';',
-                complete:function (results) {
-                    const res = results.data
-                    console.log(JSON.stringify({data:res}))
+                complete: function(result){
+                    upload(result.data)
                 }
             })
+            setDataExcel()
             setHari("Senin")
             setIsMutating(false)
-            
             setModal(false)
             router.refresh()   
     }
-    async function upload(element){
+
+    async function upload(res){
         await fetch("http://localhost:3000/api/homeAdmin",{
-                    method:"POST",
-                    body:JSON.stringify({
-                        nama:element.nama,
-                        hari:hari,
-                        jamMulai:element.jamMulai,
-                        jamSelesai:element.jamSelesai,
-                        kelas:element.kelas,
-                        sesiKelas:element.sesi
-                    })
-                    })
+                method:"POST",
+                body:JSON.stringify({
+                    hari:hari,
+                    dataExcel:res
+                })
+                        
+            })
     }
+
 
         return(
             <div>
-                <button className="btn bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Upload File Excel</button>
+                <button className="btn mt-5 bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Upload File Excel</button>
                 <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
                 
                 <div className={`modal`}>
