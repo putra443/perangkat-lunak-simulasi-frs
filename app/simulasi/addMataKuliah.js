@@ -57,7 +57,7 @@ export default function addMataKuliah(mataKuliah){
                             {/* <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input> */}
                             <select className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 {mataKuliah.children.map((mataKuliah)=>(
-                                    <option key={mataKuliah.id}>{mataKuliah.nama}</option>
+                                    <option key={mataKuliah.idMataKuliah}>{mataKuliah.namaMataKuliah}</option>
                                 ))}
                             </select>
                         </div>

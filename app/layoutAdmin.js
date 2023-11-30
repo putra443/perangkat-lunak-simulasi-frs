@@ -11,7 +11,10 @@ export const metadata = {
 export default function LayoutUser() {
   return (
           <div className='w-screen text-left space-x-5 p-5 bg-teal-600'>
-            <a href='/home' className='btn bg-teal-600 border-none float-left text-xl hover:text-black hover:bg-teal-600 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
+            <a href='/homeAdmin' className='btn bg-teal-600 border-none float-left text-xl hover:text-black hover:bg-teal-600 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
+            <a href='/homeAdmin' className='btn bg-teal-600 border-none float-left  hover:text-black hover:bg-teal-600 text-white rounded-md px-3 '><h1>Jadwal Kuliah</h1></a>
+            <a href='/jadwalUjian' className='btn bg-teal-600 border-none float-left  hover:text-black hover:bg-teal-600 text-white rounded-md px-3 '><h1>Jadwal Ujian</h1></a>
+
             <a href='/' className='btn bg-teal-600 border-none float-right hover:bg-teal-700 text-white rounded-md px-3 py-2'>Sign Out</a>
             <p className='float-right text-white px-3 py-2'>Hello, Admin</p>
           </div>

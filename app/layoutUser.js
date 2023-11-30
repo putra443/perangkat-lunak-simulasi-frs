@@ -13,7 +13,6 @@ export default function LayoutUser() {
           <div className='w-screen text-left space-x-5 p-5 bg-teal-600'>
             <a href='/home' className='btn bg-teal-600 border-none float-left text-xl hover:text-black hover:bg-teal-600 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
             <a href="/home" className='btn bg-teal-600 border-none hover:bg-teal-700 text-white rounded-md px-3 py-2'>Home</a>
-            <a href='/daftarNilai' className='btn bg-teal-600 border-none hover:bg-teal-700 text-white rounded-md px-3 py-2'>Daftar Nilai</a>
             <a href='/simulasi' className='btn bg-teal-600 border-none hover:bg-teal-700 text-white rounded-md px-3 py-2'>Simulasi FRS</a>
             <a href='/' className='btn bg-teal-600 border-none float-right hover:bg-teal-700 text-white rounded-md px-3 py-2'>Sign Out</a>
             <p className='float-right text-white px-3 py-2'>Hello, User</p>
