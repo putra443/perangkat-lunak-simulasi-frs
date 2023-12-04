@@ -3,25 +3,24 @@ import { useRouter } from "next/navigation"
 import { useState } from "react";
 
 export default function deleteMataKuliah(mataKuliah){
-    const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
+    const[idMataKuliah, setId] = useState(mataKuliah.idJadwalMataKuliah)
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
-
     const router = useRouter();
-
+    console.log(mataKuliah.idJadwalMataKuliah);
     function handleChange(){
         setModal(!modal)
     }
 
     async function handleDelete(){
         setIsMutating(true)
-        await fetch(`http://localhost:3000/api/post`,{
+        await fetch(`http://localhost:3000/api/simulasi`,{
             method:"DELETE",
             headers:{
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                idMataKuliah:idMataKuliah
+                idJadwalMataKuliah:idMataKuliah
             })  
         })
 

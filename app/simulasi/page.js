@@ -35,7 +35,7 @@ async function getJadwalUjian(){
 export default async function Simulasi(){
     const mataKuliah = await getJadwalMataKuliah();
     const jadwalMahasiswa = await getJadwalMahasiswa()
-    console.log(jadwalMahasiswa);
+    // console.log(jadwalMahasiswa);
     const jadwalUjian = await getJadwalUjian()
     // const ujian = await getJadwalUjian()
     // const dataMaster = await getJadwalMaster()
@@ -68,13 +68,13 @@ export default async function Simulasi(){
                         <tbody>
                             {jadwalMahasiswa.map((jadwalMahasiswa, index)=>(
                                 <tr  key={jadwalMahasiswa.idJadwalMahasiswa}>
-                                    <td className=" font-semibold">{index+1}</td>
-                                    <td className=" font-semibold">{jadwalMahasiswa.namaMataKuliah}</td>
-                                    <td className=" font-semibold">Senin</td>
-                                    <td className=" font-semibold">{jadwalMahasiswa.jam_mulai}</td>
-                                    <td className=" font-semibold">{jadwalMahasiswa.jam_selesai}</td>
-                                    <td className='font-semibold'>{jadwalMahasiswa.kelas}</td>
-                                    <td className='font-semibold'>{jadwalMahasiswa.sesi}</td>
+                                    <td className=" font-semibold" key={jadwalMahasiswa.idJadwalMahasiswa}>{index+1}</td>
+                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.namaMataKuliah}</td>
+                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>Senin</td>
+                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.jam_mulai}</td>
+                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.jam_selesai}</td>
+                                    <td className='font-semibold' key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.kelas}</td>
+                                    <td className='font-semibold' key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.sesi}</td>
                                     <td className=" font-semibold pt-3 pb-3" key={jadwalMahasiswa.idJadwalMahasiswa}>
                                         <DeleteMataKuliah key={jadwalMahasiswa.idJadwalMahasiswa}{...jadwalMahasiswa} className="m-3"/>
                                         </td>
@@ -104,13 +104,13 @@ export default async function Simulasi(){
                         <tbody>
                             {jadwalUjian.map((jadwalUjian, index)=>(
                                 <tr  key={jadwalUjian.id}>
-                                    <td className=" font-semibold">{index+1}</td>
-                                    <td className=" font-semibold">{jadwalUjian.namaMataKuliah}</td>
-                                    <td className=" font-semibold">{jadwalUjian.formatteduts}</td>
-                                    <td className=" font-semibold">{jadwalUjian.jam_mulai_uts}</td>
-                                    <td className=" font-semibold">{jadwalUjian.jam_selesai_uts}</td>
-                                    <td className='font-semibold'>{jadwalUjian.formatteduas}</td>
-                                    <td className='font-semibold'>{jadwalUjian.jam_mulai_uas}</td>
+                                    <td className=" font-semibold" key={jadwalUjian.id}>{index+1}</td>
+                                    <td className=" font-semibold" key={jadwalUjian.id}>{jadwalUjian.namaMataKuliah}</td>
+                                    <td className=" font-semibold" key={jadwalUjian.id}>{jadwalUjian.formatteduts}</td>
+                                    <td className=" font-semibold" key={jadwalUjian.id}>{jadwalUjian.jam_mulai_uts}</td>
+                                    <td className=" font-semibold" key={jadwalUjian.id}>{jadwalUjian.jam_selesai_uts}</td>
+                                    <td className='font-semibold' key={jadwalUjian.id}>{jadwalUjian.formatteduas}</td>
+                                    <td className='font-semibold' key={jadwalUjian.id}>{jadwalUjian.jam_mulai_uas}</td>
                                     <td className=" font-semibold pt-3 pb-3">{jadwalUjian.jam_selesai_uas}</td>
 
                                 </tr>

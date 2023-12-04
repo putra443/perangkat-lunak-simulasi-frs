@@ -37,9 +37,9 @@ import pool from '../../../db';
       const request = await req.json()
       const client = await pool.connect();
       const result = await client.query(`INSERT INTO jadwal_mahasiswa("idJadwalMataKuliah") 
-      select * from jadwal_mata_kuliah
-      where jadwal_mata_kuliah.kelas='${request.kelas}' and 
-      jadwal_mata_kuliah."namaMataKuliah"=${request.nama}`)
+      select "idJadwalMataKuliah" from jadwal_mata_kuliah
+      where kelas='${request.kelas}' and 
+      "namaMataKuliah"='${request.nama}'`)
       return new Response(result);
     }catch (err){
       console.error(err);
@@ -70,14 +70,14 @@ import pool from '../../../db';
 //     }
 //   }
   
-//   export async function DELETE(req, res){
-//     try{
-//       const request = await req.json();
-//       const client = await pool.connect();
-//       const result = await client.query(`DELETE FROM jadwal_mata_kuliah WHERE "idJadwalMataKuliah"=${request.idMataKuliah}`);
-//       return new Response(result);
-//     }catch(err){
-//       console.error(err);
-//       return new Response(json({error: 'an error occured'}),{status:500});
-//     }
-//   }
+  export async function DELETE(req, res){
+    try{
+      const request = await req.json();
+      const client = await pool.connect(); 
+      const result = await client.query(`DELETE FROM jadwal_mahasiswa WHERE "idJadwalMataKuliah"=${request.idJadwalMataKuliah}`);
+      return new Response(result);
+    }catch(err){
+      console.error(err);
+      return new Response(json({error: 'an error occured'}),{status:500});
+    }
+  }

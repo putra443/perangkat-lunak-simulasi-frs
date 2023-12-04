@@ -14,8 +14,15 @@ async function getMataKuliah(){
     return result
 }
 
+async function getNamaMataKuliah(){
+    const res = await fetch('http://localhost:3000/api/homeAdmin/ujian',{cache:'no-store'})
+    const result = await res.json();
+    return result
+}
+
 export default async function HomeAdmin(){
     const mataKuliah = await getMataKuliah()
+    const namaMataKuliah = await getNamaMataKuliah()
     return(
         <div className="flex overflow-y-scroll overflow-x-hidden min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>
@@ -24,7 +31,7 @@ export default async function HomeAdmin(){
                     <p className='text-4xl text-white'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
                     <p className='text-l text-white bg-cyan-600 rounded-2xl p-2 m-5 w-1/6 text-center'> Kelola Mata kuliah</p>
                     <div className='flex flex-row'>
-                        <AddMataKuliah/> <AddJadwalUjian>{...mataKuliah}</AddJadwalUjian>
+                        <AddMataKuliah/> <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian>
                     </div>
                     
                     <CsvUpload/>

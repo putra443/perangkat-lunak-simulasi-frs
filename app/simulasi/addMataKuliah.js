@@ -6,8 +6,7 @@ import { Josefin_Sans } from "next/font/google"
 export default function addMataKuliah(mataKuliah){
     const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
     const [nama, setNama] = useState("")
-    const [jamMulai, setJamMulai] = useState("")
-    const [jamSelesai, setJamSelesai] = useState("")
+    const [kelas,setKelas] = useState("A")
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
 
@@ -20,28 +19,26 @@ export default function addMataKuliah(mataKuliah){
     async function handleSubmit(e){
         setIsMutating(true)
         e.preventDefault();
-        await fetch("http://localhost:3000/api/post",{
+        await fetch("http://localhost:3000/api/simulasi",{
             method:"POST",
             headers:{
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 nama:nama,
-                jamMulai: jamMulai,
-                jamSelesai: jamSelesai
+                kelas:kelas
             })
         })
 
         setIsMutating(false)
 
         setNama("")
-        setJamMulai("")
-        setJamSelesai("")
+        setKelas("A")
         router.refresh()
         setModal(false)
     }
     // const data = Array.prototype.map.call(mataKuliah, item => item)
-    console.log(mataKuliah);
+    // console.log(mataKuliah);
     return (
         <div>
 
@@ -55,7 +52,8 @@ export default function addMataKuliah(mataKuliah){
                         <div className="form-control">
                             <label className="label font-bold">Pilih Mata Kuliah</label>
                             {/* <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input> */}
-                            <select className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                            <select onChange={(e)=>setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                                <option>Pilih Mata Kuliah</option>
                                 {mataKuliah.children.map((mataKuliah)=>(
                                     <option key={mataKuliah.idMataKuliah}>{mataKuliah.namaMataKuliah}</option>
                                 ))}
@@ -63,7 +61,7 @@ export default function addMataKuliah(mataKuliah){
                         </div>
                         <div className="form-control">
                             <label className="label font-bold">Pilih Kelas</label>
-                            <select className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                            <select onChange={(e)=>setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 <option value="A" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">A</option> 
                                 <option value="B" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">B</option> 
                                 
