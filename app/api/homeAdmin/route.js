@@ -30,13 +30,14 @@ export async function POST(req,res){
         const client = await pool.connect()
         data.map((element)=>{
           const nama = element.nama_mata_kuliah
+          const hari = element.hari
           const jam_mulai = element.jam_mulai
           const jam_selesai = element.jam_selesai
           const kelas = element.kelas
           const sesi = element.sesi
           const result = client.query(`INSERT INTO jadwal_mata_kuliah
           ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
-          ('${nama}','${request.hari}','${jam_mulai}','${jam_selesai}','${kelas}','${sesi}')`)
+          ('${nama}','${hari}','${jam_mulai}','${jam_selesai}','${kelas}','${sesi}')`)
           return new Response(result) 
         })
         // const result = "data masuk"

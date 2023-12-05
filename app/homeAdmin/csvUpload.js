@@ -21,11 +21,6 @@ export default function CsvUpload(){
         setModal(!modal)
     }
 
-    function checkValue(value){
-        console.log(value);
-    }
-
-
     function onFileChangeHandler(e){
             // e.preventDefault();
             setIsMutating(true)
@@ -54,7 +49,6 @@ export default function CsvUpload(){
         await fetch("http://localhost:3000/api/homeAdmin",{
                 method:"POST",
                 body:JSON.stringify({
-                    hari:hari,
                     dataExcel:res
                 })
                         
@@ -71,16 +65,6 @@ export default function CsvUpload(){
                     <div className=" w-3/5  overflow-scroll overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
                         <h1 className="font-bold text-2xl">Tambah Mata Kuliah</h1>
                         <form onSubmit={onFileChangeHandler}>
-                            <div className="form-control">
-                                <label className="label font-bold">Pilih Hari</label>
-                                <select value={hari} onChange={(e)=> setHari(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                    <option value="Senin">Senin</option>
-                                    <option value="Selasa">Selasa</option>
-                                    <option value="Rabu">Rabu</option>
-                                    <option value="Kamis">Kamis</option>
-                                    <option value="Jumat">Jumat</option>
-                                </select>
-                            </div>
                             <div className="form-control">
                                 <label className="label font-bold">Upload File Excel Disini : </label>
                                 <input onChange={(e)=>setDataExcel(e.target.files[0])} type="file" name="file" id="file" accept={acceptableCSVFileTypes} className="m-3 p-3 rounded-2xl btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none"></input>
