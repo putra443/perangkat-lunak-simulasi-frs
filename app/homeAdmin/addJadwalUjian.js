@@ -8,10 +8,8 @@ export default function addJadwalUjian(mataKuliah){
     const [tanggalUTS, setTanggalUTS] = useState()
     const [tanggalUAS, setTanggalUAS] = useState()
     const [nama, setNama] = useState("")
-    const [startUTS, setStartUTS] = useState("")
-    const [endUTS, setEndUTS] = useState("")
-    const [startUAS, setStartUAS] = useState("")
-    const [endUAS, setEndUAS] = useState("")
+    const [startUjian, setStartUjian] = useState("")
+    const [endUjian, setEndUjian] = useState("")
 
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
@@ -31,20 +29,16 @@ export default function addJadwalUjian(mataKuliah){
                 nama:nama,
                 tanggalUTS:tanggalUTS,
                 tanggalUAS: tanggalUAS,
-                jamMulaiUTS: startUTS,
-                jamSelesaiUTS: endUTS,
-                jamMulaiUAS:startUAS,
-                jamSelesaiUAS: endUAS
+                jamMulaiUjian: startUjian,
+                jamSelesaiUjian: endUjian
             })
         })
         // console.log(nama,tanggalUTS,startUTS,endUTS,tanggalUAS,startUAS,endUAS);
         setIsMutating(false)
         // console.log(nama,jamMulai,jamSelesai,2," ",hari,3, " ", sesiKelas);
         setNama("")
-        setStartUTS("")
-        setEndUTS("")
-        setStartUAS("")
-        setEndUAS("")
+        setStartUjian("")
+        setEndUjian("")
         setTanggalUTS("")
         setTanggalUAS("")
         setIdJadwalMataKuliah("")
@@ -61,7 +55,7 @@ export default function addJadwalUjian(mataKuliah){
             
             <div className="modal ">
                 <div className=" w-3/5  overflow-scroll overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
-                    <h1 className="font-bold text-2xl">Tambah Jadwal UTS</h1>
+                    <h1 className="font-bold text-2xl">Tambah Jadwal Ujian</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label font-bold">Nama Mata Kuliah</label>
@@ -77,25 +71,16 @@ export default function addJadwalUjian(mataKuliah){
                             <input type="date" onChange={(e)=>setTanggalUTS(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
                         </div>
                         <div className="form-control">
-                            <label className="label font-bold">Jam Mulai UTS</label>
-                            <input type="text" onChange={(e)=>setStartUTS(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
-                        </div>
-                        <div className="form-control">
-                            <label className="label font-bold">Jam Selesai UTS</label>
-                            <input type="text" onChange={(e)=>setEndUTS(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
-                        </div>
-                        <h1 className="font-bold text-2xl mt-5">Tambah Jadwal UAS</h1>
-                        <div className="form-control">
                             <label className="label font-bold">Tanggal UAS</label>
                             <input type="date" onChange={(e)=>setTanggalUAS(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
                         </div>
                         <div className="form-control">
-                            <label className="label font-bold">Jam Mulai UAS</label>
-                            <input type="text" onChange={(e)=>setStartUAS(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
+                            <label className="label font-bold">Jam Mulai Ujian</label>
+                            <input type="text" onChange={(e)=>setStartUjian(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
                         </div>
                         <div className="form-control">
-                            <label className="label font-bold">Jam Selesai UAS</label>
-                            <input type="text" onChange={(e)=>setEndUAS(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
+                            <label className="label font-bold">Jam Selesai Ujian</label>
+                            <input type="text" onChange={(e)=>setEndUjian(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
                         </div>
                         <div className="modal-action">
                             <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>

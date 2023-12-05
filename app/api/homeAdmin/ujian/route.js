@@ -25,8 +25,8 @@ export async function POST(req,res){
         jam_mulai_uts, jam_selesai_uts,tanggal_uas,
         jam_mulai_uas, jam_selesai_uas) VALUES 
         ('${request.nama}','${request.tanggalUTS}',
-        '${request.jamMulaiUTS}','${request.jamSelesaiUTS}','${request.tanggalUAS}',
-        '${request.jamMulaiUAS}','${request.jamSelesaiUAS}'
+        '${request.jamMulaiUjian}','${request.jamSelesaiUjian}','${request.tanggalUAS}',
+        '${request.jamMulaiUjian}','${request.jamSelesaiUjian}'
         )`)
         return new Response(result);
       }
