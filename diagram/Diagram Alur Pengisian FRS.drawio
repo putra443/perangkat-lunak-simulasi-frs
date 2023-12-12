@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" modified="2023-12-11T11:52:55.425Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="YeT0MLIzYhlv4-w1nzMj" version="22.1.7" type="device">
+  <diagram name="Page-1" id="0mOgKLcTljq9-CSoNIE7">
+    <mxGraphModel dx="1434" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EGE8pZLdC6ylQzjeR4p1-1" target="EGE8pZLdC6ylQzjeR4p1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-1" value="start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="70" y="130" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EGE8pZLdC6ylQzjeR4p1-2" target="EGE8pZLdC6ylQzjeR4p1-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-2" value="Pembagian jadwal mata kuliah yang dibuka" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="120" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EGE8pZLdC6ylQzjeR4p1-4" target="EGE8pZLdC6ylQzjeR4p1-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-4" value="Mahasiswa Memilih mata kuliah yang ingin diambil" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="295" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EGE8pZLdC6ylQzjeR4p1-6" target="EGE8pZLdC6ylQzjeR4p1-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-6" value="Memastikan jadwal tidak bentrok" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EGE8pZLdC6ylQzjeR4p1-8" target="EGE8pZLdC6ylQzjeR4p1-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-8" value="Konsultasikan mata kuliah yang akan diambil ke dosen wali" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EGE8pZLdC6ylQzjeR4p1-10" target="EGE8pZLdC6ylQzjeR4p1-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-10" value="Input mata kuliah yang ingin diambil pada student portal" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EGE8pZLdC6ylQzjeR4p1-12" target="EGE8pZLdC6ylQzjeR4p1-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-12" value="Mengirimkan Email hasil FRS ke email Informatika Unpar" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EGE8pZLdC6ylQzjeR4p1-14" value="End" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="222.5" width="40" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
