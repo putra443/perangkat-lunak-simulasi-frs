@@ -1,21 +1,16 @@
 class ScheduleUjian {
     String tanggalUTS;
-    String tanggalUAS;
     String name;
     String startTimeUTS;
     String endTimeUTS;
-    String startTimeUAS;
-    String endTimeUAS;
+
  
 
-    public ScheduleUjian(String tanggalUTS, String tanggalUAS,String name, String startTimeUTS, String endTimeUTS, String startTimeUAS, String endTimeUAS) {
+    public ScheduleUjian(String tanggalUTS,String name, String startTimeUTS, String endTimeUTS) {
         this.tanggalUTS=tanggalUTS;
-        this.tanggalUAS=tanggalUAS;
         this.name=name;
         this.startTimeUTS=startTimeUTS;
         this.endTimeUTS=endTimeUTS;
-        this.startTimeUAS=startTimeUAS;
-        this.endTimeUAS=endTimeUAS;
     }
 }
 
@@ -28,8 +23,8 @@ public class ScheduleSpreadUjian{
         for(int i=0; i<schedules.length-1;i++){
             for(int j=i+1;j<schedules.length;j++){
                 //ambil tanggal ujiian
-                String[] tanggalUTS1 = schedules[i].tanggalUAS.split("-");
-                String[] tanggalUTS2 = schedules[j].tanggalUAS.split("-");
+                String[] tanggalUTS1 = schedules[i].tanggalUTS.split("-");
+                String[] tanggalUTS2 = schedules[j].tanggalUTS.split("-");
 
                 //jika sama tanggalnya ambil waktu
 
@@ -37,8 +32,8 @@ public class ScheduleSpreadUjian{
                     if(Integer.parseInt(tanggalUTS1[1])==Integer.parseInt(tanggalUTS2[1])){}
                         String[] startTokenUTS1 = schedules[i].startTimeUTS.split(":");
                         String[] endTokenUTS1 = schedules[i].endTimeUTS.split(":");
-                        String[] startTokenUTS2 = schedules[j].startTimeUAS.split(":");
-                        String[] endTokenUTS2 = schedules[j].endTimeUAS.split(":");
+                        String[] startTokenUTS2 = schedules[j].startTimeUTS.split(":");
+                        String[] endTokenUTS2 = schedules[j].endTimeUTS.split(":");
                         
                         int startIndex1 = Integer.parseInt(startTokenUTS1[0]);
                         int endIndex1 = Integer.parseInt(endTokenUTS1[0]);
@@ -52,7 +47,7 @@ public class ScheduleSpreadUjian{
                         for (int x = startIndex2; x < endIndex2; x++) {
                             if (timeWindow[0][x] != null) {
                                 conflicts = true;
-                                System.out.println("konflik ditemukan :" + schedules[i].name + " dengan " + schedules[j].name);
+                                System.out.println("konflik ditemukan :" + schedules[i].name + " dengan " + schedules[j].name + " pada tanggal " + schedules[i].tanggalUTS);
                                 break;
                             } else {
                                 timeWindow[0][x]= schedules[j];
@@ -70,12 +65,11 @@ public class ScheduleSpreadUjian{
     }
 
     public static void main(String[] args){
-        ScheduleUjian[] schedules = new ScheduleUjian[5];
-        schedules[0] = (new ScheduleUjian("01-11-2023","16-1-2023","AI","10:00","12:00","10:00","12:00"));
-        schedules[1] = (new ScheduleUjian("31-10-2023","15-1-2023","ASD","10:00","11:00","10:00","11:00"));
-        schedules[2] = (new ScheduleUjian("15-11-2023","21-1-2023","PBW","09:00","10:00","09:00","10:00"));
-        schedules[3] = (new ScheduleUjian("31-10-2023","15-1-2023","PBO","10:00","11:00","10:00","11:00"));
-        schedules[4] = (new ScheduleUjian("03-11-2023","18-1-2023","ALPRO","10:00","11:00","10:00","11:00"));
+        ScheduleUjian[] schedules = new ScheduleUjian[4];
+        schedules[0] = (new ScheduleUjian("01-11-2023","AI","10:00","12:00"));
+        schedules[1] = (new ScheduleUjian("31-10-2023","ASD","10:00","12:00"));
+        schedules[2] = (new ScheduleUjian("15-11-2023","PBW","09:00","10:00"));
+        schedules[3] = (new ScheduleUjian("31-10-2023","PBO","10:00","12:00"));
         checkConflicts(schedules);
     }
 }
