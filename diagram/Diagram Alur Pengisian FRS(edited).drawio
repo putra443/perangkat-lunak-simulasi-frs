@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" modified="2024-01-19T07:49:23.910Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="YRvsNqEBuKxQrxppZhj0" version="22.1.20" type="device">
+  <diagram name="Page-1" id="sbi63gBOHCvxlms7X-QJ">
+    <mxGraphModel dx="1434" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rHQftjQ_CMoombHVH2Ho-1" target="rHQftjQ_CMoombHVH2Ho-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-1" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry y="180" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rHQftjQ_CMoombHVH2Ho-2" target="rHQftjQ_CMoombHVH2Ho-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-2" value="Mahasiswa mengisikan mata kuliah yang ingin diambil pada Student Portal" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="171.25" width="120" height="67.5" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rHQftjQ_CMoombHVH2Ho-4" target="rHQftjQ_CMoombHVH2Ho-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-4" value="Mahasiswa mencetak hasil dari FRS dalam bentuk PDF" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="175" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rHQftjQ_CMoombHVH2Ho-6" target="rHQftjQ_CMoombHVH2Ho-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-6" value="Mahasiswa mengirimkan hasil cetak FRS ke dosen wali untuk mendapatkan persetujuan" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="175" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="rHQftjQ_CMoombHVH2Ho-8" target="rHQftjQ_CMoombHVH2Ho-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-8" value="Mahasiswa menekan tombol &quot;kirim email&quot; untuk mendapatkan email berupa hasil FRS dan mem-&lt;i&gt;forward&lt;/i&gt;&amp;nbsp;email tersebut ke email Informatika Unpar" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="175" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rHQftjQ_CMoombHVH2Ho-10" value="end" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="182.5" width="50" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" modified="2024-01-16T14:53:04.874Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="pgVO1WwgmpUTdi_iV2os" version="22.1.18" type="device">
+  <diagram name="Page-1" id="DuxXsu1mbc0PzpSIuphk">
+    <mxGraphModel dx="1195" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JKyVIwf-zSDkaNmnY3zE-1" target="JKyVIwf-zSDkaNmnY3zE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-1" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JKyVIwf-zSDkaNmnY3zE-2" target="JKyVIwf-zSDkaNmnY3zE-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-2" value="Mahasiswa dibagikan jadwal kuliah yang dibuka" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="248.75" width="120" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JKyVIwf-zSDkaNmnY3zE-4" target="JKyVIwf-zSDkaNmnY3zE-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-4" value="Mahasiswa memilih mata kuliah yang ingin diambil" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="248.75" width="120" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JKyVIwf-zSDkaNmnY3zE-8" target="JKyVIwf-zSDkaNmnY3zE-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-8" value="Mahasiswa memastikan bahwa jadwal tidak bentrok" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="248.75" width="120" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JKyVIwf-zSDkaNmnY3zE-10" target="JKyVIwf-zSDkaNmnY3zE-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-10" value="Mahasiswa mengkonsultasikan mata kuliah yang diambil dengan dosen wali" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="239.38" width="120" height="71.25" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="JKyVIwf-zSDkaNmnY3zE-14" target="JKyVIwf-zSDkaNmnY3zE-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-17" value="tidak" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="JKyVIwf-zSDkaNmnY3zE-16">
+          <mxGeometry x="0.029" y="1" relative="1" as="geometry">
+            <mxPoint x="20" y="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JKyVIwf-zSDkaNmnY3zE-14" target="JKyVIwf-zSDkaNmnY3zE-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-14" value="jadwal sudah benar?" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="242.5" width="100" height="65.01" as="geometry" />
+        </mxCell>
+        <mxCell id="JKyVIwf-zSDkaNmnY3zE-21" value="End" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="170" width="40" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
