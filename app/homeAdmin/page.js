@@ -26,7 +26,7 @@ export default async function HomeAdmin(){
     return(
         <div className="flex overflow-y-scroll overflow-x-hidden min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>
-            <div className='flex flex-col px-20 w-screen h-max  bg-gradient-to-br from-teal-500'>
+            <div className='flex flex-col px-20 w-screen h-content  bg-gradient-to-br from-teal-500'>
                 <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
                     <p className='text-4xl text-white'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
                     <p className='text-l text-white bg-cyan-600 rounded-2xl p-2 m-5 w-1/6 text-center'> Kelola Mata kuliah</p>
