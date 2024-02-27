@@ -1,6 +1,13 @@
+"use client"
+import { useEffect} from 'react'
 import bg from '../../assets/background_unpar.jpg'
 import LayoutUser from "../layoutUser"
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+
+
 export default function Home() {
+  const {data:session, status} = useSession();
     return (
       <div className="flex min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
         <LayoutUser/>

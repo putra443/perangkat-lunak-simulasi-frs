@@ -3,6 +3,7 @@ import LayoutUser from '../layoutUser'
 import AddMataKuliah from './addMataKuliah';
 import DeleteMataKuliah from './deleteMataKuliah'
 import CekBentrok from './cekBentrok'
+import { getSession } from 'next-auth/react';
 
 
 //untuk get jadwal master
@@ -40,6 +41,7 @@ export default async function Simulasi(){
     // const ujian = await getJadwalUjian()
     // const dataMaster = await getJadwalMaster()
     // console.log(mataKuliah);
+
     return(
         <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
