@@ -27,6 +27,65 @@ async function getJadwalUjian(){
     return result
 }
 
+
+//untuk create object schedule
+function createSchedule(hari, name, startTime, endTime){
+    return { hari, name, startTime, endTime };
+}
+
+//untuk cek bentrok
+function cekBentrok(schedules){
+    const timeWindow = new Array(7).fill(null).map(() => new Array(24)); // 24 hours in a day
+
+    let conflicts = false;
+    let string = ""
+
+    for (const schedule of schedules) {
+        const startTokens = schedule.startTime.split(":");
+        const endTokens = schedule.endTime.split(":");
+
+        const startHour = parseInt(startTokens[0]);
+        const endHour = parseInt(endTokens[0]);
+
+        // Convert start and end times to time window indices
+        const startIndex = startHour;
+        const endIndex = endHour;
+
+        let indexHari = 0
+            if(schedule.hari == "senin" || schedule.hari == "Senin"){
+                indexHari=0;
+            }
+            else if(schedule.hari == "selasa" || schedule.hari == "Selasa"){
+                indexHari=1;
+            }
+            else if(schedule.hari == "rabu" || schedule.hari == "Rabu"){
+                indexHari=2;
+            }
+            else if(schedule.hari == "kamis" || schedule.hari == "Kamis"){
+                indexHari=3;
+            }
+            else{
+                indexHari=4;
+            }
+        // Check for overlapping time within the time window
+        for (let i = startIndex; i < endIndex; i++) {
+            if (timeWindow[indexHari][i] !== undefined) {
+                conflicts = true;
+                string += (`Ditemukan konflik pada Hari ${schedule.hari}: ${timeWindow[indexHari][i].name} ${timeWindow[indexHari][i].startTime} - ${timeWindow[indexHari][i].endTime} with ${schedule.name} ${schedule.startTime} - ${schedule.endTime}` + "\n");
+                break;
+            } else {
+                timeWindow[indexHari][i] = schedule;
+            }
+        }
+    }
+
+    if (!conflicts) {
+        return string = "Tidak ditemukan konflik pada kumpulan jadwal.";
+    }
+
+    return string;
+
+}
 // async function getJadwalMaster(){
 //     const res = await fetch('http://localhost:3000/api/simulasi/',{cache:'no-store'});
 //     const result = await res.json()
@@ -41,6 +100,13 @@ export default async function Simulasi(){
     // const ujian = await getJadwalUjian()
     // const dataMaster = await getJadwalMaster()
     // console.log(mataKuliah);
+    const hasil  = Object.keys(jadwalMahasiswa).length
+    const schedules = new Array(hasil)
+    for(let i=0;i<hasil;i++){
+        schedules[i] = createSchedule(jadwalMahasiswa[i].hari,jadwalMahasiswa[i].namaMataKuliah, jadwalMahasiswa[i].jam_mulai, jadwalMahasiswa[i].jam_selesai)
+    }
+    const hasilCek = cekBentrok(schedules)
+
 
     return(
         <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
@@ -72,7 +138,7 @@ export default async function Simulasi(){
                                 <tr  key={jadwalMahasiswa.idJadwalMahasiswa}>
                                     <td className=" font-semibold" key={jadwalMahasiswa.idJadwalMahasiswa}>{index+1}</td>
                                     <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.namaMataKuliah}</td>
-                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>Senin</td>
+                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.hari}</td>
                                     <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.jam_mulai}</td>
                                     <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.jam_selesai}</td>
                                     <td className='font-semibold' key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.kelas}</td>
@@ -122,7 +188,7 @@ export default async function Simulasi(){
                 </div>
                 
                 <div className='mb-10 justify-start text-left'>
-                    <CekBentrok/>       
+                    <CekBentrok>{hasilCek}</CekBentrok>       
                 </div>
             </div>
         </main>
