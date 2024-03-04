@@ -17,9 +17,10 @@ export default function Home() {
       })
       if(!res?.error && e.target.email.value.includes("@student.unpar.ac.id")){
         push("/home")     
-      } else if(!res?.error && e.target.email.value.includes("@lecturer.unpar.ac.id")){
+      } else if(!res?.error && e.target.email.value.includes("admin")){
         push("/homeAdmin")
       } else{
+        //untuk buat handle salah masukin email/pass, buat modal dipanggil di sini
         console.log(res.error);
         console.log(res);
         console.log(email.value);
@@ -38,8 +39,8 @@ export default function Home() {
           <div className='border-2 w-10 border-black inline-block mb-2'></div>
           <form action="" method="get" className='mt-8 space-y-6' onSubmit={(e) => handleLogin(e)}>
             <div className='flex flex-col items-center'>
-              <input className='input mb-2 p-3 bg-gray-100 rounded-xl' type="email" name="email" id="email" placeholder="....@student.unpar.ac.id"  required/>
-              <input className='input mb-10 p-3 bg-gray-100 rounded-xl' type="password" name="password" id="password" placeholder="Password" required />
+              <input className='input mb-2 p-3 bg-gray-100 rounded-xl w-full' type="email" name="email" id="email" placeholder="....@student.unpar.ac.id"  required/>
+              <input className='input mb-10 p-3 bg-gray-100 rounded-xl w-full' type="password" name="password" id="password" placeholder="Password" required />
               {/* <input type='submit' value='Sign In' className='btn bg-teal-500 hover:bg-teal-600 text-white border-none rounded-2xl px-5 py-2'></input>
               <input type='submit' value='Sign In as Admin' className='btn bg-teal-500 hover:bg-teal-600 text-white border-none rounded-2xl px-5 py-2 mt-5'></input> */}
               {/* <a  href='http://localhost:3000/home' className='btn bg-teal-500 hover:bg-teal-600 text-white border-none rounded-2xl px-5 py-2'>Sign In</a>

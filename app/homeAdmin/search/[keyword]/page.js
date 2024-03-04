@@ -1,15 +1,16 @@
-import LayoutAdmin from '../layoutAdmin'
-import AddMataKuliah from './addMataKuliah';
-import UpdateMataKuliah from './updateMataKuliah';
-import DeleteMataKuliah from './deleteMataKuliah';
-import AddJadwalUjian from './addJadwalUjian';
-import CsvUpload from './csvUpload';
-import SearchBar from './searchBar';
-import bg from '../../assets/background_unpar.jpg'
+import LayoutAdmin from '../../../layoutAdmin'
+import AddMataKuliah from '../../addMataKuliah';
+import UpdateMataKuliah from '../../updateMataKuliah';
+import DeleteMataKuliah from '../../deleteMataKuliah';
+import AddJadwalUjian from '../../addJadwalUjian';
+import CsvUpload from '../../csvUpload';
+import SearchBar from '../../searchBar';
+import bg from '@/assets/background_unpar.jpg'
 
 
-async function getMataKuliah(){
-    const res = await fetch('http://localhost:3000/api/homeAdmin',{cache:'no-store'})
+async function getMataKuliah(params){
+    console.log(params);
+    const res = await fetch(`http://localhost:3000/api/homeAdmin/search/${params}`,{cache:'no-store'})
     const result = await res.json();
     return result
 }
@@ -20,9 +21,13 @@ async function getNamaMataKuliah(){
     return result
 }
 
-export default async function HomeAdmin(){
-    const mataKuliah = await getMataKuliah()
-    const namaMataKuliah = await getNamaMataKuliah()
+export default async function HomeAdmin({params}){
+    const keyword = params.keyword
+    console.log(keyword);
+    const mataKuliah = await getMataKuliah(keyword)
+    // console.log(mataKuliah);
+    const namaMataKuliah = await getNamaMataKuliah(keyword)
+    console.log(params);
     return(
         <div className="flex overflow-y-scroll overflow-x-hidden min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>

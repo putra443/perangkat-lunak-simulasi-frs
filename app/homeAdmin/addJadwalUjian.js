@@ -61,8 +61,8 @@ export default function addJadwalUjian(mataKuliah){
                             <label className="label font-bold">Nama Mata Kuliah</label>
                             <select onChange={(e)=>setNama(e.target.value)} onInput={(e)=>setIdJadwalMataKuliah(e.target.key)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 <option>Pilih Mata Kuliah</option>
-                                {mataKuliah.children.map((mataKuliah)=>(
-                                        <option key={mataKuliah.idJadwalMataKuliah}>{mataKuliah.namaMataKuliah}</option>
+                                {mataKuliah.children.map((mataKuliah,index)=>(
+                                        <option key={index}>{mataKuliah.namaMataKuliah}</option>
                                     ))}
                             </select>
                         </div>

@@ -36,10 +36,13 @@ import pool from '../../../db';
     try{
       const request = await req.json()
       const client = await pool.connect();
-      const result = await client.query(`INSERT INTO jadwal_mahasiswa("idJadwalMataKuliah") 
-      select "idJadwalMataKuliah" from jadwal_mata_kuliah
+      const result = await client.query(`INSERT INTO jadwal_mahasiswa("idJadwalMataKuliah","idMahasiswa") 
+      select "idJadwalMataKuliah",1 from jadwal_mata_kuliah
       where kelas='${request.kelas}' and 
-      "namaMataKuliah"='${request.nama}'`)
+      "namaMataKuliah"='${request.nama}';
+      insert into jadwal_ujian_mahasiswa("idJadwalUjian","idMahasiswa")
+      select "idUjian",1 from jadwal_ujian
+      where "namaMataKuliah"='${request.nama}'`)
       return new Response(result);
     }catch (err){
       console.error(err);
@@ -74,7 +77,10 @@ import pool from '../../../db';
     try{
       const request = await req.json();
       const client = await pool.connect(); 
-      const result = await client.query(`DELETE FROM jadwal_mahasiswa WHERE "idJadwalMataKuliah"=${request.idJadwalMataKuliah}`);
+      const result = await client.query(`DELETE FROM jadwal_mahasiswa WHERE "idJadwalMataKuliah"=${request.idJadwalMataKuliah};
+      delete from jadwal_ujian_mahasiswa  where "idJadwalUjian"=(select "idUjian" from jadwal_ujian
+      where "namaMataKuliah"= '${request.namaMataKuliah}');
+      `);
       return new Response(result);
     }catch(err){
       console.error(err);

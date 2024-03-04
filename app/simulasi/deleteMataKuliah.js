@@ -4,10 +4,12 @@ import { useState } from "react";
 
 export default function deleteMataKuliah(mataKuliah){
     const[idMataKuliah, setId] = useState(mataKuliah.idJadwalMataKuliah)
+    const[namaMataKuliah, setIdUjian] = useState(mataKuliah.namaMataKuliah)
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
     const router = useRouter();
     console.log(mataKuliah.idJadwalMataKuliah);
+    console.log(mataKuliah.namaMataKuliah);
     function handleChange(){
         setModal(!modal)
     }
@@ -20,7 +22,8 @@ export default function deleteMataKuliah(mataKuliah){
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                idJadwalMataKuliah:idMataKuliah
+                idJadwalMataKuliah:idMataKuliah,
+                namaMataKuliah:namaMataKuliah
             })  
         })
 
@@ -43,7 +46,7 @@ export default function deleteMataKuliah(mataKuliah){
                         <div className="modal-action">
                             <button className="btn text-white border-none" type="button" onClick={handleChange}>Close</button>
                             {!isMutating? (
-                            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="button" onClick={() => handleDelete(mataKuliah.idMataKuliah)}>Delete</button>   
+                            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="button" onClick={() => handleDelete(mataKuliah.idMataKuliah,mataKuliah.namaMataKuliah)}>Delete</button>   
                             ):(
                             <button type="button" className="btn loading">Deleting . . .</button>
                             )}

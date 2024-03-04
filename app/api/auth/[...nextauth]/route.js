@@ -1,6 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import Credentials from "next-auth/providers/credentials";
+import pool from '../../../../db';
 
 const options = {
     session: {
@@ -17,20 +18,27 @@ const options = {
             },
             async authorize(credentials){
                 const{email,password} = credentials
-                if(email.includes("@student.unpar.ac.id") && password === "123"){
+                const client = await pool.connect();
+                const resultAdmin = await client.query(`SELECT "idAdmin", username, password from admin 
+                where "username"='${email}' and "password"='${password}'`)
+                const resultMahasiswa = await client.query(`SELECT "idMahasiswa",username, password from mahasiswa
+                where "username"='${email}' and "password"='${password}'`)
+                console.log(resultAdmin);
+                console.log(resultMahasiswa);
+                if(resultMahasiswa.rowCount!=0){
                     const user = {
-                        id:1,
-                        name: "123",
-                        email: "123@gmail.com",
+                        id:resultMahasiswa.rows[0].idMahasiswa,
+                        name: resultMahasiswa.rows[0].username,
+                        email: resultMahasiswa.rows[0].username,
                         role: "mahasiswa",
                     }
                     return user
-                }else if(email.includes("@lecturer.unpar.ac.id") && password ==="123"){
+                }else if(resultAdmin.rowCount!=0){
                     const user = {
-                        id:2,
-                        name: "123Lecturer",
-                        email: "123@gmail.com",
-                        role: "dosen",
+                        id:resultAdmin.rows[0].idAdmin,
+                        name: resultAdmin.rows[0].username,
+                        email: resultAdmin.rows[0].username,
+                        role: "admin",
                     }
                     return user
                 }

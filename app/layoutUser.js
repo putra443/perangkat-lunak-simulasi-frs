@@ -13,14 +13,18 @@ const inter = Inter({ subsets: ['latin'] })
 export default function LayoutUser() {
   const {data:session, status} = useSession();
   const router = useRouter();
-  console.log(session);
-  console.log(status);
+  // console.log(session);
+  // console.log(status);
   useEffect(()=>{
     if(status === "unauthenticated"){
       router.push('/')
     }
-    else if(status==="authenticated"){
+    else if(status==="authenticated" && session?.user?.role == "mahasiswa"){
       console.log(session,status);
+    }
+    else if(status==="authenticated" && session?.user?.role != "mahasiswa"){
+      signOut()
+      router.push("/")
     }
   }, [status])
   return (
@@ -35,7 +39,7 @@ export default function LayoutUser() {
               <a href='/' onClick={()=>signIn()} className='btn bg-teal-600 border-none float-right hover:bg-teal-700 text-white rounded-md px-3 py-2'>Sign Out</a>
             )}
             {/* <a href='/' className='btn bg-teal-600 border-none float-right hover:bg-teal-700 text-white rounded-md px-3 py-2'>Sign Out</a> */}
-            <p className='float-right text-white px-3 py-2'>Hello, User</p>
+            <p className='float-right text-white px-3 py-2'>Hello, {session?.user?.name}</p>
           </div>
   )
 }

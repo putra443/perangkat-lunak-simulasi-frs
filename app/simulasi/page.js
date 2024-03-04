@@ -39,7 +39,7 @@ function cekBentrok(schedules){
 
     let conflicts = false;
     let string = ""
-
+    if(schedules.length<1) return string="Belum ada jadwal yang dimasukkan."
     for (const schedule of schedules) {
         const startTokens = schedule.startTime.split(":");
         const endTokens = schedule.endTime.split(":");
@@ -71,7 +71,7 @@ function cekBentrok(schedules){
         for (let i = startIndex; i < endIndex; i++) {
             if (timeWindow[indexHari][i] !== undefined) {
                 conflicts = true;
-                string += (`Ditemukan konflik pada Hari ${schedule.hari}: ${timeWindow[indexHari][i].name} ${timeWindow[indexHari][i].startTime} - ${timeWindow[indexHari][i].endTime} with ${schedule.name} ${schedule.startTime} - ${schedule.endTime}` + "\n");
+                string += (`Ditemukan konflik pada Hari ${schedule.hari}: ${timeWindow[indexHari][i].name} ${timeWindow[indexHari][i].startTime} - ${timeWindow[indexHari][i].endTime} with ${schedule.name} ${schedule.startTime} - ${schedule.endTime}` + "\n" + "\n");
                 break;
             } else {
                 timeWindow[indexHari][i] = schedule;
@@ -135,16 +135,16 @@ export default async function Simulasi(){
                         </thead>
                         <tbody>
                             {jadwalMahasiswa.map((jadwalMahasiswa, index)=>(
-                                <tr  key={jadwalMahasiswa.idJadwalMahasiswa}>
-                                    <td className=" font-semibold" key={jadwalMahasiswa.idJadwalMahasiswa}>{index+1}</td>
-                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.namaMataKuliah}</td>
-                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.hari}</td>
-                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.jam_mulai}</td>
-                                    <td className=" font-semibold"key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.jam_selesai}</td>
-                                    <td className='font-semibold' key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.kelas}</td>
-                                    <td className='font-semibold' key={jadwalMahasiswa.idJadwalMahasiswa}>{jadwalMahasiswa.sesi}</td>
-                                    <td className=" font-semibold pt-3 pb-3" key={jadwalMahasiswa.idJadwalMahasiswa}>
-                                        <DeleteMataKuliah key={jadwalMahasiswa.idJadwalMahasiswa}{...jadwalMahasiswa} className="m-3"/>
+                                <tr  key={index} className='hover:text-indigo-700 transition-all'>
+                                    <td className=" font-semibold">{index+1}</td>
+                                    <td className=" font-semibold">{jadwalMahasiswa.namaMataKuliah}</td>
+                                    <td className=" font-semibold">{jadwalMahasiswa.hari}</td>
+                                    <td className=" font-semibold">{jadwalMahasiswa.jam_mulai}</td>
+                                    <td className=" font-semibold">{jadwalMahasiswa.jam_selesai}</td>
+                                    <td className='font-semibold' >{jadwalMahasiswa.kelas}</td>
+                                    <td className='font-semibold' >{jadwalMahasiswa.sesi}</td>
+                                    <td className=" font-semibold pt-3 pb-3">
+                                        <DeleteMataKuliah {...jadwalMahasiswa} className="m-3"/>
                                         </td>
 
                                 </tr>
@@ -171,14 +171,14 @@ export default async function Simulasi(){
                         </thead>
                         <tbody>
                             {jadwalUjian.map((jadwalUjian, index)=>(
-                                <tr  key={jadwalUjian.id}>
-                                    <td className=" font-semibold" key={jadwalUjian.id}>{index+1}</td>
-                                    <td className=" font-semibold" key={jadwalUjian.id}>{jadwalUjian.namaMataKuliah}</td>
-                                    <td className=" font-semibold" key={jadwalUjian.id}>{jadwalUjian.formatteduts}</td>
-                                    <td className=" font-semibold" key={jadwalUjian.id}>{jadwalUjian.jam_mulai_uts}</td>
-                                    <td className=" font-semibold" key={jadwalUjian.id}>{jadwalUjian.jam_selesai_uts}</td>
-                                    <td className='font-semibold' key={jadwalUjian.id}>{jadwalUjian.formatteduas}</td>
-                                    <td className='font-semibold' key={jadwalUjian.id}>{jadwalUjian.jam_mulai_uas}</td>
+                                <tr  key={index}>
+                                    <td className=" font-semibold">{index+1}</td>
+                                    <td className=" font-semibold">{jadwalUjian.namaMataKuliah}</td>
+                                    <td className=" font-semibold">{jadwalUjian.formatteduts}</td>
+                                    <td className=" font-semibold">{jadwalUjian.jam_mulai_uts}</td>
+                                    <td className=" font-semibold">{jadwalUjian.jam_selesai_uts}</td>
+                                    <td className='font-semibold'>{jadwalUjian.formatteduas}</td>
+                                    <td className='font-semibold'>{jadwalUjian.jam_mulai_uas}</td>
                                     <td className=" font-semibold pt-3 pb-3">{jadwalUjian.jam_selesai_uas}</td>
 
                                 </tr>

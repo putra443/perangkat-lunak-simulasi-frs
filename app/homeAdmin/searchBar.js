@@ -1,28 +1,29 @@
 "use client"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useRouter } from "next/navigation"
+import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr"
+import { headers } from "@/next.config"
 export default function SearchBar(){
-    const [nama,setNama] = useState("")
-    
-    async function handleInput(e){
+    const searchRef = useRef()
+    const router = useRouter()
+    const handleSearch = (e) => {
         e.preventDefault()
-        await fetch('http://localhost:3000/api/homeAdmin'),{cache:'no-store'},{
-            method:'GETSEARCH',
-            Headers:{
-                'Content-type' : 'application/json'
-            },
-            body : JSON.stringify({
-                nama:nama
-            })
+        console.log(searchRef.current.value.length <1);
+        if(searchRef.current.value.length<1){
+            router.push('/homeAdmin')
         }
-    setNama("")
-    
+        else{
+            // console.log(searchRef.current.value);
+        router.replace(`http://localhost:3000/homeAdmin/search/${searchRef.current.value}`)
+        }
     }
 
     return(
-        <form onSubmit={handleInput}>
-        <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Cari Mata Kuliah"></input>
-        <button className="btn bg-cyan-700 text-white border-none" type="button">Search</button>
-        </form>
+        <div>
+        <input className="input w-2/3 input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Cari Mata Kuliah" ref={searchRef}></input>
+            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-cyan-800 m-2 px-6" onClick={handleSearch}>
+                search
+            </button>
+        </div>
     )
 }
