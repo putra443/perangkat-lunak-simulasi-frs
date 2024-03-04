@@ -119,7 +119,7 @@ export default async function Simulasi(){
                 </div>
                 <p className='text-xl text-left text-white bg-cyan-600 w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
 
-                <div className='overflow-scroll no-scrollbar rounded-xl'>
+                <div className=' no-scrollbar rounded-xl'>
                     <table className=' table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>
                             <tr className='bg-cyan-600 text-white'>
@@ -155,7 +155,7 @@ export default async function Simulasi(){
                 
 
                 <p className='text-xl text-left text-white mt-5 bg-cyan-600 w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
-                <div className='overflow-scroll no-scrollbar rounded-xl'>
+                <div className=' no-scrollbar rounded-xl'>
                     <table className='table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>
                             <tr className='bg-cyan-600 text-white'>
