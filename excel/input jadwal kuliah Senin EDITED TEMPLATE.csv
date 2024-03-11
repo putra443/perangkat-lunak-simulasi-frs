@@ -1,93 +1,93 @@
-﻿nama_mata_kuliah;hari;jam_mulai;jam_selesai;kelas;sesi
-Logika Informatika;Senin;07:00;10:00;C;Kuliah
-Logika Informatika;Senin;07:00;10:00;B;Kuliah
-Logika Informatika;Senin;13:00;15:00;A;Kuliah
-Analisis dan Desain Perangkat Lunak;Senin;16:00;18:00;A;Kuliah
-Analisis dan Desain Perangkat Lunak;Senin;16:00;18:00;B;Kuliah
-Pemrograman Python untuk Data Science;Senin;07:00;09:00;A;Kuliah
-Penulisan Ilmiah;Senin;10:00;12:00;A;Kuliah
-3D Character Animation;Senin;13:00;15:00;A;Kuliah
-Proyek Data Science 1;Senin;13:00;15:00;A;Kuliah
-Teknologi Basis Data;Senin;16:00;18:00;A;Kuliah
-Teknologi Basis Data;Senin;16:00;18:00;B;Kuliah
-Perograman Berbasis Web;Senin;10:00;13:00;A;Kuliah
-Perograman Berbasis Web;Senin;10:00;13:00;B;Kuliah
-Algoritma dan Struktur Data;Senin;07:00;10:00;A;Kuliah
-Dasar Pemrogramman;Senin;10:00;12:00;A;Kuliah
-Dasar Pemrogramman;Senin;10:00;12:00;B;Kuliah
-Dasar Pemrogramman;Senin;10:00;12:00;C;Kuliah
-Sertifikasi Cyber Security Operation;Senin;13:00;16:00;A;Kuliah
-Desain Analisis Algoritma;Senin;13:00;16:00;A;Kuliah
-Desain Analisis Algoritma;Senin;13:00;16:00;B;Kuliah
-Management Informasi dan Basis Data;Selasa;07:00;09:00;B;Kuliah
-Management Informasi dan Basis Data;Selasa;09:00;10:00;A;Kuliah
-3D Game Development Using Unity;Selasa;07:00;10:00;A;Kuliah
-Pengantar Sistem Informasi;Selasa;13:00;16:00;A;Kuliah
-Pengantar Sistem Informasi;Selasa;13:00;16:00;B;Kuliah
-Proyek Informatika;Selasa;13:00;16:00;A;Kuliah
-Proyek Sistem Informasi 1;Selasa;13:00;16:00;A;Kuliah
-Analisis dan Desain Perangkat Lunak;Selasa;16:00;18:00;A;Responsi
-Analisis dan Desain Perangkat Lunak;Selasa;16:00;18:00;B;Responsi
-Privasi Data;Selasa;07:00;09:00;A;Kuliah
-Matriks dan Ruang Vektor;Selasa;07:00;10:00;C;Kuliah
-Sistem Kecerdasan Bisnis;Selasa;10:00;13:00;A;Kuliah
-Data Science pada Domain Spesifik;Selasa;13:00;16:00;A;Kuliah
-Etika Profesi;Selasa;13:00;15:00;B;Kuliah
-Matriks dan Ruang Vektor;Selasa;13:00;16:00;B;Kuliah
-Matriks dan Ruang Vektor;Selasa;07:00;10:00;A;Kuliah
-Arsitektur dan Organisasi Komputer;Rabu;08:00;10:00;A;Kuliah
-Teknologi Basis Data;Rabu;08:00;10:00;A;Praktikum
-Teknologi Basis Data;Rabu;08:00;10:00;B;Praktikum
-Pemrograman Berbasis Web;Rabu;08:00;10:00;A;Praktikum
-Perograman Berbasis Web;Rabu;10:00;12:00;A;Praktikum
-Dasar Pemrogramman;Rabu;10:00;12:00;A;Praktikum
-Dasar Pemrogramman;Rabu;10:00;12:00;B;Praktikum
-Dasar Pemrogramman;Rabu;10:00;12:00;C;Praktikum
-Deep Learning;Rabu;13:00;16:00;A;Praktikum
-3D Design Using Autodeskmaya;Rabu;13:00;16:00;A;Praktikum
-Desain Analisis Algoritma;Rabu;13:00;15:00;A;Praktikum
-Desain Analisis Algoritma;Rabu;13:00;15:00;B;Praktikum
-Arsitektur dan Organisasi Komputer;Rabu;16:00;18:00;B;Kuliah
-Arsitektur dan Organisasi Komputer;Rabu;16:00;18:00;C;Kuliah
-Management Informasi dan Basis Data;Rabu;08:00;10:00;B;Kuliah
-Management Informasi dan Basis Data;Rabu;10:00;12:00;A;Kuliah
-Pemodelan untuk Komputasi;Rabu;13:00;16:00;A;Kuliah
-Skripsi 1 ;Rabu;13:00;14:00;A;Kuliah
-Skripsi 2;Rabu;14:00;15:00;A;Kuliah
-Arsitektur dan Organisasi Komputer;Rabu;16:00;18:00;B;Kuliah
-Arsitektur dan Organisasi Komputer;Rabu;16:00;18:00;C;Kuliah
-Analisis Big Data;Kamis;07:00;10:00;A;Kuliah
-Proyek Informatika;Kamis;07:00;10:00;A;Kuliah
-Pembelajaran Mesin;Kamis;07:00;10:00;A;Kuliah
-Desain Analisis Algoritma;Kamis;10:00;12:00;A;Responsi
-Desain Analisis Algoritma;Kamis;10:00;12:00;B;Responsi
-Sertifikasi Administrasi Jaringan Komputer 2;Kamis;10:00;13:00;A;Kuliah
-Arsitektur dan Organisasi Komputer;Kamis;13:00;15:00;A;Kuliah
-Arsitektur dan Organisasi Komputer;Kamis;13:00;15:00;C;Kuliah
-Pemrograman Kompetitif 2;Kamis;13:00;16:00;A;Kuliah
-Pengolahan Bahasa Alami;Kamis;13:00;16:00;A;Kuliah
-Jaringan Komputer dan Internet;Kamis;16:00;18:00;A;Kuliah
-Jaringan Komputer dan Internet;Kamis;16:00;18:00;B;Kuliah
-Pemrograman Berbasis Web Lanjut;Kamis;13:00;16:00;A;Kuliah
-Arsitektur dan Organisasi Komputer;Kamis;10:00;12:00;A;Kuliah
-Matriks dan Ruang Vektor;Kamis;10:00;12:00;A;Responsi
-Matriks dan Ruang Vektor;Kamis;10:00;12:00;C;Responsi
-Matriks dan Ruang Vektor;Kamis;13:00;15:00;B;Responsi
-Analisis dan Desain Perangkat Lunak;Jumat;07:00;09:00;B;Kuliah
-Dasar Pemrogramman;Jumat;07:00;09:00;A;Kuliah
-Dasar Pemrogramman;Jumat;07:00;09:00;B;Kuliah
-Dasar Pemrogramman;Jumat;07:00;09:00;C;Kuliah
-Proyek Data Science 1;Jumat;07:00;09:00;A;Responsi
-Algoritma dan Struktur Data;Jumat;09:00;12:00;A;Praktikum
-Sertifikasi Administrasi Jaringan Komputer 2;Jumat;09:00;12:00;A;Praktikum
-Management Informasi dan Basis Data;Jumat;09:00;12:00;A;Praktikum
-Pemodelan untuk Komputasi;Jumat;09:00;12:00;A;Responsi
-Proyek Sistem Informasi 1;Jumat;13:00;15:00;A;Responsi
-Management Informasi dan Basis Data;Jumat;13:00;15:00;B;Praktikum
-Jaringan Komputer dan Internet;Jumat;16:00;18:00;A;Kuliah
-Jaringan Komputer dan Internet;Jumat;16:00;18:00;B;Kuliah
-Pemrograman Kompetitif 4;Jumat;15:00;18:00;A;Kuliah
-Analisis dan Desain Perangkat Lunak;Jumat;07:00;09:00;A;Kuliah
-Penambangan Data;Jumat;13:00;16:00;A;Kuliah
-Management Proses Bisnis;Jumat;13:00;16:00;A;Kuliah
-Pengantar Artificial Intelligence;Jumat;13:00;16:00;A;Kuliah
+﻿nama_mata_kuliah;hari;jam_mulai;jam_selesai;kelas;sesi;semester
+Logika Informatika;Senin;07:00;10:00;C;Kuliah;2
+Logika Informatika;Senin;07:00;10:00;B;Kuliah;2
+Logika Informatika;Senin;13:00;15:00;A;Kuliah;2
+Analisis dan Desain Perangkat Lunak;Senin;16:00;18:00;A;Kuliah;4
+Analisis dan Desain Perangkat Lunak;Senin;16:00;18:00;B;Kuliah;4
+Pemrograman Python untuk Data Science;Senin;07:00;09:00;A;Kuliah;0
+Penulisan Ilmiah;Senin;10:00;12:00;A;Kuliah;
+3D Character Animation;Senin;13:00;15:00;A;Kuliah;0
+Proyek Data Science 1;Senin;13:00;15:00;A;Kuliah;0
+Teknologi Basis Data;Senin;16:00;18:00;A;Kuliah;4
+Teknologi Basis Data;Senin;16:00;18:00;B;Kuliah;4
+Pemrograman Berbasis Web;Senin;10:00;13:00;A;Kuliah;4
+Perograman Berbasis Web;Senin;10:00;13:00;B;Kuliah;4
+Algoritma dan Struktur Data;Senin;07:00;10:00;A;Kuliah;3
+Dasar Pemrogramman;Senin;10:00;12:00;A;Kuliah;2
+Dasar Pemrogramman;Senin;10:00;12:00;B;Kuliah;2
+Dasar Pemrogramman;Senin;10:00;12:00;C;Kuliah;2
+Sertifikasi Cyber Security Operation;Senin;13:00;16:00;A;Kuliah;0
+Desain Analisis Algoritma;Senin;13:00;16:00;A;Kuliah;4
+Desain Analisis Algoritma;Senin;13:00;16:00;B;Kuliah;4
+Management Informasi dan Basis Data;Selasa;07:00;09:00;B;Kuliah;4
+Management Informasi dan Basis Data;Selasa;09:00;10:00;A;Kuliah;4
+3D Game Development Using Unity;Selasa;07:00;10:00;A;Kuliah;0
+Pengantar Sistem Informasi;Selasa;13:00;16:00;A;Kuliah;4
+Pengantar Sistem Informasi;Selasa;13:00;16:00;B;Kuliah;4
+Proyek Informatika;Selasa;13:00;16:00;A;Kuliah;0
+Proyek Sistem Informasi 1;Selasa;13:00;16:00;A;Kuliah;0
+Analisis dan Desain Perangkat Lunak;Selasa;16:00;18:00;A;Responsi;4
+Analisis dan Desain Perangkat Lunak;Selasa;16:00;18:00;B;Responsi;4
+Privasi Data;Selasa;07:00;09:00;A;Kuliah;0
+Matriks dan Ruang Vektor;Selasa;07:00;10:00;C;Kuliah;2
+Sistem Kecerdasan Bisnis;Selasa;10:00;13:00;A;Kuliah;0
+Data Science pada Domain Spesifik;Selasa;13:00;16:00;A;Kuliah;0
+Etika Profesi;Selasa;13:00;15:00;B;Kuliah;8
+Matriks dan Ruang Vektor;Selasa;13:00;16:00;B;Kuliah;2
+Matriks dan Ruang Vektor;Selasa;07:00;10:00;A;Kuliah;2
+Arsitektur dan Organisasi Komputer;Rabu;08:00;10:00;A;Kuliah;2
+Teknologi Basis Data;Rabu;08:00;10:00;A;Praktikum;6
+Teknologi Basis Data;Rabu;08:00;10:00;B;Praktikum;6
+Pemrograman Berbasis Web;Rabu;08:00;10:00;A;Praktikum;4
+Perograman Berbasis Web;Rabu;10:00;12:00;A;Praktikum;4
+Dasar Pemrogramman;Rabu;10:00;12:00;A;Praktikum;2
+Dasar Pemrogramman;Rabu;10:00;12:00;B;Praktikum;2
+Dasar Pemrogramman;Rabu;10:00;12:00;C;Praktikum;2
+Deep Learning;Rabu;13:00;16:00;A;Praktikum;0
+3D Design Using Autodeskmaya;Rabu;13:00;16:00;A;Praktikum;0
+Desain Analisis Algoritma;Rabu;13:00;15:00;A;Praktikum;4
+Desain Analisis Algoritma;Rabu;13:00;15:00;B;Praktikum;4
+Arsitektur dan Organisasi Komputer;Rabu;16:00;18:00;B;Kuliah;2
+Arsitektur dan Organisasi Komputer;Rabu;16:00;18:00;C;Kuliah;2
+Management Informasi dan Basis Data;Rabu;08:00;10:00;B;Kuliah;4
+Management Informasi dan Basis Data;Rabu;10:00;12:00;A;Kuliah;4
+Pemodelan untuk Komputasi;Rabu;13:00;16:00;A;Kuliah;1
+Skripsi 1 ;Rabu;13:00;14:00;A;Kuliah;7
+Skripsi 2;Rabu;14:00;15:00;A;Kuliah;8
+Arsitektur dan Organisasi Komputer;Rabu;16:00;18:00;B;Kuliah;2
+Arsitektur dan Organisasi Komputer;Rabu;16:00;18:00;C;Kuliah;2
+Analisis Big Data;Kamis;07:00;10:00;A;Kuliah;0
+Proyek Informatika;Kamis;07:00;10:00;A;Kuliah;0
+Pembelajaran Mesin;Kamis;07:00;10:00;A;Kuliah;0
+Desain Analisis Algoritma;Kamis;10:00;12:00;A;Responsi;4
+Desain Analisis Algoritma;Kamis;10:00;12:00;B;Responsi;4
+Sertifikasi Administrasi Jaringan Komputer 2;Kamis;10:00;13:00;A;Kuliah;0
+Arsitektur dan Organisasi Komputer;Kamis;13:00;15:00;A;Kuliah;2
+Arsitektur dan Organisasi Komputer;Kamis;13:00;15:00;C;Kuliah;2
+Pemrograman Kompetitif 2;Kamis;13:00;16:00;A;Kuliah;0
+Pengolahan Bahasa Alami;Kamis;13:00;16:00;A;Kuliah;0
+Jaringan Komputer dan Internet;Kamis;16:00;18:00;A;Kuliah;0
+Jaringan Komputer dan Internet;Kamis;16:00;18:00;B;Kuliah;0
+Pemrograman Berbasis Web Lanjut;Kamis;13:00;16:00;A;Kuliah;0
+Arsitektur dan Organisasi Komputer;Kamis;10:00;12:00;A;Kuliah;2
+Matriks dan Ruang Vektor;Kamis;10:00;12:00;A;Responsi;2
+Matriks dan Ruang Vektor;Kamis;10:00;12:00;C;Responsi;2
+Matriks dan Ruang Vektor;Kamis;13:00;15:00;B;Responsi;2
+Analisis dan Desain Perangkat Lunak;Jumat;07:00;09:00;B;Kuliah;4
+Dasar Pemrogramman;Jumat;07:00;09:00;A;Kuliah;2
+Dasar Pemrogramman;Jumat;07:00;09:00;B;Kuliah;2
+Dasar Pemrogramman;Jumat;07:00;09:00;C;Kuliah;2
+Proyek Data Science 1;Jumat;07:00;09:00;A;Responsi;0
+Algoritma dan Struktur Data;Jumat;09:00;12:00;A;Praktikum;3
+Sertifikasi Administrasi Jaringan Komputer 2;Jumat;09:00;12:00;A;Praktikum;0
+Management Informasi dan Basis Data;Jumat;09:00;12:00;A;Praktikum;4
+Pemodelan untuk Komputasi;Jumat;09:00;12:00;A;Responsi;1
+Proyek Sistem Informasi 1;Jumat;13:00;15:00;A;Responsi;0
+Management Informasi dan Basis Data;Jumat;13:00;15:00;B;Praktikum;4
+Jaringan Komputer dan Internet;Jumat;16:00;18:00;A;Kuliah;0
+Jaringan Komputer dan Internet;Jumat;16:00;18:00;B;Kuliah;0
+Pemrograman Kompetitif 4;Jumat;15:00;18:00;A;Kuliah;0
+Analisis dan Desain Perangkat Lunak;Jumat;07:00;09:00;A;Kuliah;4
+Penambangan Data;Jumat;13:00;16:00;A;Kuliah;0
+Management Proses Bisnis;Jumat;13:00;16:00;A;Kuliah;0
+Pengantar Artificial Intelligence;Jumat;13:00;16:00;A;Kuliah;0

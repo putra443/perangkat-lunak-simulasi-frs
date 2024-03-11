@@ -1,11 +1,12 @@
 import bg from '../../assets/background_unpar.jpg'
 import LayoutUser from '../layoutUser'
-import AddMataKuliah from './addMataKuliah';
-import DeleteMataKuliah from './deleteMataKuliah'
-import CekBentrok from './cekBentrok'
-import { getSession } from 'next-auth/react';
+import AddMataKuliah from './AddMataKuliah';
+import DeleteMataKuliah from './DeleteMataKuliah'
+import CekBentrok from './CekBentrok'
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
-
+let conflictsStatus = false
 //untuk get jadwal master
 async function getJadwalMataKuliah(){
     const res = await fetch('http://localhost:3000/api/simulasi/jadwalKuliah',{cache:'no-store'});
@@ -70,7 +71,7 @@ function cekBentrok(schedules){
         // Check for overlapping time within the time window
         for (let i = startIndex; i < endIndex; i++) {
             if (timeWindow[indexHari][i] !== undefined) {
-                conflicts = true;
+                conflicts = true; conflictsStatus = true;
                 string += (`Ditemukan konflik pada Hari ${schedule.hari}: ${timeWindow[indexHari][i].name} ${timeWindow[indexHari][i].startTime} - ${timeWindow[indexHari][i].endTime} with ${schedule.name} ${schedule.startTime} - ${schedule.endTime}` + "\n" + "\n");
                 break;
             } else {
@@ -91,6 +92,15 @@ function cekBentrok(schedules){
 //     const result = await res.json()
 //     return result
 // }
+function handlePrint(conflictsStatus){
+    if(conflictsStatus){
+        console.log("masih ada jadwal bentrok");
+    }
+    else{
+        console.log("print jadwal");
+    }
+}
+
 
 export default async function Simulasi(){
     const mataKuliah = await getJadwalMataKuliah();
@@ -106,23 +116,23 @@ export default async function Simulasi(){
         schedules[i] = createSchedule(jadwalMahasiswa[i].hari,jadwalMahasiswa[i].namaMataKuliah, jadwalMahasiswa[i].jam_mulai, jadwalMahasiswa[i].jam_selesai)
     }
     const hasilCek = cekBentrok(schedules)
-
+    // console.log(conflictsStatus);
 
     return(
         <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
-            <div className='flex flex-col px-20 w-screen h-screen bg-gradient-to-br from-teal-500'>
+            <div className='flex flex-col px-20 w-screen h-screen bg-gradient-to-br from-sky-500'>
                 <p className='text-4xl text-left m-4 text-white'>Simulasi FRS</p>
                 <div className=' justify-start text-left m-5'>
                     {/* untuk add mata kuliah */}
                     <AddMataKuliah>{...mataKuliah}</AddMataKuliah>
                 </div>
-                <p className='text-xl text-left text-white bg-cyan-600 w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
+                <p className='text-xl text-left text-white bg-sky-700 w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
 
                 <div className=' no-scrollbar rounded-xl'>
                     <table className=' table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>
-                            <tr className='bg-cyan-600 text-white'>
+                            <tr className='bg-sky-700 text-white'>
                                 <th className='p-5'>No</th>
                                 <th className='p-5'>Nama Mata Kuliah</th>
                                 <th className='p-5'>Hari</th>
@@ -154,11 +164,11 @@ export default async function Simulasi(){
                 </div>
                 
 
-                <p className='text-xl text-left text-white mt-5 bg-cyan-600 w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
+                <p className='text-xl text-left text-white mt-5 bg-sky-700 w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
                 <div className=' no-scrollbar rounded-xl'>
                     <table className='table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>
-                            <tr className='bg-cyan-600 text-white'>
+                            <tr className='bg-sky-700 text-white'>
                                 <th className='p-5'>No</th>
                                 <th className='p-5'>Nama Mata Kuliah</th>
                                 <th className='p-5'>Tanggal UTS</th>
@@ -187,8 +197,9 @@ export default async function Simulasi(){
                     </table>                 
                 </div>
                 
-                <div className='mb-10 justify-start text-left'>
-                    <CekBentrok>{hasilCek}</CekBentrok>       
+                <div className='mb-10 justify-start text-left float-left'>
+                    <CekBentrok>{hasilCek}</CekBentrok>
+                    <button className='float-left btn border-none text-white bg-green-700 hover:bg-green-800 mt-5 mx-3' onClick={handlePrint(conflictsStatus)}>Print PDF</button>
                 </div>
             </div>
         </main>

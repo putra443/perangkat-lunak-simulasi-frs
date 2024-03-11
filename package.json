@@ -11,6 +11,8 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@phosphor-icons/react": "^2.0.15",
+    "@react-pdf/renderer": "^3.3.8",
+    "classnames": "^2.5.1",
     "csv": "^6.3.5",
     "csv-parser": "^3.0.0",
     "csvtojson": "^2.0.10",
@@ -18,14 +20,17 @@
     "form-data": "^4.0.0",
     "formidable": "^3.5.1",
     "fs": "^0.0.1-security",
+    "html2canvas": "^1.4.1",
     "json-server": "^0.17.4",
+    "jspdf": "^2.5.1",
     "next": "14.0.2",
     "next-auth": "^4.24.6",
     "next-intl": "^3.2.0",
     "papaparse": "^5.4.1",
     "pg": "^8.11.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-native": "^0.73.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

@@ -3,6 +3,10 @@ import { Inter } from 'next/font/google'
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import LogoIF from '@/assets/logoIF.jpg'
+import LogoUnpar from '@/assets/logoUnpar.png'
+import logodouble from '@/assets/logoifunpar2.png'
+
 const inter = Inter({ subsets: ['latin'] })
 
 // export const metadata = {
@@ -28,18 +32,22 @@ export default function LayoutUser() {
     }
   }, [status])
   return (
-          <div className='w-screen text-left space-x-5 p-5 bg-teal-600'>
-            <a href='/home' className='btn bg-teal-600 border-none float-left text-xl hover:text-black hover:bg-teal-600 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
-            <a href="/home" className='btn bg-teal-600 border-none hover:bg-teal-700 text-white rounded-md px-3 py-2'>Home</a>
-            <a href='/simulasi' className='btn bg-teal-600 border-none hover:bg-teal-700 text-white rounded-md px-3 py-2'>Simulasi FRS</a>
+          <div className=' w-screen text-left space-x-5 p-5 bg-sky-600'>
+            {/* <img className="float-left w-12" src={LogoUnpar.src} alt='logounpar.jpg'/>
+            <img className="float-left w-10 mt-1" src={LogoIF.src} alt='logounpar.jpg'/> */}
+            <img src={logodouble.src} className='float-left w-20 h-13 rounded-2xl'></img>
+            <a href='/home' className='mt-1.5 btn bg-sky-600 border-none float-left text-xl hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
+            <a href="/home" className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Home</a>
+            <a href='/simulasi' className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Simulasi FRS</a>
+            <a href='/daftarMataKuliah' className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Daftar Mata Kuliah</a>
             {status === "authenticated" ? (
-              <a href='/' onClick={()=>signOut()} className='btn bg-teal-600 border-none float-right hover:bg-teal-700 text-white rounded-md px-3 py-2'>Sign Out</a>
+              <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
 
             ) : (
-              <a href='/' onClick={()=>signIn()} className='btn bg-teal-600 border-none float-right hover:bg-teal-700 text-white rounded-md px-3 py-2'>Sign Out</a>
+              <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
             )}
-            {/* <a href='/' className='btn bg-teal-600 border-none float-right hover:bg-teal-700 text-white rounded-md px-3 py-2'>Sign Out</a> */}
-            <p className='float-right text-white px-3 py-2'>Hello, {session?.user?.name}</p>
+            {/* <a href='/' className='btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a> */}
+            <p className='mt-1.5 float-right text-white px-3 py-2'>Hello, {session?.user?.name}</p>
           </div>
   )
 }

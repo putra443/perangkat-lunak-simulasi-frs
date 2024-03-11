@@ -3,7 +3,7 @@ import pool from '../../../../db';
 export async function GET (req, res){
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT DISTINCT ON ("namaMataKuliah") "namaMataKuliah" FROM jadwal_mata_kuliah ORDER BY "namaMataKuliah"');
+    const result = await client.query(`SELECT *,to_char(tanggal_uts,'DD-MM-YYYY')as formatteduts,to_char(tanggal_uas,'DD-MM-YYYY')as formatteduas from jadwal_ujian`);
     // res.status(200).json(result);
     return new Response(JSON.stringify(result.rows));
   } catch (err) {

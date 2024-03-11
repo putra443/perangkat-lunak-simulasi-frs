@@ -26,10 +26,10 @@ export default async function HomeAdmin(){
     return(
         <div className="flex overflow-y-scroll overflow-x-hidden min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>
-            <div className='flex flex-col px-20 w-screen h-content  bg-gradient-to-br from-teal-500'>
+            <div className='flex flex-col px-20 w-screen h-content  bg-gradient-to-br from-sky-500'>
                 <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
                     <p className='text-4xl text-white'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
-                    <p className='text-l text-white bg-cyan-600 rounded-2xl p-2 m-5 w-1/6 text-center'> Kelola Mata kuliah</p>
+                    <p className='text-l text-white bg-sky-600 rounded-2xl p-2 m-5 w-1/6 text-center'> Kelola Mata kuliah</p>
                     <div className='flex flex-row'>
                         <AddMataKuliah/> <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian>
                     </div>
@@ -41,7 +41,7 @@ export default async function HomeAdmin(){
                     <div className='overflow-scroll no-scrollbar'>
                         <table className='mb-10 table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>
-                            <tr className='bg-cyan-600 text-white'>
+                            <tr className='bg-sky-600 text-white'>
                                 <th className='p-5'>No</th>
                                 <th className='p-5'>Nama Mata Kuliah</th>
                                 <th className='p-5'>Hari</th>

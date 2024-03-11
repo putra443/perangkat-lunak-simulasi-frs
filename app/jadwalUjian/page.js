@@ -3,13 +3,13 @@ import LayoutAdmin from '../layoutAdmin'
 import format from 'date-fns'
 
 async function getJadwalUjian(){
-    const res = await fetch('http://localhost:3000/api/simulasi/ujian',{cache:'no-store'});
+    const res = await fetch('http://localhost:3000/api/homeAdmin/ujian',{cache:'no-store'});
     const result = await res.json()
     return result
 }
 export default async function Simulasi(){
     const jadwalUjian = await getJadwalUjian()
-    console.log(jadwalUjian);
+    // console.log(jadwalUjian);
     // const ujian = await getJadwalUjian()
     // const dataMaster = await getJadwalMaster()
     // console.log(mataKuliah);

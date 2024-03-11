@@ -35,6 +35,7 @@ export default function CsvUpload(){
                 header:true,
                 skipEmptyLines:true,
                 complete: function(result){
+                    // console.log(result.data[0]);
                     upload(result.data)
                 }
             })

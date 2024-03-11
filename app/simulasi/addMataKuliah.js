@@ -3,7 +3,7 @@ import { SyntheticEvent,useEffect,useState } from "react"
 import { useRouter } from "next/navigation"
 import { Josefin_Sans } from "next/font/google"
 
-export default function addMataKuliah(mataKuliah){
+export default function AddMataKuliah(mataKuliah){
     const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
     const [nama, setNama] = useState("")
     const [kelas,setKelas] = useState("A")
@@ -18,7 +18,7 @@ export default function addMataKuliah(mataKuliah){
 
     async function handleSubmit(e){
         setIsMutating(true)
-        e.preventDefault();
+        // e.preventDefault();
         await fetch("http://localhost:3000/api/simulasi",{
             method:"POST",
             headers:{
@@ -37,8 +37,6 @@ export default function addMataKuliah(mataKuliah){
         router.refresh()
         setModal(false)
     }
-    // const data = Array.prototype.map.call(mataKuliah, item => item)
-    // console.log(mataKuliah);
     return (
         <div>
 
