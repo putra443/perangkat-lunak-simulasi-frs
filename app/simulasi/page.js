@@ -3,8 +3,7 @@ import LayoutUser from '../layoutUser'
 import AddMataKuliah from './AddMataKuliah';
 import DeleteMataKuliah from './DeleteMataKuliah'
 import CekBentrok from './CekBentrok'
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import ModalPrint from './ModalPrint';
 
 let conflictsStatus = false
 //untuk get jadwal master
@@ -199,7 +198,7 @@ export default async function Simulasi(){
                 
                 <div className='mb-10 justify-start text-left float-left'>
                     <CekBentrok>{hasilCek}</CekBentrok>
-                    <button className='float-left btn border-none text-white bg-green-700 hover:bg-green-800 mt-5 mx-3' onClick={handlePrint(conflictsStatus)}>Print PDF</button>
+                    <ModalPrint>{jadwalMahasiswa}</ModalPrint>
                 </div>
             </div>
         </main>
