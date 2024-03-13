@@ -5,6 +5,7 @@ import DeleteMataKuliah from './DeleteMataKuliah'
 import CekBentrok from './CekBentrok'
 import ModalPrint from './ModalPrint';
 
+
 let conflictsStatus = false
 //untuk get jadwal master
 async function getJadwalMataKuliah(){
@@ -198,7 +199,7 @@ export default async function Simulasi(){
                 
                 <div className='mb-10 justify-start text-left float-left'>
                     <CekBentrok>{hasilCek}</CekBentrok>
-                    <ModalPrint>{jadwalMahasiswa}</ModalPrint>
+                    <ModalPrint statusConflict = {conflictsStatus} jadwalUjian={jadwalUjian}>{jadwalMahasiswa}</ModalPrint>
                 </div>
             </div>
         </main>
