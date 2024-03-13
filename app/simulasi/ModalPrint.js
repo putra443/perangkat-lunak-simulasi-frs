@@ -26,7 +26,7 @@ export default function ModalPrint(jadwalMahasiswa){
             const doc = new jsPDF('l','mm','a4')
             const componentWidth = doc.internal.pageSize.getWidth()
             const componentHeight = doc.internal.pageSize.getHeight()
-            doc.addImage(imgData,'PNG',0,0,componentWidth,(componentHeight/2))
+            doc.addImage(imgData,'PNG',0,0,componentWidth,(componentHeight/2.2))
             setLoader(false)
             doc.save('SimulasiFRS.pdf')
         })

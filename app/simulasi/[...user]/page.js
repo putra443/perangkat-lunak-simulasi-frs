@@ -1,29 +1,29 @@
-import bg from '../../assets/background_unpar.jpg'
-import LayoutUser from '../layoutUser'
-import AddMataKuliah from './AddMataKuliah';
-import DeleteMataKuliah from './DeleteMataKuliah'
-import CekBentrok from './CekBentrok'
-import ModalPrint from './ModalPrint';
+import bg from '@/assets/background_unpar.jpg'
+import LayoutUser from '../../layoutUser'
+import AddMataKuliah from '../AddMataKuliah';
+import DeleteMataKuliah from '../DeleteMataKuliah'
+import CekBentrok from '../CekBentrok'
+import ModalPrint from '../ModalPrint';
 
 
 let conflictsStatus = false
 //untuk get jadwal master
 async function getJadwalMataKuliah(){
-    const res = await fetch('http://localhost:3000/api/simulasi/jadwalKuliah',{cache:'no-store'});
+    const res = await fetch('http://localhost:3000/api/jadwalKuliah',{cache:'no-store'});
     const result = await res.json()
     return result
 }
 
 //untuk get jadwal per mahasiswa
-async function getJadwalMahasiswa(){
-    const res = await fetch('http://localhost:3000/api/simulasi/',{cache:'no-store'});
+async function getJadwalMahasiswa(params){
+    const res = await fetch(`http://localhost:3000/api/simulasi/${params}`,{cache:'no-store'});
     const result = await res.json()
     return result
 }
 
-//untuk get jadwal ujian per mahasiswa
-async function getJadwalUjian(){
-    const res = await fetch('http://localhost:3000/api/simulasi/ujian',{cache:'no-store'});
+// untuk get jadwal ujian per mahasiswa
+async function getJadwalUjian(params){
+    const res = await fetch(`http://localhost:3000/api/ujian/${params}`,{cache:'no-store'});
     const result = await res.json()
     return result
 }
@@ -102,11 +102,11 @@ function handlePrint(conflictsStatus){
 }
 
 
-export default async function Simulasi(){
+export default async function Simulasi({params}){
     const mataKuliah = await getJadwalMataKuliah();
-    const jadwalMahasiswa = await getJadwalMahasiswa()
-    // console.log(jadwalMahasiswa);
-    const jadwalUjian = await getJadwalUjian()
+    const userId = params.user[2]
+    const jadwalMahasiswa = await getJadwalMahasiswa(userId)
+    const jadwalUjian = await getJadwalUjian(userId)
     // const ujian = await getJadwalUjian()
     // const dataMaster = await getJadwalMaster()
     // console.log(mataKuliah);
@@ -125,7 +125,7 @@ export default async function Simulasi(){
                 <p className='text-4xl text-left m-4 text-white'>Simulasi FRS</p>
                 <div className=' justify-start text-left m-5'>
                     {/* untuk add mata kuliah */}
-                    <AddMataKuliah>{...mataKuliah}</AddMataKuliah>
+                    <AddMataKuliah user={userId}>{...mataKuliah}</AddMataKuliah>
                 </div>
                 <p className='text-xl text-left text-white bg-sky-700 w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
 
@@ -154,7 +154,7 @@ export default async function Simulasi(){
                                     <td className='font-semibold' >{jadwalMahasiswa.kelas}</td>
                                     <td className='font-semibold' >{jadwalMahasiswa.sesi}</td>
                                     <td className=" font-semibold pt-3 pb-3">
-                                        <DeleteMataKuliah {...jadwalMahasiswa} className="m-3"/>
+                                        <DeleteMataKuliah user={userId} {...jadwalMahasiswa} className="m-3"/>
                                         </td>
 
                                 </tr>

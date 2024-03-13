@@ -16,7 +16,7 @@ export default function DeleteMataKuliah(mataKuliah){
 
     async function handleDelete(){
         setIsMutating(true)
-        await fetch(`http://localhost:3000/api/simulasi`,{
+        await fetch(`http://localhost:3000/api/simulasi/${mataKuliah.user}`,{
             method:"DELETE",
             headers:{
                 'Content-type': 'application/json'

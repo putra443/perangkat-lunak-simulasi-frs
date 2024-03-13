@@ -17,9 +17,10 @@ export default function AddMataKuliah(mataKuliah){
     }
 
     async function handleSubmit(e){
+        // console.log(matakuliah.user);
         setIsMutating(true)
         // e.preventDefault();
-        await fetch("http://localhost:3000/api/simulasi",{
+        await fetch(`http://localhost:3000/api/simulasi/${mataKuliah.user}`,{
             method:"POST",
             headers:{
                 'Content-Type': 'application/json'

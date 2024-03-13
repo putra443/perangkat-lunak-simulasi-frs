@@ -23,19 +23,20 @@ const options = {
                 where "username"='${email}' and "password"='${password}'`)
                 const resultMahasiswa = await client.query(`SELECT "idMahasiswa",username, password from mahasiswa
                 where "username"='${email}' and "password"='${password}'`)
-                console.log(resultAdmin);
-                console.log(resultMahasiswa);
+                // console.log(resultAdmin);
+                // console.log(resultMahasiswa.rows[0].idMahasiswa);
                 if(resultMahasiswa.rowCount!=0){
                     const user = {
-                        id:resultMahasiswa.rows[0].idMahasiswa,
+                        id: resultMahasiswa.rows[0].idMahasiswa,
                         name: resultMahasiswa.rows[0].username,
                         email: resultMahasiswa.rows[0].username,
                         role: "mahasiswa",
                     }
+                    console.log(user);
                     return user
                 }else if(resultAdmin.rowCount!=0){
                     const user = {
-                        id:resultAdmin.rows[0].idAdmin,
+                        id: resultAdmin.rows[0].idAdmin,
                         name: resultAdmin.rows[0].username,
                         email: resultAdmin.rows[0].username,
                         role: "admin",
@@ -54,6 +55,7 @@ const options = {
                 token.email = user.email
                 token.fullname = user.fullname
                 token.role = user.role
+                token.id = user.id
             }
             return token
         },
@@ -66,6 +68,9 @@ const options = {
             }
             if("role" in token){
                 session.user.role = token.role
+            }
+            if("id" in token) {
+                session.user.id = token.id
             }
             return session
      }   
