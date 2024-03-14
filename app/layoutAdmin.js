@@ -31,18 +31,18 @@ export default function LayoutAdmin() {
     }
   }, [status])
   return (
-          <div className='w-screen text-left space-x-5 p-5 bg-sky-600'>
+          <div className='w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
             <img className='float-left w-20 h-13 rounded-2xl' src={logodouble.src}></img>
             <a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
             <a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Kuliah</h1></a>
             <a href='/jadwalUjian' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Ujian</h1></a>
             {status === "authenticated" ? (
-              <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
+              <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
 
             ) : (
-              <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
+              <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left  hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
             )}
-            <p className='float-right text-white px-3 py-2 mt-1.5 '>Hello, {session?.user?.name}</p>
+            <p className='float-right text-white px-3 py-2 lg:mt-1.5 mt-4 text-sm lg:text-base '>Hello, {session?.user?.name}</p>
           </div>
   )
 }

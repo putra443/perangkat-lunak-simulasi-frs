@@ -14,10 +14,10 @@ export default async function Simulasi(){
     // const dataMaster = await getJadwalMaster()
     // console.log(mataKuliah);
     return(
-        <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
+        <main className="flex min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutAdmin/>
-            <div className='flex flex-col px-20 w-screen h-screen bg-gradient-to-br from-teal-500'>
-                <p className='text-xl text-left text-white mt-5 bg-cyan-600 w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
+            <div className='flex flex-col lg:px-20 px-5 w-screen h-screen bg-gradient-to-br from-teal-500'>
+                <p className='text-xl text-left text-white mt-5 bg-cyan-600 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
                 <div className='overflow-scroll no-scrollbar rounded-xl'>
                     <table className='table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>

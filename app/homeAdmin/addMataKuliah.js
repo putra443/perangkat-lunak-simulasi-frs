@@ -54,7 +54,7 @@ export default function addMataKuliah(){
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
-                <div className=" w-3/5  overflow-scroll overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
+                <div className=" lg:w-3/5  overflow-scroll overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
                     <h1 className="font-bold text-2xl">Tambah Mata Kuliah</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">

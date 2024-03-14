@@ -12,10 +12,10 @@ export default function TabelSemester(daftarMataKuliah){
         <table className=' table text-center mt-5 rounded-xl bg-gray-200'>
                         <thead>
                             <tr className='bg-sky-700 text-white'>
-                                <th className='p-5'>No</th>
-                                <th className='p-5'>Nama Mata Kuliah</th>
-                                <th className='p-5'>Kelas</th>
-                                <th className='p-5'>Checked</th>
+                                <th className='lg:p-5 p-2'>No</th>
+                                <th className='lg:p-5 p-2'>Nama Mata Kuliah</th>
+                                <th className='lg:p-5 p-2'>Kelas</th>
+                                <th className='lg:p-5 p-2'>Checked</th>
                             </tr>
                         </thead>
                         <tbody>

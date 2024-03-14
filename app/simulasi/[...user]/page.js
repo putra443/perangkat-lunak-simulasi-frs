@@ -119,18 +119,18 @@ export default async function Simulasi({params}){
     // console.log(conflictsStatus);
 
     return(
-        <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
+        <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen min-w-screen w-screen flex-col items-center lg:px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
-            <div className='flex flex-col px-20 w-screen h-screen bg-gradient-to-br from-sky-500'>
+            <div className='flex flex-col px-2 lg:px-20 w-screen h-screen bg-gradient-to-br from-sky-500'>
                 <p className='text-4xl text-left m-4 text-white'>Simulasi FRS</p>
                 <div className=' justify-start text-left m-5'>
                     {/* untuk add mata kuliah */}
                     <AddMataKuliah user={userId}>{...mataKuliah}</AddMataKuliah>
                 </div>
-                <p className='text-xl text-left text-white bg-sky-700 w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
+                <p className='text-xl text-left text-white bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
 
-                <div className=' no-scrollbar rounded-xl'>
-                    <table className=' table text-center mt-5 rounded-2xl bg-gray-200'>
+                <div className=' overflow-auto rounded-xl'>
+                    <table className='table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>
                             <tr className='bg-sky-700 text-white'>
                                 <th className='p-5'>No</th>
@@ -164,8 +164,8 @@ export default async function Simulasi({params}){
                 </div>
                 
 
-                <p className='text-xl text-left text-white mt-5 bg-sky-700 w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
-                <div className=' no-scrollbar rounded-xl'>
+                <p className='text-xl text-left text-white mt-5 bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
+                <div className=' overflow-auto rounded-xl'>
                     <table className='table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>
                             <tr className='bg-sky-700 text-white'>

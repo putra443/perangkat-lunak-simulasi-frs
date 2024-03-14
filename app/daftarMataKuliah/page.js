@@ -15,12 +15,12 @@ export default  async function daftarMataKuliah(){
     // console.log(daftarMataKuliah);
 
     return(
-        <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
+        <main className="flex min-h-screen w-screen overflow-x-hidden overflow-y-auto flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
-            <div className='pb-10 flex flex-col px-20 w-screen max-h-content  bg-gradient-to-br from-sky-500'>
+            <div className='pb-10 flex flex-col lg:px-20 px-5 w-screen max-h-content  bg-gradient-to-br from-sky-500'>
                 <p className='text-4xl text-left m-4 text-white'>Simulasi FRS</p>
-                <p className='text-xl text-left text-white bg-sky-700 text-white w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
-                <div className=' no-scrollbar rounded-xl'>
+                <p className='text-xl text-left text-white bg-sky-700 text-white lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
+                <div className=' overflow-auto rounded-xl'>
                     <form>
                         <h1 className='bg-sky-700 text-white text-xl rounded-2xl float-left px-10 py-5 mt-2 mb-2 text-center'>Semester 1</h1>
                         <TabelSemester daftarMataKuliah={daftarMataKuliah}  sem={1}/>

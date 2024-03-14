@@ -15,7 +15,7 @@ async function getMataKuliah(){
 }
 
 async function getNamaMataKuliah(){
-    const res = await fetch('http://localhost:3000/api/homeAdmin/ujian',{cache:'no-store'})
+    const res = await fetch('http://localhost:3000/api/homeAdmin/ujianAdd',{cache:'no-store'})
     const result = await res.json();
     return result
 }
@@ -26,16 +26,16 @@ export default async function HomeAdmin(){
     return(
         <div className="flex overflow-y-scroll overflow-x-hidden min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>
-            <div className='flex flex-col px-20 w-screen h-content  bg-gradient-to-br from-sky-500'>
+            <div className='flex flex-col lg:px-20 px-5 w-screen h-content  bg-gradient-to-br from-sky-500'>
                 <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
-                    <p className='text-4xl text-white'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
-                    <p className='text-l text-white bg-sky-600 rounded-2xl p-2 m-5 w-1/6 text-center'> Kelola Mata kuliah</p>
+                    <p className='text-4xl text-white text-center lg:text-left'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
+                    <p className='text-l text-white bg-sky-600 rounded-2xl p-2 my-5 lg:w-1/6 text-center'> Kelola Mata kuliah</p>
                     <div className='flex flex-row'>
                         <AddMataKuliah/> <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian>
                     </div>
                     
                     <CsvUpload/>
-                    <div className='w-2/5 mt-3 mb-3'>
+                    <div className='lg:w-2/5 mt-3 mb-3'>
                         <SearchBar></SearchBar>
                     </div>
                     <div className='overflow-scroll no-scrollbar'>
