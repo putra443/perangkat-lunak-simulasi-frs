@@ -1,13 +1,14 @@
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import Credentials from "next-auth/providers/credentials";
-import pool from '../../../../db';
+import GoogleProvider from 'next-auth/providers/google'
+import pool, { loginWithGoogle } from '../../../../db';
 
 const options = {
     session: {
         strategy: 'jwt',
     },
-    secret:"thisissecret",
+    secret:process.env.NEXTAUTH_SECRET,
     providers: [
         Credentials({
             type:"credentials",
@@ -25,6 +26,7 @@ const options = {
                 where "username"='${email}' and "password"='${password}'`)
                 // console.log(resultAdmin);
                 // console.log(resultMahasiswa.rows[0].idMahasiswa);
+                client.release()
                 if(resultMahasiswa.rowCount!=0){
                     const user = {
                         id: resultMahasiswa.rows[0].idMahasiswa,
@@ -32,7 +34,7 @@ const options = {
                         email: resultMahasiswa.rows[0].username,
                         role: "mahasiswa",
                     }
-                    console.log(user);
+                    // console.log(user);
                     return user
                 }else if(resultAdmin.rowCount!=0){
                     const user = {
@@ -47,6 +49,10 @@ const options = {
                     return null
                 }
             }
+        }),
+        GoogleProvider({
+            clientId:process.env.GOOGLE_OAUTH_CLIENT_ID || "",
+            clientSecret:process.env.GOOGLE_OAUTH_CLIENT_SECRET ||"",
         })
     ],
     callbacks:{
@@ -57,6 +63,37 @@ const options = {
                 token.role = user.role
                 token.id = user.id
             }
+            if(account?.provider === "google"){
+                const data = {
+                    fullname: user.name,
+                    email: user.email,
+                    type: 'google',
+                    role:'mahasiswa'
+                }
+                const client = await pool.connect()
+                const result =  await client.query(`SELECT * FROM mahasiswa WHERE username='${data.email}'`)
+                if(result.rowCount!=1){
+                    if(data.email.includes("@student.unpar.ac.id")){
+                        console.log("login pass");
+                        client.query(`insert into mahasiswa (username) values ('${data.email}')`)
+                        token.email = data.email
+                        token.fullname = data.fullname
+                        token.role = data.role
+                        const resultId = client.query(`select * from mahasiswa where username='${data.email}'`)
+                        token.id = resultId.rows[0].idMahasiswa
+                    }
+                    else{
+                        return null
+                    } 
+                }
+                if(result.rowCount==1){
+                    token.email = data.email
+                    token.fullname = data.fullname
+                    token.role = data.role
+                    token.id = result.rows[0].idMahasiswa
+                }
+            }
+            // console.log(token);
             return token
         },
         async session({session, token}){
@@ -72,6 +109,7 @@ const options = {
             if("id" in token) {
                 session.user.id = token.id
             }
+            // console.log(session);
             return session
      }   
     },

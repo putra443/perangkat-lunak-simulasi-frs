@@ -10,7 +10,7 @@ export default function CekBentrok(hasilCek){
     function handleChange(){
         setModal(!modal)
     }
-    console.log(status)
+    // console.log(status)
     
     const classnameTrue = classNames(
         "mx-3",
@@ -40,7 +40,10 @@ export default function CekBentrok(hasilCek){
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             <div className="modal">
                 <div className="modal-box bg-white text-black">
+                    <h1 className="my-2 font-bold">Hasil cek bentrok jadwal kuliah :</h1>
                     <p>{hasilCek.children}</p>
+                    <h1 className="my-2 font-bold">Hasil cek bentrok jadwal ujian :</h1>
+                    <p className="my-2">{hasilCek.cekUjian}</p>
                     <button className="btn btn-primary bg-cyan-700 text-white border-none" onClick={handleChange}>Confirm</button>
                 </div>
             </div>

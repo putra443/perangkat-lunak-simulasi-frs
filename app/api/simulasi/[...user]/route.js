@@ -24,6 +24,7 @@ import pool from '@/db';
       jadwal_mahasiswa."idJadwalMataKuliah" = jadwal_mata_kuliah."idJadwalMataKuliah"
       where "idMahasiswa"= ${params.user[0]}
       ORDER BY "namaMataKuliah"`);
+      client.release();
       // // res.status(200).json(result);
       // // return new Response(JSON.stringify(result.rows));
       // // console.log(result.rows);
@@ -49,6 +50,7 @@ import pool from '@/db';
       insert into jadwal_ujian_mahasiswa("idJadwalUjian","idMahasiswa")
       select "idUjian",${params.user[0]} from jadwal_ujian
       where "namaMataKuliah"='${request.nama}'`)
+      client.release()
       // return new Response(result);
       return new NextResponse(result)
     }catch (err){
@@ -68,6 +70,7 @@ import pool from '@/db';
       where "namaMataKuliah"= '${request.namaMataKuliah}');
       `);
       // return new Response(result);
+      client.release()
       return new NextResponse(result)
     }catch(err){
       console.error(err);

@@ -18,9 +18,6 @@ export default function DeleteMataKuliah(mataKuliah){
         setIsMutating(true)
         await fetch(`http://localhost:3000/api/simulasi/${mataKuliah.user}`,{
             method:"DELETE",
-            headers:{
-                'Content-type': 'application/json'
-            },
             body: JSON.stringify({
                 idJadwalMataKuliah:idMataKuliah,
                 namaMataKuliah:namaMataKuliah

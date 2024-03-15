@@ -12,7 +12,7 @@ export default function ModalPrint(jadwalMahasiswa){
     const [modal, setModal] = useState(false)
     const [loader, setLoader] = useState(false)
     const statusConflict = jadwalMahasiswa.statusConflict
-    console.log(statusConflict);
+    // console.log(statusConflict);
     const {data:session, status} = useSession()
     // console.log(jadwalMahasiswa);
     function handleChange(){
@@ -22,11 +22,11 @@ export default function ModalPrint(jadwalMahasiswa){
         const capture = document.querySelector('.actual-receipt')
         setLoader(true)
         html2canvaspro(capture).then((canvas)=>{
-            const imgData = canvas.toDataURL('img/png')
+            const imgData = canvas.toDataURL('img/png',1)
             const doc = new jsPDF('l','mm','a4')
             const componentWidth = doc.internal.pageSize.getWidth()
             const componentHeight = doc.internal.pageSize.getHeight()
-            doc.addImage(imgData,'PNG',0,0,componentWidth,(componentHeight/2.5))
+            doc.addImage(imgData,'PNG',0,0,componentWidth,(componentHeight/2.2))
             setLoader(false)
             doc.save('SimulasiFRS.pdf')
         })

@@ -5,6 +5,7 @@ import pool from '../../../db';
       const client = await pool.connect();
       const result = await client.query('select distinct on ("namaMataKuliah","kelas") "namaMataKuliah",* from jadwal_mata_kuliah');
       // res.status(200).json(result);
+      client.release()
       return new Response(JSON.stringify(result.rows));
     } catch (err) {
       console.error(err);

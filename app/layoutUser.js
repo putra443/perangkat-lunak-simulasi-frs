@@ -7,6 +7,7 @@ import LogoIF from '@/assets/logoIF.jpg'
 import LogoUnpar from '@/assets/logoUnpar.png'
 import logodouble from '@/assets/logoifunpar2.png'
 import { PathParamsContext } from 'next/dist/shared/lib/hooks-client-context.shared-runtime';
+import { images } from '@/next.config';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +26,7 @@ export default function LayoutUser() {
       router.push('/')
     }
     else if(status==="authenticated" && session?.user?.role == "mahasiswa"){
-      console.log(session,status);
+      // console.log(session,status);
     }
     else if(status==="authenticated" && session?.user?.role != "mahasiswa"){
       signOut()
