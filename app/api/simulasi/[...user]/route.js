@@ -19,6 +19,7 @@ import pool from '@/db';
     try {
       // console.log(params.user[0]);
       const client = await pool.connect();
+      // console.log(params.user);
       const result = await client.query(`SELECT * FROM jadwal_mahasiswa
       join jadwal_mata_kuliah on
       jadwal_mahasiswa."idJadwalMataKuliah" = jadwal_mata_kuliah."idJadwalMataKuliah"

@@ -23,7 +23,7 @@ export default function LayoutAdmin() {
       router.push('/')
     }
     else if(status==="authenticated" && session?.user?.role == "admin"){
-      console.log(session,status);
+      // console.log(session,status);
     }
     else if(status==="authenticated" && session?.user?.role != "admin"){
       signOut()

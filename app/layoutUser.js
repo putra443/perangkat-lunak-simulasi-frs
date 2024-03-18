@@ -27,6 +27,10 @@ export default function LayoutUser() {
     }
     else if(status==="authenticated" && session?.user?.role == "mahasiswa"){
       // console.log(session,status);
+      // router.push(`/home/${session?.user?.role}/${session?.user?.email}`)
+    }
+    else if(status==="authenticated" && session?.user?.role == "admin"){
+      router.push("/homeAdmin")
     }
     else if(status==="authenticated" && session?.user?.role != "mahasiswa"){
       signOut()
@@ -41,7 +45,7 @@ export default function LayoutUser() {
             <a href={`/home/${session?.user?.role}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none float-left text-xl hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
             <a href={`/home/${session?.user?.role}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Home</a>
             <a href={`/simulasi/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Simulasi FRS</a>
-            <a href='/daftarMataKuliah' className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Daftar Mata Kuliah</a>
+            <a href={`/daftarMataKuliah/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Daftar Mata Kuliah</a>
             {status === "authenticated" ? (
               <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
 
@@ -49,7 +53,8 @@ export default function LayoutUser() {
               <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
             )}
             {/* <a href='/' className='btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a> */}
-            <p className=' text-xs lg:text-base mt-4 lg:mt-2 float-right text-white px-3 py-2'>Hello, {session?.user?.name}</p>
+            <img className="float-right w-10 h-10 mt-3.5 rounded-full" src={session?.user?.image}></img>
+            <p className=' text-xs lg:text-base mt-4 lg:mt-2 float-right text-white px-3 py-2'>{session?.user?.name}</p>
           </div>
   )
 }

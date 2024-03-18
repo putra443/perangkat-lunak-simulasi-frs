@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 
 export default function Home({params}) {
   const {data:session, status} = useSession();
-  // console.log(session, params.user[1]);
+  // console.log(session);
     return (
       <div className="flex min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
         <LayoutUser/>

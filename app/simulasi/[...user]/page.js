@@ -156,6 +156,7 @@ function handlePrint(conflictsStatus){
 export default async function Simulasi({params}){
     const mataKuliah = await getJadwalMataKuliah();
     const userId = params.user[2]
+    // console.log(params.user);
     const jadwalMahasiswa = await getJadwalMahasiswa(userId)
     const jadwalUjian = await getJadwalUjian(userId)
     // console.log(jadwalUjian);

@@ -68,29 +68,33 @@ const options = {
                     fullname: user.name,
                     email: user.email,
                     type: 'google',
-                    role:'mahasiswa'
                 }
                 const client = await pool.connect()
-                const result =  await client.query(`SELECT * FROM mahasiswa WHERE username='${data.email}'`)
+                const result =  await client.query(`SELECT * FROM "user" WHERE email='${data.email}'`)
+                // console.log(result);
                 if(result.rowCount!=1){
-                    if(data.email.includes("@student.unpar.ac.id")){
+                    if(data.email.includes("@student.unpar.ac.id") && data.email.includes("618")){
                         console.log("login pass");
-                        client.query(`insert into mahasiswa (username) values ('${data.email}')`)
-                        token.email = data.email
-                        token.fullname = data.fullname
-                        token.role = data.role
-                        const resultId = client.query(`select * from mahasiswa where username='${data.email}'`)
-                        token.id = resultId.rows[0].idMahasiswa
+                        console.log(data);
+                        client.query(`insert into "user" (email, fullname, role) values ('${data.email}','${data.fullname}','mahasiswa')`)
+                        const resultId = await client.query(`select * from "user" where email='${data.email}'`)
+                        console.log(resultId);
+                        token.email = resultId.rows[0].email
+                        token.fullname = resultId.rows[0].fullname
+                        token.role = resultId.rows[0].role
+                        token.id = resultId.rows[0].idUser
+                        client.release()
                     }
                     else{
                         return null
                     } 
                 }
                 if(result.rowCount==1){
-                    token.email = data.email
-                    token.fullname = data.fullname
-                    token.role = data.role
-                    token.id = result.rows[0].idMahasiswa
+                    // console.log(result);
+                    token.email = result.rows[0].email
+                    token.fullname = result.rows[0].fullname
+                    token.role = result.rows[0].role
+                    token.id = result.rows[0].idUser
                 }
             }
             // console.log(token);

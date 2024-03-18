@@ -46,11 +46,12 @@ export default function Home() {
     const response = await signIn('google', {callbackUrl:`/home/+${session?.user?.role}+/+${session?.user?.email}`, redirect: false });
     // Lakukan sesuatu dengan response jika diperlukan
     if (response?.error) {
-      push("/home")
+      // push("/home")
     } else {
       // Mendapatkan informasi yang relevan dari hasil autentikasi
       push("/home/"+session?.user?.role+"/"+session?.user?.email)
     }
+    setLoading(false)
   }
 
   return (

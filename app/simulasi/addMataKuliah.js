@@ -11,7 +11,6 @@ export default function AddMataKuliah(mataKuliah){
     const [isMutating, setIsMutating] =useState(false)
 
     const router = useRouter();
-
     function handleChange(){
         setModal(!modal)
     }
