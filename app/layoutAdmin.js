@@ -40,7 +40,8 @@ export default function LayoutAdmin() {
               <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
 
             ) : (
-              <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left  hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
+              // <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left  hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
+              <p>error: harusnya tidak keluar</p>
             )}
             <p className='float-right text-white px-3 py-2 lg:mt-1.5 mt-4 text-sm lg:text-base '>Hello, {session?.user?.name}</p>
           </div>
