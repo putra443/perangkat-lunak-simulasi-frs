@@ -50,7 +50,7 @@ export default function addJadwalUjian(mataKuliah){
     return (
         <div>
 
-            <button className="btn ml-5 bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Add Jadwal Ujian</button>
+            <button className="btn mt-5 bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Add Jadwal Ujian</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">

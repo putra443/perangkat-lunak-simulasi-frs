@@ -23,12 +23,12 @@ export default function ModalPrint(jadwalMahasiswa){
         setLoader(true)
         html2canvaspro(capture).then((canvas)=>{
             const imgData = canvas.toDataURL('img/png',1)
-            const doc = new jsPDF('l','mm','a4')
-            const componentWidth = doc.internal.pageSize.getWidth()
-            const componentHeight = doc.internal.pageSize.getHeight()
-            doc.addImage(imgData,'PNG',0,0,componentWidth,(componentHeight/2.2))
+            const doc = new jsPDF('p','mm','a4')
+            const componentWidth = 208
+            const componentHeight = canvas.height * componentWidth / canvas.width
+            doc.addImage(imgData,'PNG',0,0,componentWidth,componentHeight)
             setLoader(false)
-            doc.save('SimulasiFRS.pdf')
+            doc.save(`SimulasiFRS-${session?.user?.name}.pdf`)
         })
     
     }
@@ -39,11 +39,13 @@ export default function ModalPrint(jadwalMahasiswa){
             <button className='float-left btn border-none text-white bg-green-700 hover:bg-green-800 mt-5 mx-3' onClick={handleChange} disabled={!statusConflict===false}>
                 {statusConflict?(<span>Jadwal Bentrok</span>):(<span>Print PDF</span>)}</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
-            <div className="modal  modal-middle">
-                <div className="lg:scale-100 p-10 rounded-xl bg-white text-black">
+            <div className="overflow-auto modal  modal-middle">
+                <div className="my-5 lg:scale-100 p-10 rounded-xl bg-white text-black">
                     <div className="actual-receipt">
                         <div className="m-10">
-                            <h1 className="my-4 text-xl font-bold">Hasil FRS : {session?.user?.name}</h1>
+                            <h1 className="my-4 text-xl font-bold">Hasil Simulasi FRS</h1>
+                            <h1 className="my-4 text-xl font-bold">Nama : {session?.user?.name}</h1>
+                            <h1 className="my-4 text-xl font-bold">NPM : {session?.user?.email.substring(0,10)}</h1>
                                 <h1 className="my-2 border-black text-center text-xl font-bold">Jadwal Kuliah</h1>
                                 <table className="table text-center">
                                     <thead>

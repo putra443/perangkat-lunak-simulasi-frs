@@ -1,10 +1,12 @@
 import pool from '../../../../db';
+import { NextResponse } from 'next/server';
 
 export async function GET (req, res){
   try {
     const client = await pool.connect();
     const result = await client.query(`SELECT *,to_char(tanggal_uts,'DD-MM-YYYY')as formatteduts,to_char(tanggal_uas,'DD-MM-YYYY')as formatteduas from jadwal_ujian`);
     // res.status(200).json(result);
+    client.release()
     return new Response(JSON.stringify(result.rows));
   } catch (err) {
     console.error(err);
@@ -28,6 +30,8 @@ export async function POST(req,res){
         '${request.jamMulaiUjian}','${request.jamSelesaiUjian}','${request.tanggalUAS}',
         '${request.jamMulaiUjian}','${request.jamSelesaiUjian}'
         )`)
+        client.release()
+
         return new Response(result);
       }
       else{
@@ -35,13 +39,14 @@ export async function POST(req,res){
         const client = await pool.connect()
         data.map((element)=>{
           const nama = element.nama_mata_kuliah
+          // console.log(nama);
+          const tanggalUTS = element.tanggalUTS
+          const tanggalUAS = element.tanggalUAS
           const jam_mulai = element.jam_mulai
           const jam_selesai = element.jam_selesai
-          const kelas = element.kelas
-          const sesi = element.sesi
-          const result = client.query(`INSERT INTO jadwal_mata_kuliah
-          ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
-          ('${nama}','${request.hari}','${jam_mulai}','${jam_selesai}','${kelas}','${sesi}')`)
+          const result = client.query(`INSERT INTO jadwal_ujian
+          ("namaMataKuliah", tanggal_uts, tanggal_uas, jam_mulai_uts, jam_selesai_uts, jam_mulai_uas, jam_selesai_uas) VALUES 
+          ('${nama}','${tanggalUTS}','${tanggalUAS}','${jam_mulai}','${jam_selesai}','${jam_mulai}','${jam_selesai}')`)
           return new Response(result) 
         })
         // const result = "data masuk"
@@ -72,10 +77,13 @@ export async function POST(req,res){
     //   console.log(request.idJadwalMataKuliah);
 
       const client = await pool.connect();
-      const result = await client.query(`UPDATE jadwal_mata_kuliah
-      SET "namaMataKuliah"='${request.nama}',kelas='${request.kelas}',hari='${request.hari}', 
-      sesi='${request.sesiKelas}', jam_mulai='${request.jamMulai}', jam_selesai='${request.jamSelesai}'
-      WHERE "idJadwalMataKuliah"=${request.idJadwalMataKuliah};`)
+      const result = await client.query(`UPDATE jadwal_ujian
+      SET tanggal_uts ='${request.tanggalUTS}', tanggal_uas='${request.tanggalUAS}', 
+      jam_mulai_uts='${request.jamMulai}', jam_selesai_uts='${request.jamSelesai}', jam_mulai_uas='${request.jamMulai}',
+      jam_selesai_uas='${request.jamSelesai}'
+      WHERE "idUjian"=${request.idUjian};`)
+      client.release()
+      
       return new Response(result);
     }catch(err){
       console.error(err);
@@ -83,14 +91,22 @@ export async function POST(req,res){
     }
   }
   
-  export async function DELETE(req, res){
-    try{
-      const request = await req.json();
+ 
+  export async function DELETE (req, res){
+    try {
+      const request = await req.json()
       const client = await pool.connect();
-      const result = await client.query(`DELETE FROM jadwal_mata_kuliah WHERE "idJadwalMataKuliah"=${request.idMataKuliah}`);
-      return new Response(result);
-    }catch(err){
+      // console.log(request.idUjian);
+      const result = await client.query(`DELETE FROM jadwal_ujian WHERE "idUjian" = '${request.idUjian}';`);
+      // res.status(200).json(result);
+      // return new Response(JSON.stringify(result.rows));
+      client.release()
+      return NextResponse.json(result.rows)
+    } catch (err) {
       console.error(err);
-      return new Response(json({error: 'an error occured'}),{status:500});
+      // res.status(500).json({ error: 'An error occurred' });
+      // return new Response(json({error: 'an error occured'}),{status:500});
+      return new NextResponse.json({error:'an error occured'})
+  
     }
-  }
+  };

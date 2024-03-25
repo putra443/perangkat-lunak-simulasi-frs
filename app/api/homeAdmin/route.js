@@ -24,8 +24,8 @@ export async function POST(req,res){
       if(!request.dataExcel){
         const client = await pool.connect();
         const result = await client.query(`INSERT INTO jadwal_mata_kuliah
-        ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
-        ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
+        ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi,semester) VALUES 
+        ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}','${request.semester}')`)
         // return new Response(result);
         return new NextResponse(result)
       }

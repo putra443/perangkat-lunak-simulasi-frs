@@ -8,6 +8,8 @@ export default function addMataKuliah(){
     const [jamMulai, setJamMulai] = useState("")
     const [jamSelesai, setJamSelesai] = useState("")
     const [kelas, setKelas] = useState("A")
+    const [semester, setSemester] = useState("1")
+
     const [sesiKelas, setSesiKelas] = useState("Kuliah")
 
     const [modal, setModal] =useState(false);
@@ -30,7 +32,8 @@ export default function addMataKuliah(){
                 jamMulai: jamMulai,
                 jamSelesai: jamSelesai,
                 sesiKelas:sesiKelas,
-                kelas:kelas
+                kelas:kelas,
+                semester:semester
             })
         })
 
@@ -42,6 +45,7 @@ export default function addMataKuliah(){
         setHari("Senin")
         setSesiKelas("Kuliah")
         setKelas("A")
+        setSemester("")
         router.refresh()
         setModal(false)
         
@@ -60,7 +64,21 @@ export default function addMataKuliah(){
                         <div className="form-control">
                             <label className="label font-bold">Nama Mata Kuliah</label>
                             <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input>
-                        </div> 
+                        </div>
+                        <div className="form-control">
+                            <label className="label font-bold">Semester</label>
+                            <select onChange={(e)=> setSemester(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">Mata Kuliah Pilihan</option>
+                            </select>
+                        </div>  
                         <div className="form-control">
                             <label className="label font-bold">Kelas</label>
                             <select value={kelas} onChange={(e)=> setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">

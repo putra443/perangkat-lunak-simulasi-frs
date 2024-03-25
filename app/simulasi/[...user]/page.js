@@ -1,7 +1,7 @@
 import bg from '@/assets/background_unpar.jpg'
 import LayoutUser from '../../layoutUser'
-import AddMataKuliah from '../AddMataKuliah';
-import DeleteMataKuliah from '../DeleteMataKuliah'
+import AddMataKuliah from '../addMataKuliah';
+import DeleteMataKuliah from '../deleteMataKuliah'
 import CekBentrok from '../CekBentrok'
 import ModalPrint from '../ModalPrint';
 
@@ -195,8 +195,8 @@ export default async function Simulasi({params}){
                 </div>
                 <p className='text-xl text-left text-white bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
 
-                <div className=' overflow-auto rounded-xl mt-5'>
-                    <table className='table text-center rounded-2xl bg-gray-200'>
+                <div className='rounded-xl mt-5'>
+                    <table className=' overflow-scroll table text-center rounded-2xl bg-gray-200'>
                         <thead>
                             <tr className='bg-sky-700 text-white'>
                                 <th className='p-5'>No</th>
@@ -231,7 +231,7 @@ export default async function Simulasi({params}){
                 
 
                 <p className='text-xl text-left text-white mt-5 bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
-                <div className=' overflow-auto rounded-xl mt-5'>
+                <div className='rounded-xl mt-5'>
                     <table className='table text-center rounded-2xl bg-gray-200'>
                         <thead>
                             <tr className='bg-sky-700 text-white'>
@@ -263,7 +263,7 @@ export default async function Simulasi({params}){
                     </table>                 
                 </div>
                 
-                <div className='mb-10 justify-start text-left float-left'>
+                <div className='justify-start text-left float-left'>
                     <CekBentrok cekUjian={hasilCekUjian}>{hasilCek}</CekBentrok>
                     <ModalPrint statusConflict = {conflictsStatus} jadwalUjian={jadwalUjian}>{jadwalMahasiswa}</ModalPrint>
                 </div>
