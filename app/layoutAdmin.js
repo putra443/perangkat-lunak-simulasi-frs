@@ -36,6 +36,7 @@ export default function LayoutAdmin() {
             <a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
             <a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Kuliah</h1></a>
             <a href='/jadwalUjian' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Ujian</h1></a>
+            <a href='/usersAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Users</h1></a>
             {status === "authenticated" ? (
               <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
 

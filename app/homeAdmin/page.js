@@ -31,7 +31,8 @@ export default async function HomeAdmin(){
                     <p className='text-4xl text-white text-center lg:text-left'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
                     <p className='text-l text-white bg-sky-600 rounded-2xl p-2 my-5 lg:w-1/6 text-center'> Kelola Mata kuliah</p>
                     <div className='flex flex-col'>
-                        <AddMataKuliah/> <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian>
+                        <AddMataKuliah/> 
+                        {/* <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian> */}
                     </div>
                     
                     <CsvUpload/>

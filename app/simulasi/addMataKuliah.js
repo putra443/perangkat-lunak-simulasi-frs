@@ -49,7 +49,7 @@ export default function AddMataKuliah(mataKuliah){
                         <div className="form-control">
                             <label className="label font-bold">Pilih Semester / Mata Kuliah Pilihan</label>
                             <select onChange={(e) => SetCurSemester(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option>Pilih Semester</option>
+                                <option value=''>Pilih Semester</option>
                                 <option value='1'>1</option>
                                 <option value='2'>2</option>
                                 <option value='3'>3</option>
@@ -76,9 +76,11 @@ export default function AddMataKuliah(mataKuliah){
                         <div className="form-control">
                             <label className="label font-bold">Pilih Kelas</label>
                             <select onChange={(e)=>setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option value="A" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">A</option> 
-                                <option value="B" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">B</option> 
-                                <option value="c" className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">C</option> 
+                                {mataKuliah.children.filter((mataKuliah)=> {
+                                        return nama === '' ? mataKuliah : mataKuliah.namaMataKuliah == nama
+                                    }).map((mataKuliah,index)=>(
+                                        <option key={index}>{mataKuliah.kelas}</option>
+                                    ))}
                             </select>
                         </div>
                         <div className="modal-action">

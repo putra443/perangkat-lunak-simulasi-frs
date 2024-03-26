@@ -39,13 +39,11 @@ export default function LayoutUser() {
   }, [status])
   return (
           <div className=' w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
-            {/* <img className="float-left w-12" src={LogoUnpar.src} alt='logounpar.jpg'/>
-            <img className="float-left w-10 mt-1" src={LogoIF.src} alt='logounpar.jpg'/> */}
             <img src={logodouble.src} className='float-left w-24 h-13 rounded-xl scale-150 m-5'></img>
             <a href={`/home/${session?.user?.role}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none float-left text-xl hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
             <a href={`/home/${session?.user?.role}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Home</a>
             <a href={`/simulasi/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Simulasi FRS</a>
-            <a href={`/daftarMataKuliah/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Daftar Mata Kuliah</a>
+            {/* <a href={`/daftarMataKuliah/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Daftar Mata Kuliah</a> */}
             {status === "authenticated" ? (
               <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
 

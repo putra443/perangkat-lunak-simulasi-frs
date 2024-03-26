@@ -2,7 +2,7 @@ import bg from '@/assets/background_unpar.jpg'
 import LayoutUser from '../../layoutUser'
 import AddMataKuliah from '../addMataKuliah';
 import DeleteMataKuliah from '../deleteMataKuliah'
-import CekBentrok from '../CekBentrok'
+import CekBentrok from '../cekBentrok'
 import ModalPrint from '../ModalPrint';
 
 
