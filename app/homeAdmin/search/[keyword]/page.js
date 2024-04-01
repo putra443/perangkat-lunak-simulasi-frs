@@ -2,14 +2,14 @@ import LayoutAdmin from '../../../layoutAdmin'
 import AddMataKuliah from '../../addMataKuliah';
 import UpdateMataKuliah from '../../updateMataKuliah';
 import DeleteMataKuliah from '../../deleteMataKuliah';
-import AddJadwalUjian from '../../addJadwalUjian';
+import DeleteAllMataKuliah from '../../deleteAllMataKuliah'
 import CsvUpload from '../../csvUpload';
 import SearchBar from '../../searchBar';
 import bg from '@/assets/background_unpar.jpg'
 
 
 async function getMataKuliah(params){
-    console.log(params);
+    // console.log(params);
     const res = await fetch(`http://localhost:3000/api/homeAdmin/search/${params}`,{cache:'no-store'})
     const result = await res.json();
     return result
@@ -23,23 +23,25 @@ async function getNamaMataKuliah(){
 
 export default async function HomeAdmin({params}){
     const keyword = params.keyword
-    console.log(keyword);
+    // console.log(keyword);
     const mataKuliah = await getMataKuliah(keyword)
     // console.log(mataKuliah);
     const namaMataKuliah = await getNamaMataKuliah(keyword)
-    console.log(params);
+    // console.log(params);
     return(
-        <div className="flex overflow-y-scroll overflow-x-hidden min-h-screen flex-col items-center px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
+        <div className="flex overflow-y-auto overflow-x-hidden min-h-screen max-h-content flex-col items-center px-20 text-center bg-auto bg-center" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>
-            <div className='flex flex-col px-20 w-screen h-content  bg-gradient-to-br from-sky-500'>
+            <div className='flex flex-col px-20 w-screen min-h-screen max-h-content  bg-gradient-to-br from-sky-500'>
                 <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
                     <p className='text-4xl text-white'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
-                    <p className='text-l text-white bg-sky-600 rounded-2xl p-2 m-5 w-1/6 text-center'> Kelola Mata kuliah</p>
-                    <div className='flex flex-row'>
-                        <AddMataKuliah/> <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian>
+                    <p className='text-l text-white bg-sky-600 rounded-2xl p-2 my-5 w-1/6 text-center'> Kelola Mata kuliah</p>
+                    <div className='flex flex-col'>
+                        <AddMataKuliah/>
+                        <CsvUpload/>
+                        <DeleteAllMataKuliah/>
                     </div>
                     
-                    <CsvUpload/>
+                    
                     <div className='w-2/5 mt-3 mb-3'>
                         <SearchBar></SearchBar>
                     </div>

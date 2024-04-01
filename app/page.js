@@ -63,11 +63,11 @@ export default function Home() {
           <div className='border-2 w-10 border-black inline-block mb-2'></div>
           <form action="" method="get" className='mt-8 space-y-6' onSubmit={(e) => handleLogin(e)}>
             <div className='flex flex-col items-center'>
-              <input className='input mb-2 p-3 bg-gray-100 rounded-xl w-full' type="email" name="email" id="email" placeholder="....@student.unpar.ac.id"  required/>
+              {/* <input className='input mb-2 p-3 bg-gray-100 rounded-xl w-full' type="email" name="email" id="email" placeholder="....@student.unpar.ac.id"  required/>
               <input className='input mb-10 p-3 bg-gray-100 rounded-xl w-full' type="password" name="password" id="password" placeholder="Password" required ></input>
               <button type='submit' className='btn bg-sky-500 hover:bg-sky-600 text-white border-none rounded-2xl px-5 py-2'>
                 {(loading?(<span>Signing in...</span>):(<span>Sign in</span>))}
-              </button>
+              </button> */}
               <button type='button' className='mt-5 btn bg-sky-500 hover:bg-sky-600 text-white border-none rounded-2xl px-5 py-2' onClick={()=>handleLoginGoogle()}>
                 Sign in with Google
               </button>

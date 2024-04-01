@@ -2,7 +2,7 @@ import bg from '@/assets/background_unpar.jpg'
 import LayoutUser from '../../layoutUser'
 import AddMataKuliah from '../addMataKuliah';
 import DeleteMataKuliah from '../deleteMataKuliah'
-import CekBentrok from '../cekBentrok'
+import CekBentrok from '../CekBentrok'
 import ModalPrint from '../ModalPrint';
 
 
@@ -100,7 +100,7 @@ function cekBentrokUjian(schedules) {
     let string = ""
     for (let i = 0; i < schedules.length - 1; i++) {
         for (let j = i + 1; j < schedules.length; j++) {
-            console.log(schedules[i], schedules[j]);
+            // console.log(schedules[i], schedules[j]);
             const tanggalUTS1 = schedules[i].tanggalUAS.split("-");
             const tanggalUTS2 = schedules[j].tanggalUAS.split("-");
 
@@ -185,87 +185,89 @@ export default async function Simulasi({params}){
 
 
     return(
-        <main className="flex overflow-y-scroll overflow-x-hidden min-h-screen min-w-screen w-screen flex-col items-center lg:px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
+        <main className="flex overflow-y-auto overflow-x-hidden min-h-screen min-w-screen flex-col items-center lg:px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
-            <div className='flex flex-col px-2 lg:px-20 w-screen h-screen bg-gradient-to-br from-sky-500'>
-                <p className='text-4xl text-left my-4 text-white'>Simulasi FRS</p>
-                <div className=' justify-start text-left my-5'>
-                    {/* untuk add mata kuliah */}
-                    <AddMataKuliah user={userId}>{...mataKuliah}</AddMataKuliah>
-                </div>
-                <p className='text-xl text-left text-white bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
+            <div className='flex flex-col px-2 lg:px-20 w-screen h-screen min-h-screen min-w-screen bg-gradient-to-br from-sky-500'>
+                <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
+                    <p className='text-4xl text-left my-4 text-white'>Simulasi FRS</p>
+                    <div className=' justify-start text-left my-5'>
+                        {/* untuk add mata kuliah */}
+                        <AddMataKuliah user={userId}>{...mataKuliah}</AddMataKuliah>
+                    </div>
+                    <p className='text-xl text-left text-white bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
 
-                <div className='rounded-xl mt-5'>
-                    <table className=' overflow-scroll table text-center rounded-2xl bg-gray-200'>
-                        <thead>
-                            <tr className='bg-sky-700 text-white'>
-                                <th className='p-5'>No</th>
-                                <th className='p-5'>Nama Mata Kuliah</th>
-                                <th className='p-5'>Hari</th>
-                                <th className='p-5'>Jam Mulai</th>
-                                <th className='p-5'>Jam Selesai</th>
-                                <th className='p-5'>Kelas</th>
-                                <th className='p-5'>Sesi</th>
-                                <th className='p-5'>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {jadwalMahasiswa.map((jadwalMahasiswa, index)=>(
-                                <tr  key={index} className='hover:text-indigo-700 transition-all'>
-                                    <td className=" font-semibold">{index+1}</td>
-                                    <td className=" font-semibold">{jadwalMahasiswa.namaMataKuliah}</td>
-                                    <td className=" font-semibold">{jadwalMahasiswa.hari}</td>
-                                    <td className=" font-semibold">{jadwalMahasiswa.jam_mulai}</td>
-                                    <td className=" font-semibold">{jadwalMahasiswa.jam_selesai}</td>
-                                    <td className='font-semibold' >{jadwalMahasiswa.kelas}</td>
-                                    <td className='font-semibold' >{jadwalMahasiswa.sesi}</td>
-                                    <td className=" font-semibold pt-3 pb-3">
-                                        <DeleteMataKuliah user={userId} {...jadwalMahasiswa} className="m-3"/>
-                                        </td>
-
+                    <div className='overflow-x-scroll no-scrollbar rounded-xl mt-5'>
+                        <table className=' table text-center rounded-2xl bg-gray-200'>
+                            <thead>
+                                <tr className='bg-sky-700 text-white'>
+                                    <th className='p-5'>No</th>
+                                    <th className='p-5'>Nama Mata Kuliah</th>
+                                    <th className='p-5'>Hari</th>
+                                    <th className='p-5'>Jam Mulai</th>
+                                    <th className='p-5'>Jam Selesai</th>
+                                    <th className='p-5'>Kelas</th>
+                                    <th className='p-5'>Sesi</th>
+                                    <th className='p-5'>Actions</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-                
+                            </thead>
+                            <tbody>
+                                {jadwalMahasiswa.map((jadwalMahasiswa, index)=>(
+                                    <tr  key={index} className='hover:text-indigo-700 transition-all'>
+                                        <td className=" font-semibold">{index+1}</td>
+                                        <td className=" font-semibold">{jadwalMahasiswa.namaMataKuliah}</td>
+                                        <td className=" font-semibold">{jadwalMahasiswa.hari}</td>
+                                        <td className=" font-semibold">{jadwalMahasiswa.jam_mulai}</td>
+                                        <td className=" font-semibold">{jadwalMahasiswa.jam_selesai}</td>
+                                        <td className='font-semibold' >{jadwalMahasiswa.kelas}</td>
+                                        <td className='font-semibold' >{jadwalMahasiswa.sesi}</td>
+                                        <td className=" font-semibold pt-3 pb-3">
+                                            <DeleteMataKuliah user={userId} {...jadwalMahasiswa} className="m-3"/>
+                                            </td>
 
-                <p className='text-xl text-left text-white mt-5 bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
-                <div className='rounded-xl mt-5'>
-                    <table className='table text-center rounded-2xl bg-gray-200'>
-                        <thead>
-                            <tr className='bg-sky-700 text-white'>
-                                <th className='p-5'>No</th>
-                                <th className='p-5'>Nama Mata Kuliah</th>
-                                <th className='p-5'>Tanggal UTS</th>
-                                <th className='p-5'>Waktu Mulai UTS</th>
-                                <th className='p-5'>Waktu Selesai UTS</th>
-                                <th className='p-5'>Tanggal UAS</th>
-                                <th className='p-5'>Waktu Mulai UAS</th>
-                                <th className='p-5'>Waktu Selesai UAS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {jadwalUjian.map((jadwalUjian, index)=>(
-                                <tr  key={index}>
-                                    <td className=" font-semibold">{index+1}</td>
-                                    <td className=" font-semibold">{jadwalUjian.namaMataKuliah}</td>
-                                    <td className=" font-semibold">{jadwalUjian.formatteduts}</td>
-                                    <td className=" font-semibold">{jadwalUjian.jam_mulai_uts}</td>
-                                    <td className=" font-semibold">{jadwalUjian.jam_selesai_uts}</td>
-                                    <td className='font-semibold'>{jadwalUjian.formatteduas}</td>
-                                    <td className='font-semibold'>{jadwalUjian.jam_mulai_uas}</td>
-                                    <td className=" font-semibold pt-3 pb-3">{jadwalUjian.jam_selesai_uas}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    
 
+                    <p className='text-xl text-left text-white mt-5 bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
+                    <div className='overflow-scroll no-scrollbar rounded-xl mt-5'>
+                        <table className='table text-center rounded-2xl bg-gray-200'>
+                            <thead>
+                                <tr className='bg-sky-700 text-white'>
+                                    <th className='p-5'>No</th>
+                                    <th className='p-5'>Nama Mata Kuliah</th>
+                                    <th className='p-5'>Tanggal UTS</th>
+                                    <th className='p-5'>Waktu Mulai UTS</th>
+                                    <th className='p-5'>Waktu Selesai UTS</th>
+                                    <th className='p-5'>Tanggal UAS</th>
+                                    <th className='p-5'>Waktu Mulai UAS</th>
+                                    <th className='p-5'>Waktu Selesai UAS</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>                 
-                </div>
-                
-                <div className='justify-start text-left float-left'>
-                    <CekBentrok cekUjian={hasilCekUjian}>{hasilCek}</CekBentrok>
-                    <ModalPrint statusConflict = {conflictsStatus} jadwalUjian={jadwalUjian}>{jadwalMahasiswa}</ModalPrint>
+                            </thead>
+                            <tbody>
+                                {jadwalUjian.map((jadwalUjian, index)=>(
+                                    <tr  key={index}>
+                                        <td className=" font-semibold">{index+1}</td>
+                                        <td className=" font-semibold">{jadwalUjian.namaMataKuliah}</td>
+                                        <td className=" font-semibold">{jadwalUjian.formatteduts}</td>
+                                        <td className=" font-semibold">{jadwalUjian.jam_mulai_uts}</td>
+                                        <td className=" font-semibold">{jadwalUjian.jam_selesai_uts}</td>
+                                        <td className='font-semibold'>{jadwalUjian.formatteduas}</td>
+                                        <td className='font-semibold'>{jadwalUjian.jam_mulai_uas}</td>
+                                        <td className=" font-semibold pt-3 pb-3">{jadwalUjian.jam_selesai_uas}</td>
+
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>                 
+                    </div>
+                    
+                    <div className='justify-start text-left float-left'>
+                        <CekBentrok cekUjian={hasilCekUjian}>{hasilCek}</CekBentrok>
+                        <ModalPrint statusConflict = {conflictsStatus} jadwalUjian={jadwalUjian}>{jadwalMahasiswa}</ModalPrint>
+                    </div>
                 </div>
             </div>
         </main>

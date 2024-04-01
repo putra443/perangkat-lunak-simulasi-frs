@@ -11,6 +11,7 @@ export async function GET (req, {params}){
         // console.log(result);
         // console.log(req);
         // return new Response(JSON.stringify(result.rows));
+        client.release()
         return NextResponse.json(result.rows)
         // console.log(params.keyword);
         // return NextResponse.json({msg:"hello world"})

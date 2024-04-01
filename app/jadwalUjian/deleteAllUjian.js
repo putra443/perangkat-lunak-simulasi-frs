@@ -1,0 +1,56 @@
+
+'use client'
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+export default function DeleteMahasiswa(){
+    const [modal, setModal] =useState(false);
+    const [isMutating, setIsMutating] =useState(false)
+
+    const router = useRouter();
+    function handleChange(){
+        setModal(!modal)
+    }
+    async function handleSubmit(e){
+        // console.log(matakuliah.user);
+        setIsMutating(true)
+        // e.preventDefault();
+        await fetch(`http://localhost:3000/api/homeAdmin/ujian`,{
+            method:"DELETE",
+            body: JSON.stringify({
+                deleteAll: true
+            })
+        })
+
+        setIsMutating(false)
+        router.refresh()
+        setModal(false)
+    }
+    return (
+        <div>
+
+            <button className="mt-5 btn hover:bg-red-800 bg-red-600 text-white border-none" onClick={handleChange}>Delete Ujian</button>
+            <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
+            
+            <div className="modal">
+                <div className="lg:w-3/5 overflow-hidden overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
+                    <h3 className="font-bold text-lg">DELETE</h3>
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-control">
+                            <label className="label font-bold">Apakah anda yakin ingin menghapus semua jadwal ujian?</label>
+                        </div>
+                        <div className="modal-action">
+                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
+                            {!isMutating? (
+                            <button className="btn btn-primary hover:bg-red-800 bg-red-600 text-white border-none" type="submit">Delete</button>   
+                            ):(
+                            <button type="button" className="btn loading">Saving . . .</button>
+                            )}
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    )
+}

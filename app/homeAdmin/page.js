@@ -2,7 +2,7 @@ import LayoutAdmin from '../layoutAdmin'
 import AddMataKuliah from './addMataKuliah';
 import UpdateMataKuliah from './updateMataKuliah';
 import DeleteMataKuliah from './deleteMataKuliah';
-import AddJadwalUjian from './addJadwalUjian';
+import DeleteAllMataKuliah from './deleteAllMataKuliah'
 import CsvUpload from './csvUpload';
 import SearchBar from './searchBar';
 import bg from '../../assets/background_unpar.jpg'
@@ -24,18 +24,19 @@ export default async function HomeAdmin(){
     const mataKuliah = await getMataKuliah()
     const namaMataKuliah = await getNamaMataKuliah()
     return(
-        <div className="flex overflow-y-scroll overflow-x-hidden h-screen flex-col items-center px-20 text-center bg-cover bg-center" style={{backgroundImage: `url(${bg.src})`}}>
+        <div className="flex overflow-y-auto overflow-x-hidden min-h-screen max-h-content flex-col items-center px-20 text-center bg-auto bg-center" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>
-            <div className='flex flex-col lg:px-20 px-5 w-screen min-h-screen max-h-full bg-gradient-to-br from-sky-500'>
+            <div className='flex flex-col lg:px-20 px-5 w-screen min-h-screen max-h-content max-h-full bg-gradient-to-br from-sky-500'>
                 <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
                     <p className='text-4xl text-white text-center lg:text-left'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
                     <p className='text-l text-white bg-sky-600 rounded-2xl p-2 my-5 lg:w-1/6 text-center'> Kelola Mata kuliah</p>
                     <div className='flex flex-col'>
                         <AddMataKuliah/> 
                         {/* <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian> */}
+                        <CsvUpload/>
+                        <DeleteAllMataKuliah/>
                     </div>
                     
-                    <CsvUpload/>
                     <div className='lg:w-2/5 mt-3 mb-3'>
                         <SearchBar></SearchBar>
                     </div>

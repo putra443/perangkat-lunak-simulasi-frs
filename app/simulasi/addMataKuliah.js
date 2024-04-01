@@ -11,7 +11,7 @@ export default function AddMataKuliah(mataKuliah){
     const [kelas,setKelas] = useState("A")
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
-    const [curSemester, SetCurSemester] = useState("")
+    const [curSemester, SetCurSemester] = useState("1")
     const router = useRouter();
     function handleChange(){
         setModal(!modal)
@@ -48,16 +48,16 @@ export default function AddMataKuliah(mataKuliah){
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label font-bold">Pilih Semester / Mata Kuliah Pilihan</label>
-                            <select onChange={(e) => SetCurSemester(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                            <select value={curSemester} onChange={(e) => SetCurSemester(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 <option value=''>Pilih Semester</option>
-                                <option value='1'>1</option>
-                                <option value='2'>2</option>
-                                <option value='3'>3</option>
-                                <option value='4'>4</option>
-                                <option value='5'>5</option>
-                                <option value='6'>6</option>
-                                <option value='7'>7</option>
-                                <option value='8'>8</option>
+                                <option value='1'>Semester 1</option>
+                                <option value='2'>Semester 2</option>
+                                <option value='3'>Semester 3</option>
+                                <option value='4'>Semester 4</option>
+                                <option value='5'>Semester 5</option>
+                                <option value='6'>Semester 6</option>
+                                <option value='7'>Semester 7</option>
+                                <option value='8'>Semester 8</option>
                                 <option value='0'>Mata Kuliah Pilihan</option>
                             </select>
                         </div>
@@ -68,7 +68,10 @@ export default function AddMataKuliah(mataKuliah){
                                 <option>Pilih Mata Kuliah</option>
                                 {mataKuliah.children.filter((mataKuliah)=> {
                                     return curSemester === '' ? mataKuliah : mataKuliah.semester == curSemester
-                                }).map((mataKuliah,index)=>(
+                                }).filter((mataKuliah,index, self)=>{
+                                    return self.findIndex((m)=> m.namaMataKuliah === mataKuliah.namaMataKuliah) === index
+                                })
+                                .map((mataKuliah,index)=>(
                                     <option key={index}>{mataKuliah.namaMataKuliah}</option>
                                 ))}
                             </select>
@@ -78,7 +81,10 @@ export default function AddMataKuliah(mataKuliah){
                             <select onChange={(e)=>setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 {mataKuliah.children.filter((mataKuliah)=> {
                                         return nama === '' ? mataKuliah : mataKuliah.namaMataKuliah == nama
-                                    }).map((mataKuliah,index)=>(
+                                    }).filter((mataKuliah, index, self)=>{
+                                        return self.findIndex((m) => m.kelas === mataKuliah.kelas)=== index
+                                    })
+                                    .map((mataKuliah,index)=>(
                                         <option key={index}>{mataKuliah.kelas}</option>
                                     ))}
                             </select>

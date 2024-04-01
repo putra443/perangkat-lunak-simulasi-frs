@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function UpdateMataKuliah(user){
-    console.log(user.children.role);
+    // console.log(user.children.role);
     const [userId, setUserId] = useState(user.children.idUser)
     const[role, setRole] = useState(user.children.role)
     const [modal, setModal] =useState(false);
@@ -47,9 +47,9 @@ export default function UpdateMataKuliah(user){
                         <div className="form-control">
                             <label className="label font-bold">Kelas</label>
                             <select value={role} onChange={(e)=> setRole(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option value="Admin" >Admin</option>
-                                <option value={"mahasiswa" || "Mahasiswa"} >Mahasiswa</option>
-                                <option value={"Admin / Mahasiswa" || "admin / mahasiswa"}>Admin / Mahasiswa</option>
+                                <option value={"Admin"} >Admin</option>
+                                <option value={"Mahasiswa"} >Mahasiswa</option>
+                                <option value={"Admin / Mahasiswa"}>Admin / Mahasiswa</option>
                             </select>
                         </div>
                         <div className="modal-action">

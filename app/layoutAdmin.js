@@ -1,5 +1,5 @@
 "use client"
-import { Inter } from 'next/font/google'
+import { Inter, Rubik_80s_Fade } from 'next/font/google'
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -22,10 +22,10 @@ export default function LayoutAdmin() {
     if(status === "unauthenticated" ){
       router.push('/')
     }
-    else if(status==="authenticated" && session?.user?.role == "admin"){
+    else if(status==="authenticated" && session?.user?.role == "Admin" || status==="authenticated" && session?.user?.role == "Admin / Mahasiswa" ){
       // console.log(session,status);
     }
-    else if(status==="authenticated" && session?.user?.role != "admin"){
+    else if(status==="authenticated" && session?.user?.role != "Admin"){
       signOut()
       router.push("/")
     }
@@ -33,16 +33,20 @@ export default function LayoutAdmin() {
   return (
           <div className='w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
             <img className='float-left w-24 h-13 rounded-xl scale-150 m-5' src={logodouble.src}></img>
-            <a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
+            {session?.user?.role=="Admin / Mahasiswa" ? (<a href={`/home/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>)
+            :(<a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>)}
             <a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Kuliah</h1></a>
             <a href='/jadwalUjian' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Ujian</h1></a>
             <a href='/usersAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Users</h1></a>
+            {session?.user?.role=="Admin / Mahasiswa" ? 
+            (<a href={`/simulasi/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}/${session?.user?.id}`} className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Simulasi</h1></a>):
+            (<span></span>)}
             {status === "authenticated" ? (
               <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
 
             ) : (
               // <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left  hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
-              <p>error: harusnya tidak keluar</p>
+              <span></span>
             )}
             <img className="float-right w-10 h-10 mt-3.5 rounded-full" src={session?.user?.image}></img>
             <p className='float-right text-white px-3 py-2 lg:mt-1.5 mt-4 text-sm lg:text-base '>{session?.user?.name}</p>

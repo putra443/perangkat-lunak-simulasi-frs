@@ -31,7 +31,6 @@ export async function POST(req,res){
         '${request.jamMulaiUjian}','${request.jamSelesaiUjian}'
         )`)
         client.release()
-
         return new Response(result);
       }
       else{
@@ -55,6 +54,7 @@ export async function POST(req,res){
         // const result = await client.query(`INSERT INTO jadwal_mata_kuliah
         // ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
         // ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
+        client.release()
         return new Response()
       }
     } catch (e) {
@@ -95,13 +95,18 @@ export async function POST(req,res){
   export async function DELETE (req, res){
     try {
       const request = await req.json()
-      const client = await pool.connect();
-      // console.log(request.idUjian);
-      const result = await client.query(`DELETE FROM jadwal_ujian WHERE "idUjian" = '${request.idUjian}';`);
-      // res.status(200).json(result);
-      // return new Response(JSON.stringify(result.rows));
-      client.release()
-      return NextResponse.json(result.rows)
+      if(request.deleteAll==true){
+        const client = await pool.connect();
+        const result = await client.query(`DELETE FROM jadwal_ujian`);
+        client.release()
+        return NextResponse.json(result)
+      }
+      else{
+        const client = await pool.connect();
+        const result = await client.query(`DELETE FROM jadwal_ujian WHERE "idUjian" = '${request.idUjian}';`);
+        client.release()
+        return NextResponse.json(result)
+      }
     } catch (err) {
       console.error(err);
       // res.status(500).json({ error: 'An error occurred' });

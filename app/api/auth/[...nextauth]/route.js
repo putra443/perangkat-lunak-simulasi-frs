@@ -74,16 +74,15 @@ const options = {
                 // console.log(result);
                 if(result.rowCount!=1){
                     if(data.email.includes("@student.unpar.ac.id") && data.email.includes("618")){
-                        console.log("login pass");
-                        console.log(data);
-                        client.query(`insert into "user" (email, fullname, role) values ('${data.email}','${data.fullname}','mahasiswa')`)
+                        // console.log("login pass");
+                        // console.log(data);
+                        client.query(`insert into "user" (email, fullname, role) values ('${data.email}','${data.fullname}','Mahasiswa')`)
                         const resultId = await client.query(`select * from "user" where email='${data.email}'`)
-                        console.log(resultId);
+                        // console.log(resultId);
                         token.email = resultId.rows[0].email
                         token.fullname = resultId.rows[0].fullname
                         token.role = resultId.rows[0].role
                         token.id = resultId.rows[0].idUser
-                        client.release()
                     }
                     else{
                         return null
@@ -91,11 +90,23 @@ const options = {
                 }
                 if(result.rowCount==1){
                     // console.log(result);
-                    token.email = result.rows[0].email
-                    token.fullname = result.rows[0].fullname
-                    token.role = result.rows[0].role
-                    token.id = result.rows[0].idUser
+                    if(result.rows[0].role=="Admin" && result.rows[0].fullname==""){
+                        client.query(`UPDATE "user" set fullname = '${data.fullname}' where email = '${data.email}'`)
+                        const resultUpdate =  await client.query(`select * from "user" where email='${data.email}'`)
+                        token.email = resultUpdate.rows[0].email
+                        token.fullname = resultUpdate.rows[0].fullname
+                        token.role = resultUpdate.rows[0].role
+                        token.id = resultUpdate.rows[0].idUser
+                    }
+                    else{
+                        token.email = result.rows[0].email
+                        token.fullname = result.rows[0].fullname
+                        token.role = result.rows[0].role
+                        token.id = result.rows[0].idUser
+                    }
                 }
+            client.release()
+
             }
             // console.log(token);
             return token

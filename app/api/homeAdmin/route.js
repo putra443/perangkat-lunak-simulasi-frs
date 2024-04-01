@@ -7,6 +7,7 @@ export async function GET (req, res){
       const result = await client.query('SELECT * FROM jadwal_mata_kuliah ORDER BY "idJadwalMataKuliah"');
       // res.status(200).json(result);
       // return new Response(JSON.stringify(result.rows));
+      client.release()
       return new NextResponse(JSON.stringify(result.rows))
     } catch (err) {
       console.error(err);
@@ -27,6 +28,7 @@ export async function POST(req,res){
         ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi,semester) VALUES 
         ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}','${request.semester}')`)
         // return new Response(result);
+        client.release()
         return new NextResponse(result)
       }
       else{
@@ -81,6 +83,7 @@ export async function POST(req,res){
       sesi='${request.sesiKelas}', jam_mulai='${request.jamMulai}', jam_selesai='${request.jamSelesai}'
       WHERE "idJadwalMataKuliah"=${request.idJadwalMataKuliah};`)
       // return new Response(result);
+      client.release()
       return new NextResponse(result)
     }catch(err){
       console.error(err);
@@ -93,10 +96,19 @@ export async function POST(req,res){
   export async function DELETE(req, res){
     try{
       const request = await req.json();
-      const client = await pool.connect();
-      const result = await client.query(`DELETE FROM jadwal_mata_kuliah WHERE "idJadwalMataKuliah"=${request.idMataKuliah}`);
-      // return new Response(result);
-      return new NextResponse(result)
+      if(request.deleteAll==true){
+        const client = await pool.connect();
+        const result = await client.query(`DELETE FROM jadwal_mata_kuliah`);
+        client.release()
+        return new NextResponse(result)
+      }
+      else{
+        const client = await pool.connect();
+        const result = await client.query(`DELETE FROM jadwal_mata_kuliah WHERE "idJadwalMataKuliah"=${request.idMataKuliah}`);
+        client.release()
+        return new NextResponse(result)
+      }
+      
     }catch(err){
       console.error(err);
       // return new Response(json({error: 'an error occured'}),{status:500});

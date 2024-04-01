@@ -25,14 +25,14 @@ export default function LayoutUser() {
     if(status === "unauthenticated"){
       router.push('/')
     }
-    else if(status==="authenticated" && session?.user?.role == "mahasiswa"){
+    else if(status==="authenticated" && session?.user?.role == "Mahasiswa" || status==="authenticated" && session?.user?.role == "Admin / Mahasiswa" ){
       // console.log(session,status);
       // router.push(`/home/${session?.user?.role}/${session?.user?.email}`)
     }
-    else if(status==="authenticated" && session?.user?.role == "admin"){
+    else if(status==="authenticated" && session?.user?.role == "Admin"){
       router.push("/homeAdmin")
     }
-    else if(status==="authenticated" && session?.user?.role != "mahasiswa"){
+    else if(status==="authenticated" && session?.user?.role != "Mahasiswa"){
       signOut()
       router.push("/")
     }
@@ -40,15 +40,23 @@ export default function LayoutUser() {
   return (
           <div className=' w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
             <img src={logodouble.src} className='float-left w-24 h-13 rounded-xl scale-150 m-5'></img>
-            <a href={`/home/${session?.user?.role}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none float-left text-xl hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
-            <a href={`/home/${session?.user?.role}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Home</a>
-            <a href={`/simulasi/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Simulasi FRS</a>
-            {/* <a href={`/daftarMataKuliah/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='mt-1.5 btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2'>Daftar Mata Kuliah</a> */}
+            <a href={`/home/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none float-left text-xl hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
+            {session?.user?.role=="Admin / Mahasiswa" ? 
+            ( <> 
+                <a href={`/homeAdmin`} className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Kuliah</h1></a>
+                <a href={`/jadwalUjian`} className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Ujian</h1></a>
+                <a href={`/usersAdmin`} className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Users</h1></a>
+                <a href={`/simulasi/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2 mt-1.5'>Simulasi</a>
+              </>
+              ):
+            (
+            <a href={`/simulasi/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2 mt-1.5'>Simulasi</a>
+            )}
             {status === "authenticated" ? (
-              <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
+              <a onClick={()=>signOut({callbackUrl: 'http://localhost:3000/'})} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
 
             ) : (
-              <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
+              <span></span>
             )}
             {/* <a href='/' className='btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a> */}
             <img className="float-right w-10 h-10 mt-3.5 rounded-full" src={session?.user?.image}></img>
