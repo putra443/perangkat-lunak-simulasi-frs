@@ -39,7 +39,7 @@ export default function AddMataKuliah(mataKuliah){
     return (
         <div>
 
-            <button className="btn bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Add Mata Kuliah Baru</button>
+            <button className="btn bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Tambah Mata Kuliah Baru</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal">
@@ -90,11 +90,11 @@ export default function AddMataKuliah(mataKuliah){
                             </select>
                         </div>
                         <div className="modal-action">
-                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
+                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Save</button>   
+                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Simpan</button>   
                             ):(
-                            <button type="button" className="btn loading">Saving . . .</button>
+                            <button type="button" className="btn loading">Sedang Menyimpan . . .</button>
                             )}
 
                         </div>

@@ -59,7 +59,7 @@ export default function CsvUpload(){
 
         return(
             <div>
-                <button className="btn mt-5 bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Upload File Excel</button>
+                <button className="btn mt-5 bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Unggah File Excel</button>
                 <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
                 
                 <div className={`modal`}>
@@ -67,15 +67,15 @@ export default function CsvUpload(){
                         <h1 className="font-bold text-2xl">Tambah Mata Kuliah</h1>
                         <form onSubmit={onFileChangeHandler}>
                             <div className="form-control">
-                                <label className="label font-bold">Upload File Excel Disini : </label>
+                                <label className="label font-bold">Unggah Berkas Excel Disini : </label>
                                 <input onChange={(e)=>setDataExcel(e.target.files[0])} type="file" name="file" id="file" accept={acceptableCSVFileTypes} className=" text-sm lg:text-base lg:m-3  p-3 rounded-2xl btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none"></input>
                             </div>
                             <div className="modal-action">
-                                    <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
+                                    <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                                     {!isMutating? (
-                                    <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Save</button>   
+                                    <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Simpan</button>   
                                     ):(
-                                    <button type="button" className="btn loading">Saving . . .</button>
+                                    <button type="button" className="btn loading">Sedang menyimpan . . .</button>
                                     )}
                             </div>
                         </form>

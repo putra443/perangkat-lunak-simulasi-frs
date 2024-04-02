@@ -54,7 +54,7 @@ export default function addMataKuliah(){
     return (
         <div>
 
-            <button className="btn bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Add Mata Kuliah Baru</button>
+            <button className="btn bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Tambah Mata Kuliah Baru</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
@@ -68,14 +68,14 @@ export default function addMataKuliah(){
                         <div className="form-control">
                             <label className="label font-bold">Semester</label>
                             <select onChange={(e)=> setSemester(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
+                                <option value="1">Semester 1</option>
+                                <option value="2">Semester 2</option>
+                                <option value="3">Semester 3</option>
+                                <option value="4">Semester 4</option>
+                                <option value="5">Semester 5</option>
+                                <option value="6">Semester 6</option>
+                                <option value="7">Semester 7</option>
+                                <option value="8">Semester 8</option>
                                 <option value="9">Mata Kuliah Pilihan</option>
                             </select>
                         </div>  
@@ -114,11 +114,11 @@ export default function addMataKuliah(){
                             <input type="text" value={jamSelesai} onChange={(e)=> setJamSelesai(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Jam Selesai"></input>
                         </div>
                         <div className="modal-action">
-                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
+                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Save</button>   
+                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Simpan</button>   
                             ):(
-                            <button type="button" className="btn loading">Saving . . .</button>
+                            <button type="button" className="btn loading">Sedang menyimpan . . .</button>
                             )}
 
                         </div>

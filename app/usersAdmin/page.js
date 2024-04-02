@@ -40,7 +40,7 @@ export default async function UsersAdmin(){
                                 <th className='p-5'>Nama Lengkap</th>
                                 <th className='p-5'>Email</th>
                                 <th className='p-5'>Role</th>
-                                <th className='p-5'>Actions</th>
+                                <th className='p-5'>Edit</th>
                             </tr>
                         </thead>
                         <tbody>

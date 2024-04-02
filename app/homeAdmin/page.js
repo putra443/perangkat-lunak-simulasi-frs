@@ -51,7 +51,7 @@ export default async function HomeAdmin(){
                                 <th className='p-5'>Jam Selesai</th>
                                 <th className='p-5'>Kelas</th>
                                 <th className='p-5'>Sesi</th>
-                                <th className='p-5'>Actions</th>
+                                <th className='p-5'>Edit/Hapus</th>
                             </tr>
                         </thead>
                         <tbody>

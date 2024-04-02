@@ -50,7 +50,7 @@ export default function addJadwalUjian(mataKuliah){
     return (
         <div>
 
-            <button className="btn mt-5 bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Add Jadwal Ujian</button>
+            <button className="btn mt-5 bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Tambah Jadwal Ujian</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
@@ -83,11 +83,11 @@ export default function addJadwalUjian(mataKuliah){
                             <input type="text" onChange={(e)=>setEndUjian(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
                         </div>
                         <div className="modal-action">
-                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
+                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Save</button>   
+                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Simpan</button>   
                             ):(
-                            <button type="button" className="btn loading">Saving . . .</button>
+                            <button type="button" className="btn loading">Sedang menyimpan . . .</button>
                             )}
 
                         </div>

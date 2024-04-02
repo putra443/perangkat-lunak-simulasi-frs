@@ -37,7 +37,7 @@ export default function AddAdmin(){
     return(
         <div>
 
-            <button className="mb-5 btn bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Add Admin</button>
+            <button className="mb-5 btn bg-green-700 hover:bg-green-800 text-white border-none" onClick={handleChange}>Tambah Admin</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
@@ -53,11 +53,11 @@ export default function AddAdmin(){
                             <input type="text" value={fullname} onChange={(e)=> setFullname(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Nama Lengkap"></input>
                         </div>
                         <div className="modal-action">
-                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
+                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Save</button>   
+                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Simpan</button>   
                             ):(
-                            <button type="button" className="btn loading">Saving . . .</button>
+                            <button type="button" className="btn loading">Sedang menyimpan . . .</button>
                             )}
 
                         </div>

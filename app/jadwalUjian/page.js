@@ -50,7 +50,7 @@ export default async function Simulasi(){
                                     <th className='p-5'>Tanggal UAS</th>
                                     <th className='p-5'>Waktu Mulai UAS</th>
                                     <th className='p-5'>Waktu Selesai UAS</th>
-                                    <th className='p-5'>Action</th>
+                                    <th className='p-5'>Edit/Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>

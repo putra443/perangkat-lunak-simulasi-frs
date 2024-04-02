@@ -47,7 +47,7 @@ export default function UpdateMataKuliah(mataKuliah){
     return (
         <div>
 
-            <button className="btn m-3 text-white btn-info btn-sm" onClick={handleChange}>Update</button>
+            <button className="btn m-3 text-white btn-info btn-sm" onClick={handleChange}>Edit</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
@@ -93,11 +93,11 @@ export default function UpdateMataKuliah(mataKuliah){
                             <input type="text" value={jamSelesai} onChange={(e)=> setJamSelesai(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Jam Selesai"></input>
                         </div>
                         <div className="modal-action">
-                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
+                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Update</button>   
+                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Simpan</button>   
                             ):(
-                            <button type="button" className="btn loading">Updating . . .</button>
+                            <button type="button" className="btn loading">Sedang menyimpan . . .</button>
                             )}
 
                         </div>

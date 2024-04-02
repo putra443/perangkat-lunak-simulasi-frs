@@ -34,7 +34,7 @@ export default function deleteMataKuliah(mataKuliah){
     return (
         <div>
 
-            <button className="btn m-3 btn-error bg-red-600 hover:bg-red-700 btn-sm text-white" onClick={handleChange}>Delete</button>
+            <button className="btn m-3 btn-error bg-red-600 hover:bg-red-700 btn-sm text-white" onClick={handleChange}>Hapus</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal">
@@ -42,11 +42,11 @@ export default function deleteMataKuliah(mataKuliah){
                     <h3 className="font-bold text-lg">Apakah anda yakin akan menghapus mata kuliah {mataKuliah.nama}?</h3>
                     
                         <div className="modal-action">
-                            <button className="btn text-white border-none" type="button" onClick={handleChange}>Close</button>
+                            <button className="btn text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="button" onClick={() => handleDelete(mataKuliah.idMataKuliah)}>Delete</button>   
+                            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="button" onClick={() => handleDelete(mataKuliah.idMataKuliah)}>Hapus</button>   
                             ):(
-                            <button type="button" className="btn loading">Deleting . . .</button>
+                            <button type="button" className="btn loading">Sedang menghapus . . .</button>
                             )}
                         </div>
                 </div>

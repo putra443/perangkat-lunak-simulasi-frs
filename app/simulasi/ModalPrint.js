@@ -1,23 +1,41 @@
 'use client'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useSession } from 'next-auth/react';
 import html2canvas from "html2canvas";
 import html2canvaspro from 'html2canvas-pro'
 import jsPDF from "jspdf";
-
-
+import logoifunpar from '@/assets/logoifunpar3.png'
 
 
 export default function ModalPrint(jadwalMahasiswa){
     const [modal, setModal] = useState(false)
     const [loader, setLoader] = useState(false)
     const statusConflict = jadwalMahasiswa.statusConflict
+    const curdate = new Date()
+    const [currentTime, setCurrentTime] = useState(curdate)
     // console.log(statusConflict);
     const {data:session, status} = useSession()
     // console.log(jadwalMahasiswa);
     function handleChange(){
         setModal(!modal)
     }
+
+    // useEffect(() => {
+    //     const intervalId = setInterval(() => {
+    //       setCurrentTime(new Date());
+    //     }, 1000); // Update every second
+    
+    //     return () => clearInterval(intervalId);
+    //   }, []);
+
+    const options = { 
+        year: 'numeric', 
+        month: '2-digit', 
+        day: '2-digit', 
+        hour: '2-digit', 
+        minute: '2-digit' 
+      };
+
     const downloadPDF = () => {
         const capture = document.querySelector('.actual-receipt')
         setLoader(true)
@@ -37,12 +55,13 @@ export default function ModalPrint(jadwalMahasiswa){
     return (
         <div>
             <button className='float-left btn border-none text-white bg-green-700 hover:bg-green-800 mt-5 mx-3' onClick={handleChange} disabled={!statusConflict===false}>
-                {statusConflict?(<span>Jadwal Bentrok</span>):(<span>Print PDF</span>)}</button>
+                {statusConflict?(<span>Jadwal Bentrok</span>):(<span>Cetak PDF</span>)}</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             <div className="overflow-auto modal  modal-middle">
                 <div className="my-5 lg:scale-100 p-10 rounded-xl bg-white text-black">
                     <div className="actual-receipt">
                         <div className="m-10">
+                            <img className=" w-78 h-24 float-right" src={logoifunpar.src} alt="logoIfUnpar"></img>
                             <h1 className="my-4 text-xl font-bold">Hasil Simulasi FRS</h1>
                             <h1 className="my-4 text-xl font-bold">Nama : {session?.user?.name}</h1>
                             <h1 className="my-4 text-xl font-bold">NPM : {session?.user?.email.substring(0,10)}</h1>
@@ -103,16 +122,18 @@ export default function ModalPrint(jadwalMahasiswa){
                                     ))}
                                 </tbody>
                             </table>
+                            <p className="float-right mt-5 text-sm">Dibuat pada tanggal : {currentTime.toLocaleDateString('id-ID', options)}</p>
                         </div>
+                        
                     </div>
                     
                     <button className="btn btn-primary bg-cyan-700 text-white border-none mx-4" 
                     onClick={downloadPDF}
                     disabled={!(loader===false)}
                     > 
-                    {loader?(<span>Downloading</span>):(<span>Download</span>)}
+                    {loader?(<span>Sedang mengunduh</span>):(<span>Unduh</span>)}
                     </button>
-                    <button className="btn btn-primary bg-cyan-700 text-white border-none" onClick={handleChange}>Confirm</button>
+                    <button className="btn btn-primary bg-cyan-700 text-white border-none" onClick={handleChange}>Tutup</button>
                 </div>
             </div>
         </div>

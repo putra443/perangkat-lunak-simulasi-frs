@@ -21,7 +21,7 @@ export default function CekBentrok(hasilCek){
                     <p className="text-sm lg:text-base">{hasilCek.children}</p>
                     <h1 className="my-2 font-bold">Hasil cek bentrok jadwal ujian :</h1>
                     <p className="my-2 text-sm lg:text-base">{hasilCek.cekUjian}</p>
-                    <button className="btn btn-primary bg-cyan-700 text-white border-none" onClick={handleChange}>Confirm</button>
+                    <button className="btn btn-primary bg-cyan-700 text-white border-none" onClick={handleChange}>Tutup</button>
                 </div>
             </div>
         </div>

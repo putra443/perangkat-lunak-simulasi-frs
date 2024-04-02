@@ -37,15 +37,15 @@ export default function UpdateMataKuliah(user){
     return (
         <div>
 
-            <button className="btn m-3 text-white btn-info btn-sm" onClick={handleChange}>Update</button>
+            <button className="btn m-3 text-white btn-info btn-sm" onClick={handleChange}>Edit Role</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
                 <div className="w-3/5 overflow-scroll overflow-x-hidden p-10 rounded-2xl bg-white text-black">
-                    <h3 className="font-bold text-lg">Edit Role User : {user.children.fullname}</h3>
+                    <h3 className="font-bold text-lg">Edit Peran Pengguna : {user.children.fullname}</h3>
                     <form onSubmit={handleUpdate}>
                         <div className="form-control">
-                            <label className="label font-bold">Kelas</label>
+                            <label className="label font-bold">Ganti Role</label>
                             <select value={role} onChange={(e)=> setRole(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 <option value={"Admin"} >Admin</option>
                                 <option value={"Mahasiswa"} >Mahasiswa</option>
@@ -53,11 +53,11 @@ export default function UpdateMataKuliah(user){
                             </select>
                         </div>
                         <div className="modal-action">
-                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Close</button>
+                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Update</button>   
+                            <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Simpan</button>   
                             ):(
-                            <button type="button" className="btn loading">Updating . . .</button>
+                            <button type="button" className="btn loading">Sedang menyimpan . . .</button>
                             )}
 
                         </div>
