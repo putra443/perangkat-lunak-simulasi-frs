@@ -46,6 +46,24 @@ export default function CsvUpload(){
             router.refresh()   
     }
 
+    function downloadTemplate(){
+        const headers = ['kode', 'nama_mata_kuliah', 'tanggalUTS', 'tanggalUAS', 'jam_mulai', 'jam_selesai']
+        const csv = headers.join(';') + '\n'
+        const encodedURI = encodeURIComponent(csv)
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const filename = 'template_jadwal_ujian.csv'
+        const url = window.URL.createObjectURL(blob)
+
+        // fs.writeFileSync(filename, csv);
+        const element = document.createElement('a')
+        element.href = url
+        element.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodedURI)
+        element.setAttribute('download', filename)
+        document.body.appendChild(element)
+        element.click()
+        document.body.removeChild(element)
+    }
+
     async function upload(res){
         await fetch("http://localhost:3000/api/homeAdmin/ujian",{
                 method:"POST",
@@ -72,6 +90,7 @@ export default function CsvUpload(){
                             </div>
                             <div className="modal-action">
                                     <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
+                                    <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={downloadTemplate}>Unduh Template</button>
                                     {!isMutating? (
                                     <button className="btn btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none" type="submit">Simpan</button>   
                                     ):(

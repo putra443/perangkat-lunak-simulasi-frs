@@ -1,0 +1,114 @@
+1 AIF231101-04 Matematika Dasar                                            1 4
+2 AIF231103-04 Dasar Pemrograman                                           1 4
+3 AIF231105-04 Matematika Diskret                                          1 4
+4 MKU230110-02 Kewarganegaraan                                             1 2
+5 MKU230130-02 Logika                                                      1 2
+6 MKU230120-02 Bahasa Indonesia                                            1 2
+7 AIF231402-03 Statistika untuk Komputasi                                  2 3
+2 AIF231104-04 Algoritma dan Pemrograman                                   2 4
+3 AIF231106-03 Logika Informatika                                          2 3
+4 AIF231202-04 Arsitektur dan Organisasi Komputer                          2 4
+5 MKU230150-02 Etika Dasar                                                 2 2
+6 MKU230140-02 Pendidikan Pancasila                                        2 2
+1 AIF232101-02 Matriks dan Ruang Vektor                                    3 2
+2 AIF232103-04 Pemrograman Berorientasi Objek                              3 4
+3 AIF232105-03 Struktur Diskret                                            3 3
+4 AIF232107-04 Algoritma dan Struktur Data                                 3 4
+5 AIF232201-03 Sistem Operasi                                              3 3
+6 MKU230180-02 Estetika                                                    3 2
+1 AIF232102-02 Analisis dan Desain Perangkat Lunak                         4 2
+2 AIF232002-02 Teknik Presentasi                                           4 2
+3 AIF232104-04 Desain dan Analisis Algoritma                               4 4
+4 AIF232301-04 Manajemen Informasi dan Basis Data                          4 4
+5 AIF232202-04 Jaringan Komputer                                           4 4 
+6 MKU230160-02 Agama Katolik                                               4 2
+6 MKU230170-02 Fenomenologi Agama                                          4 2 
+1 AIF233101-04 Rekayasa Perangkat Lunak                                    5 4
+2 AIF233301-02 Manajemen Proyek                                            5 2
+3 AIF233401-03 Pengantar dan Aplikasi Data Science                         5 3
+1 AIF233303-03 Pengantar Sistem Informasi                                  5 3
+1 AIF233103-03 Keamanan Informasi                                          5 3
+4 AIF233105-04 Artificial Intelligence                                     5 4
+5 AIF233107-02 Desain Antarmuka Grafis                                     5 2
+6 AIF233201-03 Pemrograman Berbasis Web                                    5 3
+1 AIF233002-03 Sosioinformatika dan Profesionalisme                        6 3
+2 AIF233402-03 Proyek Data Science  1                                      6 3
+2 AIF233302-03 Proyek Sistem Informasi 1                                   6 3
+2 AIF233102-03 Machine Learning                                            6 3
+1 AIF234001-03 Tugas Akhir 1                                               7 3
+2 AIF234401-03 Proyek Data Science 2                                       7 3
+2 AIF234301-03 Proyek Sistem Informasi 2                                   7 3
+2 AIF234101-03 Proyek Informatika                                          7 3
+1 AIF234002-06 Tugas Akhir 2                                               8 6 
+1 AIF231108-03 Pemrograman Kompetitif 1                                    0 3 
+2 AIF232401-02 Pemrograman Python untuk Data Science                       0 2 
+3 AIF232403-02 Pengantar Data Science                                      0 2 
+4 AIF232405-03 Sertifikasi Dasar Google Cloud Computing                    0 3 
+5 AIF232303-03 Basis Data Relasional                                       0 3 
+6 AIF232109-03 Pemrograman Kompetitif 2                                    0 3 
+7 AIF232111-02 Dasar Pengembangan Games                                    0 2 
+8 AIF232113-03 Pemrograman C                                               0 3 
+9 AIF232402-03 Analisis Data dengan Statistika dan R                       0 3 
+0 AIF232204-03 Sertifikasi Cyber Security Operations                       0 3 
+1 AIF232106-03 Pemrograman Kompetitif 3                                    0 3 
+2 AIF232108-03 Pengantar Artificial Intelligence                           0 3 
+3 AIF232110-03 3D Design Using Autodesk Maya                               0 3 
+4 AIF232112-03 3D Game Development Using Unity                             0 3 
+5 AIF232114-03 3D Character Animation                                      0 3 
+6 AIF232116-03 Pemrograman Games                                           0 3 
+7 AIF233403-03 Sistem Big Data untuk Organisasi                            0 3 
+8 AIF233405-02 Topik Khusus Data Science 1                                 0 2 
+9 AIF233407-02 Kerja Praktik Data Science 1                                0 2 
+0 AIF233409-03 Kerja Praktik Data Science 2                                0 3 
+1 AIF233411-04 Kerja Praktik Data Science 3                                0 4 
+2 AIF233413-05 Kerja Praktik Data Science 4                                0 5 
+3 AIF233415-03 Sistem Kecerdasan Bisnis                                    0 3 
+4 AIF233001-03 Pengabdian kepada Masyarakat 1                              0 3 
+5 AIF233209-03 Internet of Things                                          0 3 
+6 AIF233203-03 Sertifikasi Switch, Routing, and Wireless Essentials        0 3 
+7 AIF233205-03 Sertifikasi DevOps                                          0 3 
+8 AIF233109-02 Privasi Data                                                0 2 
+9 AIF233111-02 Topik Khusus Computing Science 1                            0 2 
+0 AIF233113-02 Kerja Praktik Computing Science 1                           0 2 
+1 AIF233115-03 Kerja Praktik Computing Science 2                           0 3 
+2 AIF233117-04 Kerja Praktik Computing Science 3                           0 4 
+3 AIF233119-05 Kerja Praktik Computing Science 4                           0 5 
+4 AIF233121-03 Pemrograman Kompetitif 4                                    0 3 
+5 AIF233123-02 Komputasi Paralel                                           0 2 
+6 AIF233125-03 Pemodelan Formal                                            0 3 
+7 AIF233127-03 Proyek Pengembangan Games                                   0 3 
+8 AIF233129-03 Pemrograman Python                                          0 3 
+9 AIF233131-03 Pemrograman Go                                              0 3 
+0 AIF233404-03 Komputasi Big Data                                          0 3 
+1 AIF233406-03 Analisis Big Data                                           0 3 
+2 AIF233408-03 Statistika Multivariat dengan R                             0 3 
+3 AIF233410-03 Data Science pada Domain Spesifik                           0 3 
+4 AIF233412-03 Topik Khusus Data Science 2                                 0 3 
+5 AIF233414-03 Pengantar Data Mining dengan Python                         0 3 
+6 AIF233004-03 Pengabdian kepada Masyarakat2                               0 3 
+7 AIF233304-03 Teknologi Basis Data                                        0 3 
+8 AIF233306-03 Sistem Informasi                                            0 3 
+9 AIF233308-03 Fundamental dan Aplikasi Intelijen Bisnis                   0 3 
+0 AIF233310-03 Manajemen Proses Bisnis                                     0 3 
+1 AIF233314-03 Kewirausahaan Berbasis Teknologi                            0 3 
+2 AIF233202-03 Sertifikasi Enterprise Networking, Security, and Automation 0 3 
+3 AIF233204-03 Mobile Development                                          0 3 
+4 AIF233206-03 Pemrograman Back End                                        0 3 
+5 AIF233104-03 Permasalahan dan Teknik Optimasi                            0 3 
+6 AIF233106-03 Information Retrieval                                       0 3 
+7 AIF233108-03 Topik Khusus Computing Science 2                            0 3 
+8 AIF233110-03 Kriptografi                                                 0 3 
+9 AIF233112-03 Pemrograman Kompetitif 5                                    0 3 
+0 AIF233114-02 Grafika Komputer                                            0 2 
+1 AIF233116-03 Komputasi Geometris                                         0 3 
+2 AIF233120-03 Artificial Intelligence pada Game                           0 3 
+3 AIF234403-03 Teknologi Penyimpanan dan Pemrosesan Big Data               0 3 
+4 AIF234405-03 Data Mining                                                 0 3 
+5 AIF234303-03 Infrastruktur Teknologi Informasi untuk Organisasi          0 3 
+6 AIF234305-03 Emerging Technologies                                       0 3 
+7 AIF234201-03 Pemrograman Front End                                       0 3 
+8 AIF234103-03 Natural Language Processing                                 0 3 
+9 AIF234105-03 Deep Learning                                               0 3 
+0 AIF234107-03 Sistem Fuzzy                                                0 3 
+1 AIF234109-03 Sistem Multi Agen                                           0 3 
+2 AIF234104-03 Proyek Perangkat Lunak                                      0 3 
