@@ -1,9 +1,13 @@
 import LayoutAdmin from '../layoutAdmin'
 import bg from '../../assets/background_unpar.jpg'
-import UpdateUser from '../usersAdmin/updateUser'
-import DeleteUser from '../usersAdmin/deleteMahasiswa'
-import AddAdmin from './addAdmin'
-import DeleteAdmin from './deleteAdmin'
+import UpdateUser from './components/updateUser'
+import DeleteUser from './components/deleteMahasiswa'
+import AddAdmin from './components/addAdmin'
+import DeleteAdmin from './components/deleteAdmin'
+
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 async function getUsers(){
     const res = await fetch('http://localhost:3000/api/usersAdmin',{cache:'no-store'})

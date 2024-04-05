@@ -1,10 +1,10 @@
 import LayoutAdmin from '../../../layoutAdmin'
-import AddMataKuliah from '../../addMataKuliah';
-import UpdateMataKuliah from '../../updateMataKuliah';
-import DeleteMataKuliah from '../../deleteMataKuliah';
-import DeleteAllMataKuliah from '../../deleteAllMataKuliah'
-import CsvUpload from '../../csvUpload';
-import SearchBar from '../../searchBar';
+import AddMataKuliah from '../../components/addMataKuliah';
+import UpdateMataKuliah from '../../components/updateMataKuliah';
+import DeleteMataKuliah from '../../components/deleteMataKuliah';
+import DeleteAllMataKuliah from '../../components/deleteAllMataKuliah'
+import CsvUpload from '../../components/csvUpload';
+import SearchBar from '../../components/searchBar';
 import bg from '@/assets/background_unpar.jpg'
 
 

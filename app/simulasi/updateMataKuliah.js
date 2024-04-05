@@ -2,7 +2,7 @@
 import { SyntheticEvent,useState } from "react"
 import { useRouter } from "next/navigation"
 
-export default function updateMataKuliah(mataKuliah){
+export default function UpdateMataKuliah(mataKuliah){
     const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
     const [nama, setNama] = useState(mataKuliah.namaMataKuliah)
     const [jamMulai, setJamMulai] = useState(mataKuliah.jam_mulai)

@@ -1,12 +1,14 @@
 import LayoutAdmin from '../layoutAdmin'
-import AddMataKuliah from './addMataKuliah';
-import UpdateMataKuliah from './updateMataKuliah';
-import DeleteMataKuliah from './deleteMataKuliah';
-import DeleteAllMataKuliah from './deleteAllMataKuliah'
-import CsvUpload from './csvUpload';
-import SearchBar from './searchBar';
+import AddMataKuliah from './components/addMataKuliah';
+import UpdateMataKuliah from './components/updateMataKuliah';
+import DeleteMataKuliah from './components/deleteMataKuliah';
+import DeleteAllMataKuliah from './components/deleteAllMataKuliah'
+import CsvUpload from './components/csvUpload';
+import SearchBar from './components/searchBar';
 import bg from '../../assets/background_unpar.jpg'
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 async function getMataKuliah(){
     const res = await fetch('http://localhost:3000/api/homeAdmin',{cache:'no-store'})
@@ -56,15 +58,15 @@ export default async function HomeAdmin(){
                         </thead>
                         <tbody>
                         {mataKuliah.map((mataKuliah, index)=>(
-                            <tr  key={mataKuliah.idJadwalMataKuliah} className='hover:text-indigo-700 transition-all'>
+                            <tr  key={mataKuliah?.idJadwalMataKuliah} className='hover:text-indigo-700 transition-all'>
                                 <td className=" font-semibold">{index+1}</td>
-                                <td className=" font-semibold" >{mataKuliah.namaMataKuliah}</td>
-                                <td className=" font-semibold" >{mataKuliah.hari}</td>
-                                <td className=" font-semibold" >{mataKuliah.jam_mulai}</td>
-                                <td className=" font-semibold" >{mataKuliah.jam_selesai}</td>
-                                <td className='font-semibold' >{mataKuliah.kelas}</td>
-                                <td className='font-semibold' >{mataKuliah.sesi}</td>
-                                <td className=" font-semibold pt-3 pb-3" key={mataKuliah.idJadwalMataKuliah}>
+                                <td className=" font-semibold" >{mataKuliah?.namaMataKuliah}</td>
+                                <td className=" font-semibold" >{mataKuliah?.hari}</td>
+                                <td className=" font-semibold" >{mataKuliah?.jam_mulai}</td>
+                                <td className=" font-semibold" >{mataKuliah?.jam_selesai}</td>
+                                <td className='font-semibold' >{mataKuliah?.kelas}</td>
+                                <td className='font-semibold' >{mataKuliah?.sesi}</td>
+                                <td className=" font-semibold pt-3 pb-3" key={mataKuliah?.idJadwalMataKuliah}>
                                     <UpdateMataKuliah {...mataKuliah}></UpdateMataKuliah>
                                     <DeleteMataKuliah {...mataKuliah}/>
                                 </td>

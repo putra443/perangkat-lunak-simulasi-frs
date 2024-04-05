@@ -1,11 +1,14 @@
 import bg from '../../assets/background_unpar.jpg'
 import LayoutAdmin from '../layoutAdmin'
-import DeleteUjian from '../jadwalUjian/deleteJadwalUjian'
-import UpdateUjian from '../jadwalUjian/UpdateJadwalUjian'
-import AddJadwalUjian from '../homeAdmin/addJadwalUjian'
-import DeleteAllUjian from './deleteAllUjian'
-import CsvUploadUjian from './csvUploadUjian'
-import format from 'date-fns'
+import DeleteUjian from './components/deleteJadwalUjian'
+import UpdateUjian from './components/UpdateJadwalUjian'
+import AddJadwalUjian from '../homeAdmin/components/addJadwalUjian'
+import DeleteAllUjian from './components/deleteAllUjian'
+import CsvUploadUjian from './components/csvUploadUjian'
+
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 async function getJadwalUjian(){
     const res = await fetch('http://localhost:3000/api/homeAdmin/ujian',{cache:'no-store'});
