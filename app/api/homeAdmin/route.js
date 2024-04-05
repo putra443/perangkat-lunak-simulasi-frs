@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server';
-import pool from '../../../db';
+// import pool from '../../../db';
+import {query} from "@/db"
 
 export async function GET (req, res){
     try {
-      const client = await pool.connect();
-      const result = await client.query('SELECT * FROM jadwal_mata_kuliah ORDER BY "idJadwalMataKuliah"');
+      // const client = await pool.connect();
+      const result = await query('SELECT * FROM jadwal_mata_kuliah ORDER BY "idJadwalMataKuliah"');
       // res.status(200).json(result);
       // return new Response(JSON.stringify(result.rows));
-      client.release()
+      // client.release()
       return new NextResponse(JSON.stringify(result.rows))
     } catch (err) {
       console.error(err);
@@ -23,29 +24,29 @@ export async function POST(req,res){
     try {
         const request = await req.json()
       if(!request.dataExcel){
-        const client = await pool.connect();
-        const result = await client.query(`INSERT INTO jadwal_mata_kuliah
-        ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi,semester) VALUES 
-        ('${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}','${request.semester}')`)
+        // const client = await pool.connect();
+        const result = await query(`INSERT INTO jadwal_mata_kuliah
+        (kode ,"namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
+        ('${request.kode}','${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
         // return new Response(result);
-        client.release()
+        // client.release()
         return new NextResponse(result)
       }
       else{
         const data = request.dataExcel
-        const client = await pool.connect()
+        // const client = await pool.connect()
         data.map((element)=>{
+          const kode = element.kode
           const nama = element.nama_mata_kuliah
           const hari = element.hari
           const jam_mulai = element.jam_mulai
           const jam_selesai = element.jam_selesai
           const kelas = element.kelas
           const sesi = element.sesi
-          const semester = element.semester
-          const result = client.query(`INSERT INTO jadwal_mata_kuliah
-          ("namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi,semester) VALUES 
-          ('${nama}','${hari}','${jam_mulai}','${jam_selesai}','${kelas}','${sesi}','${semester}')`)
-          return new Response(result) 
+          const result = query(`INSERT INTO jadwal_mata_kuliah
+          (kode ,"namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
+          ('${kode}','${nama}','${hari}','${jam_mulai}','${jam_selesai}','${kelas}','${sesi}')`)
+          return new Response(result)
           // return new NextResponse(result)
         })
         // const result = "data masuk"
@@ -77,13 +78,13 @@ export async function POST(req,res){
     //   console.log(request.sesiKelas);
     //   console.log(request.idJadwalMataKuliah);
 
-      const client = await pool.connect();
-      const result = await client.query(`UPDATE jadwal_mata_kuliah
+      // const client = await pool.connect();
+      const result = await query(`UPDATE jadwal_mata_kuliah
       SET "namaMataKuliah"='${request.nama}',kelas='${request.kelas}',hari='${request.hari}', 
       sesi='${request.sesiKelas}', jam_mulai='${request.jamMulai}', jam_selesai='${request.jamSelesai}'
       WHERE "idJadwalMataKuliah"=${request.idJadwalMataKuliah};`)
       // return new Response(result);
-      client.release()
+      // client.release()
       return new NextResponse(result)
     }catch(err){
       console.error(err);
@@ -97,15 +98,15 @@ export async function POST(req,res){
     try{
       const request = await req.json();
       if(request.deleteAll==true){
-        const client = await pool.connect();
-        const result = await client.query(`DELETE FROM jadwal_mata_kuliah`);
-        client.release()
+        // const client = await pool.connect();
+        const result = await query(`DELETE FROM jadwal_mata_kuliah`);
+        // client.release()
         return new NextResponse(result)
       }
       else{
-        const client = await pool.connect();
-        const result = await client.query(`DELETE FROM jadwal_mata_kuliah WHERE "idJadwalMataKuliah"=${request.idMataKuliah}`);
-        client.release()
+        // const client = await pool.connect();
+        const result = await query(`DELETE FROM jadwal_mata_kuliah WHERE "idJadwalMataKuliah"=${request.idMataKuliah}`);
+        // client.release()
         return new NextResponse(result)
       }
       

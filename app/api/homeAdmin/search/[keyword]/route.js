@@ -1,17 +1,18 @@
-import pool from '@/db';
+// import pool from '@/db';
+import {query} from '@/db'
 import { NextResponse } from 'next/server';
 
 export async function GET (req, {params}){
     try {
         // const request = await req.json()
-        const client = await pool.connect();
-        const result = await client.query(`SELECT * FROM jadwal_mata_kuliah WHERE "namaMataKuliah" ILIKE '%${params.keyword}%' ORDER BY "idJadwalMataKuliah"`);
+        // const client = await pool.connect();
+        const result = await query(`SELECT * FROM jadwal_mata_kuliah WHERE "namaMataKuliah" ILIKE '%${params.keyword}%' ORDER BY "idJadwalMataKuliah"`);
         //res.status(200).json(result);
         // console.log(params);
         // console.log(result);
         // console.log(req);
         // return new Response(JSON.stringify(result.rows));
-        client.release()
+        // client.release()
         return NextResponse.json(result.rows)
         // console.log(params.keyword);
         // return NextResponse.json({msg:"hello world"})

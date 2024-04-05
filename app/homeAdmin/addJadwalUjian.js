@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
-export default function addJadwalUjian(mataKuliah){
+export default function AddJadwalUjian(mataKuliah){
     // console.log(mataKuliah.namaMataKuliah);
     const[idJadwalMataKuliah, setIdJadwalMataKuliah] = useState(mataKuliah.idJadwalMataKuliah)
     const [tanggalUTS, setTanggalUTS] = useState()

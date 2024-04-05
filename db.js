@@ -8,4 +8,14 @@ const pool = new Pool({
   port: 5432,
 });
 
-export default pool;
+
+export async function query(text,params){
+  const client = await pool.connect();
+  try {
+    const result = await client.query(text, params);
+    return result;
+  } finally {
+    client.release(); // Release the client back to the pool
+  }
+}
+// export default pool;

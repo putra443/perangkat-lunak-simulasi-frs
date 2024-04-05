@@ -4,7 +4,6 @@ import UpdateUser from '../usersAdmin/updateUser'
 import DeleteUser from '../usersAdmin/deleteMahasiswa'
 import AddAdmin from './addAdmin'
 import DeleteAdmin from './deleteAdmin'
-import { useSession } from 'next-auth/react'
 
 async function getUsers(){
     const res = await fetch('http://localhost:3000/api/usersAdmin',{cache:'no-store'})

@@ -1,0 +1,95 @@
+﻿kode;nama_mata_kuliah;hari;jam_mulai;jam_selesai;kelas;sesi
+AIF231105-04;Matematika Diskret;Senin;08:00;10:00;A;Kuliah
+AIF231105-04;Matematika Diskret;Senin;08:00;10:00;B;Kuliah
+AIF231105-04;Matematika Diskret;Senin;13:00;15:00;C;Kuliah
+AIF232106-03;Pemrograman Kompetitif 3;Senin;09:00;12:00;A;Kuliah
+AIF233401-03;Pengantar dan Aplikasi Data Science;Senin;12:00;15:00;A;Kuliah
+AIF233101-04;Rekayasa Perangkat Lunak;Senin;15:00;17:00;A;Kuliah
+AIF233101-05;Rekayasa Perangkat Lunak;Senin;15:00;17:00;A;Kuliah
+AIF234002-06;Tugas Akhir 2;Senin;11:00;12:00;A;Kuliah
+AIF234001-03;Tugas Akhir 1;Senin;12:00;15:00;A;Kuliah
+AIF231104-04;Algoritma dan Pemrograman;Senin;08:00;10:00;A;Kuliah
+AIF231104-04;Algoritma dan Pemrograman;Senin;08:00;10:00;B;Kuliah
+AIF232103-04;Pemrograman Berorientasi Objek;Senin;08:00;10:00;A;Kuliah
+AIF232103-04;Pemrograman Berorientasi Objek;Senin;08:00;10:00;B;Kuliah
+AIF232103-04;Pemrograman Berorientasi Objek;Senin;08:00;10:00;C;Kuliah
+AIF231103-04;Dasar Pemrograman;Senin;10:00;12:00;A;Kuliah
+AIF231103-04;Dasar Pemrograman;Senin;10:00;12:00;B;Kuliah
+AIF231103-04;Dasar Pemrograman;Senin;10:00;12:00;C;Kuliah
+AIF231103-04;Dasar Pemrograman;Senin;10:00;12:00;D;Kuliah
+AIF232107-04;Algoritma dan Struktur Data;Senin;13:00;15:00;A;Kuliah
+AIF232107-04;Algoritma dan Struktur Data;Senin;13:00;15:00;B;Kuliah
+AIF232107-04;Algoritma dan Struktur Data;Senin;13:00;15:00;C;Kuliah
+AIF231101-04;Matematika Dasar;Selasa;07:00;09:00;A;Kuliah
+AIF231101-04;Matematika Dasar;Selasa;07:00;09:00;B;Kuliah
+AIF231101-04;Matematika Dasar;Selasa;07:00;09:00;C;Kuliah
+AIF232201-03;Sistem Operasi;Selasa;07:00;10:00;A;Kuliah
+AIF232104-04;Desain dan Analisis Algoritma;Selasa;10:00;12:00;A;Kuliah
+AIF234301-03;Proyek Sistem Informasi 2;Selasa;07:00;10:00;A;Kuliah
+AIF232112-03;3D Game Development Using Unity;Selasa;07:00;10:00;A;Kuliah
+AIF233403-03;Sistem Big Data untuk Organisasi;Selasa;07:00;10:00;A;Kuliah
+AIF232401-02;Pemrograman Python untuk Data Science;Selasa;10:00;12:00;A;Kuliah
+AIF232105-03;Struktur Diskret;Selasa;13:00;16:00;A;Kuliah
+AIF232105-03;Struktur Diskret;Selasa;13:00;16:00;B;Kuliah
+AIF234401-03;Proyek Data Science 2;Selasa;13:00;16:00;A;Kuliah
+AIF233415-03;Sistem Kecerdasan Bisnis;Selasa;10:00;13:00;A;Kuliah
+AIF232201-03;Sistem Operasi;Selasa;13:00;16:00;A;Kuliah
+AIF233105-04;Artificial Intelligence;Rabu;08:00;10:00;A;Kuliah
+AIF233105-04;Artificial Intelligence;Rabu;13:00;15:00;B;Kuliah
+AIF231105-04;Matematika Diskret;Rabu;07:00;09:00;A;Kuliah
+AIF231105-04;Matematika Diskret;Rabu;07:00;09:00;B;Kuliah
+AIF231105-04;Matematika Diskret;Rabu;13:00;15:00;C;Kuliah
+AIF233209-03;Internet of Things;Rabu;10:00;13:00;A;Kuliah
+AIF233104-03;Permasalahan dan Teknik Optimasi;Rabu;13:00;16:00;A;Kuliah
+AIF232107-04;Algoritma dan Struktur Data;Rabu;07:00;09:00;A;Praktikum
+AIF232107-04;Algoritma dan Struktur Data;Rabu;07:00;09:00;B;Praktikum
+AIF232107-04;Algoritma dan Struktur Data;Rabu;07:00;09:00;C;Praktikum
+AIF231104-04;Algoritma dan Pemrograman;Rabu;09:00;11:00;A;Praktikum
+AIF231104-04;Algoritma dan Pemrograman;Rabu;09:00;11:00;B;Praktikum
+AIF231103-04;Dasar Pemrograman;Rabu;11:00;13:00;A;Praktikum
+AIF231103-04;Dasar Pemrograman;Rabu;11:00;13:00;B;Praktikum
+AIF231103-04;Dasar Pemrograman;Rabu;11:00;13:00;C;Praktikum
+AIF231103-04;Dasar Pemrograman;Rabu;11:00;13:00;D;Praktikum
+AIF232103-04;Pemrograman Berorientasi Objek;Rabu;13:00;15:00;A;Praktikum
+AIF232103-04;Pemrograman Berorientasi Objek;Rabu;13:00;15:00;B;Praktikum
+AIF232103-04;Pemrograman Berorientasi Objek;Rabu;13:00;15:00;C;Praktikum
+AIF233101-04;Rekayasa Perangkat Lunak;Rabu;15:00;17:00;A;Kuliah
+AIF233101-04;Rekayasa Perangkat Lunak;Rabu;15:00;17:00;B;Kuliah
+AIF232113-03;Pemrograman C;Rabu;15:00;18:00;A;Kuliah
+AIF234303-03;Infrastruktur Teknologi Informasi untuk Organisasi;Rabu;07:00;10:00;A;Kuliah
+AIF231402-03;Statistika untuk Komputasi;Kamis;07:00;10:00;A;Kuliah
+AIF231402-03;Statistika untuk Komputasi;Kamis;13:00;16:00;B;Kuliah
+AIF231101-04;Matematika Dasar;Kamis;13:00;15:00;A;Kuliah
+AIF231101-04;Matematika Dasar;Kamis;13:00;15:00;B;Kuliah
+AIF231101-04;Matematika Dasar;Kamis;13:00;15:00;C;Kuliah
+AIF233107-02;Desain Antarmuka Grafis;Kamis;16:00;18:00;A;Kuliah
+AIF233107-02;Desain Antarmuka Grafis;Kamis;16:00;18:00;B;Kuliah
+AIF233414-03;Pengantar Data Mining dengan Python;Kamis;07:00;10:00;A;Kuliah
+AIF232104-04;Desain dan Analisis Algoritma;Kamis;09:00;11:00;A;Praktikum
+AIF233101-04;Rekayasa Perangkat Lunak;Kamis;07:00;09:00;A;Responsi
+AIF233101-04;Rekayasa Perangkat Lunak;Kamis;09:00;11:00;B;Responsi
+AIF232405-03;Sertifikasi Dasar Google Cloud Computing;Kamis;07:00;10:00;A;Kuliah
+AIF231108-03;Pemrograman Kompetitif 1;Kamis;10:00;13:00;A;Kuliah
+AIF234401-03;Proyek Data Science 2;Kamis;11:00;13:00;A;Responsi
+AIF232111-02;Dasar Pengembangan Games;Kamis;14:00;16:00;A;Kuliah
+AIF233204-03;Mobile Development;Kamis;13:00;16:00;A;Kuliah
+AIF233103-03;Keamanan Informasi;Kamis;13:00;16:00;A;Kuliah
+AIF233105-04;Artificial Intelligence;Jumat;07:00;09:00;A;Kuliah
+AIF233105-04;Artificial Intelligence;Jumat;09:00;11:00;B;Kuliah
+AIF233301-02;Manajemen Proyek;Jumat;07:00;09:00;A;Kuliah
+AIF233301-02;Manajemen Proyek;Jumat;09:00;11:00;B;Kuliah
+AIF232201-03;Sistem Operasi;Jumat;07:00;10:00;B;Kuliah
+AIF232201-03;Sistem Operasi;Jumat;13:00;16:00;D;Kuliah
+AIF231104-04;Algoritma dan Pemrograman;Jumat;07:00;10:00;A;Kuliah
+AIF231104-04;Algoritma dan Pemrograman;Jumat;07:00;10:00;B;Kuliah
+AIF231103-04;Dasar Pemrograman;Jumat;09:00;11:00;A;Kuliah
+AIF231103-04;Dasar Pemrograman;Jumat;09:00;11:00;B;Kuliah
+AIF231103-04;Dasar Pemrograman;Jumat;09:00;11:00;C;Kuliah
+AIF231103-04;Dasar Pemrograman;Jumat;09:00;11:00;D;Kuliah
+AIF232107-04;Algoritma dan Struktur Data;Jumat;13:00;15:00;A;Kuliah
+AIF232107-04;Algoritma dan Struktur Data;Jumat;13:00;15:00;B;Kuliah
+AIF232107-04;Algoritma dan Struktur Data;Jumat;13:00;15:00;C;Kuliah
+AIF232103-04;Pemrograman Berorientasi Objek;Jumat;15:00;17:00;A;Kuliah
+AIF232103-04;Pemrograman Berorientasi Objek;Jumat;15:00;17:00;B;Kuliah
+AIF232103-04;Pemrograman Berorientasi Objek;Jumat;15:00;17:00;C;Kuliah
+AIF232104-04;Desain dan Analisis Algoritma;Jumat;15:00;17:00;A;Kuliah

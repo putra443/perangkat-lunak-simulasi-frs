@@ -47,7 +47,7 @@ export default function CsvUpload(){
     }
 
     function downloadTemplate(){
-        const headers = ['kode', 'nama_mata_kuliah', 'tanggalUTS', 'tanggalUAS', 'jam_mulai', 'jam_selesai']
+        const headers = ['nama_mata_kuliah', 'tanggalUTS', 'tanggalUAS', 'jam_mulai', 'jam_selesai']
         const csv = headers.join(';') + '\n'
         const encodedURI = encodeURIComponent(csv)
         const blob = new Blob([csv], { type: 'text/csv' });
@@ -82,7 +82,7 @@ export default function CsvUpload(){
                 
                 <div className={`modal`}>
                     <div className=" lg:w-3/5 w-4/5  overflow-scroll overflow-x-hidden lg:p-10 p-5 rounded-2xl  bg-white text-black">
-                        <h1 className="font-bold text-2xl">Tambah Mata Kuliah</h1>
+                        <h1 className="font-bold text-2xl">Tambah Jadwal Ujian</h1>
                         <form onSubmit={onFileChangeHandler}>
                             <div className="form-control">
                                 <label className="label font-bold">Unggah Berkas Excel Disini : </label>

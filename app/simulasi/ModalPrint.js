@@ -65,6 +65,8 @@ export default function ModalPrint(jadwalMahasiswa){
                             <h1 className="my-4 text-xl font-bold">Hasil Simulasi FRS</h1>
                             <h1 className="my-4 text-xl font-bold">Nama : {session?.user?.name}</h1>
                             <h1 className="my-4 text-xl font-bold">NPM : {session?.user?.email.substring(0,10)}</h1>
+                            <p className=" mt-3 mr-5 text-sm">Total SKS : {jadwalMahasiswa.totalSKS}</p>
+                            <p className=" text-sm">Dibuat pada tanggal : {currentTime.toLocaleDateString('id-ID', options)}</p>
                                 <h1 className="my-2 border-black text-center text-xl font-bold">Jadwal Kuliah</h1>
                                 <table className="table text-center">
                                     <thead>
@@ -122,7 +124,10 @@ export default function ModalPrint(jadwalMahasiswa){
                                     ))}
                                 </tbody>
                             </table>
-                            <p className="float-right mt-5 text-sm">Dibuat pada tanggal : {currentTime.toLocaleDateString('id-ID', options)}</p>
+                            <div className=" flex-col float-right">
+                                
+                            </div>
+                            
                         </div>
                         
                     </div>

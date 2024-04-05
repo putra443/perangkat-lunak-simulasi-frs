@@ -81,6 +81,7 @@ function cekBentrok(schedules){
     }
 
     if (!conflicts) {
+        conflictsStatus=false
         return string = "Tidak ditemukan konflik pada kumpulan jadwal.";
     }
 
@@ -164,6 +165,14 @@ export default async function Simulasi({params}){
     // const dataMaster = await getJadwalMaster()
     // console.log(mataKuliah);
 
+    //penambahan sks
+    let totalSKS = 0;
+    const jadwalSks = jadwalMahasiswa
+    jadwalSks.filter((jadwalSks, index, self)=>{
+        return self.findIndex((m) => m.namaMataKuliah === jadwalSks.namaMataKuliah)=== index
+    })
+    .forEach((jadwalSks)=>totalSKS+=parseInt(jadwalSks.sks))
+
     //pembuatan kelas schedule untuk cek jadwal kuliah
     const hasil  = Object.keys(jadwalMahasiswa).length
     const schedules = new Array(hasil)
@@ -185,14 +194,14 @@ export default async function Simulasi({params}){
 
 
     return(
-        <main className="flex overflow-y-auto overflow-x-hidden min-h-screen min-w-screen flex-col items-center lg:px-20 text-center bg-cover bg-center h-screen" style={{backgroundImage: `url(${bg.src})`}}>
+        <main className="flex overflow-y-auto overflow-x-hidden min-h-screen max-h-content flex-col items-center lg:px-20 text-center bg-auto bg-center" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutUser/>
-            <div className='flex flex-col px-2 lg:px-20 w-screen h-screen min-h-screen min-w-screen bg-gradient-to-br from-sky-500'>
+            <div className='flex flex-col lg:px-20 px-5 w-screen min-h-screen max-h-content max-h-full bg-gradient-to-br from-sky-500'>
                 <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
                     <p className='text-4xl text-left my-4 text-white'>Simulasi FRS</p>
                     <div className=' justify-start text-left my-5'>
                         {/* untuk add mata kuliah */}
-                        <AddMataKuliah user={userId}>{...mataKuliah}</AddMataKuliah>
+                        <AddMataKuliah  user={userId}>{...mataKuliah}</AddMataKuliah>
                     </div>
                     <p className='text-xl text-left text-white bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Kuliah</p>
 
@@ -207,7 +216,7 @@ export default async function Simulasi({params}){
                                     <th className='p-5'>Jam Selesai</th>
                                     <th className='p-5'>Kelas</th>
                                     <th className='p-5'>Sesi</th>
-                                    <th className='p-5'>Actions</th>
+                                    <th className='p-5'>Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -248,7 +257,7 @@ export default async function Simulasi({params}){
                             </thead>
                             <tbody>
                                 {jadwalUjian.map((jadwalUjian, index)=>(
-                                    <tr  key={index}>
+                                    <tr  key={index} className='hover:text-indigo-700 transition-all'>
                                         <td className=" font-semibold">{index+1}</td>
                                         <td className=" font-semibold">{jadwalUjian.namaMataKuliah}</td>
                                         <td className=" font-semibold">{jadwalUjian.formatteduts}</td>
@@ -263,10 +272,12 @@ export default async function Simulasi({params}){
                             </tbody>
                         </table>                 
                     </div>
-                    
-                    <div className='justify-start text-left float-left'>
+                    <div className='my-5 w-1/4 self-center text-center bg-slate-200 rounded-xl p-4'>
+                            <p>Total SKS = {totalSKS}</p>
+                    </div>
+                    <div className='mb-5 justify-start text-left float-left'>
                         <CekBentrok cekUjian={hasilCekUjian}>{hasilCek}</CekBentrok>
-                        <ModalPrint statusConflict = {conflictsStatus} jadwalUjian={jadwalUjian}>{jadwalMahasiswa}</ModalPrint>
+                        <ModalPrint totalSKS={totalSKS} statusConflict = {conflictsStatus} jadwalUjian={jadwalUjian}>{jadwalMahasiswa}</ModalPrint>
                     </div>
                 </div>
             </div>

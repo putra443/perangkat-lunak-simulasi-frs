@@ -1,11 +1,12 @@
-import pool from '../../../../db';
+// import pool from '../../../../db';
+import {query} from '@/db'
 
 export async function GET (req, res){
   try {
-    const client = await pool.connect();
-    const result = await client.query(`SELECT distinct on ("namaMataKuliah") "namaMataKuliah", * from jadwal_mata_kuliah order by "namaMataKuliah"`);
+    // const client = await pool.connect();
+    const result = await query(`SELECT distinct on ("namaMataKuliah") "namaMataKuliah", * from jadwal_mata_kuliah order by "namaMataKuliah"`);
     // res.status(200).json(result);
-    client.release()
+    // client.release()
     return new Response(JSON.stringify(result.rows));
   } catch (err) {
     console.error(err);

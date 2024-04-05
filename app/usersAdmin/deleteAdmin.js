@@ -40,9 +40,12 @@ export default function DeleteMahasiswa(listUser){
                         <div className="form-control">
                             <label className="label font-bold">Pilih Admin yang ingin dihapus : </label>
                             <select onChange={(e) => setIdAdmin(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                               {listUser.children.map((user, index)=>(
+                               {listUser.children.filter((user)=>(
+                                user.role==="Admin" ? user : null
+                               )).map((user, index)=>(
                                 <option key={index} value={user.idUser}>{user.fullname}</option>
-                               ))}
+                               ))
+                               }
                             </select>
                         </div>
                         <div className="modal-action">

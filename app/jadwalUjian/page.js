@@ -29,7 +29,7 @@ export default async function Simulasi(){
     return(
         <main className="flex overflow-y-auto overflow-x-hidden min-h-screen max-h-content flex-col items-center px-20 text-center bg-auto bg-center" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutAdmin/>
-            <div className='flex flex-col lg:px-20 px-5 w-screen min-h-screen max-h-content bg-gradient-to-br from-sky-500'>
+            <div className='flex flex-col lg:px-20 px-5 w-screen min-h-screen max-h-content bg-gradient-to-br from-sky-500 pb-5'>
                 <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
                     <p className='text-xl  text-white mt-5 bg-sky-600 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
                     <div className='flex flex-col text-left'>
@@ -55,7 +55,7 @@ export default async function Simulasi(){
                             </thead>
                             <tbody>
                                 {jadwalUjian.map((jadwalUjian, index)=>(
-                                    <tr  key={index}>
+                                    <tr  key={index} className='hover:text-indigo-700 transition-all'>
                                         <td className=" font-semibold">{index+1}</td>
                                         <td className=" font-semibold">{jadwalUjian.namaMataKuliah}</td>
                                         <td className=" font-semibold">{jadwalUjian.formatteduts}</td>

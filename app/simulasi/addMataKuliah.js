@@ -3,7 +3,7 @@ import { SyntheticEvent,useEffect,useState } from "react"
 import { useRouter } from "next/navigation"
 import { Josefin_Sans } from "next/font/google"
 import { set } from "date-fns"
-import daftarMataKuliah from "../daftarMataKuliah/[...user]/page"
+
 
 export default function AddMataKuliah(mataKuliah){
     const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
@@ -81,7 +81,8 @@ export default function AddMataKuliah(mataKuliah){
                             <select onChange={(e)=>setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 {mataKuliah.children.filter((mataKuliah)=> {
                                         return nama === '' ? mataKuliah : mataKuliah.namaMataKuliah == nama
-                                    }).filter((mataKuliah, index, self)=>{
+                                    })
+                                    .filter((mataKuliah, index, self)=>{
                                         return self.findIndex((m) => m.kelas === mataKuliah.kelas)=== index
                                     })
                                     .map((mataKuliah,index)=>(

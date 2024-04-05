@@ -2,13 +2,13 @@
 import { SyntheticEvent,useState } from "react"
 import { useRouter } from "next/navigation"
 
-export default function addMataKuliah(){
+export default function AddMataKuliah(){
     const [nama, setNama] = useState("")
+    const [kode, setKode] = useState("")
     const [hari, setHari] = useState("Senin")
     const [jamMulai, setJamMulai] = useState("")
     const [jamSelesai, setJamSelesai] = useState("")
     const [kelas, setKelas] = useState("A")
-    const [semester, setSemester] = useState("1")
 
     const [sesiKelas, setSesiKelas] = useState("Kuliah")
 
@@ -27,25 +27,25 @@ export default function addMataKuliah(){
         await fetch("http://localhost:3000/api/homeAdmin",{
             method:"POST",
             body: JSON.stringify({
+                kode:kode,
                 nama:nama,
                 hari:hari,
                 jamMulai: jamMulai,
                 jamSelesai: jamSelesai,
                 sesiKelas:sesiKelas,
-                kelas:kelas,
-                semester:semester
+                kelas:kelas
             })
         })
 
         setIsMutating(false)
         // console.log(nama,jamMulai,jamSelesai,2," ",hari,3, " ", sesiKelas);
+        setKode("")
         setNama("")
         setJamMulai("")
         setJamSelesai("")
         setHari("Senin")
         setSesiKelas("Kuliah")
         setKelas("A")
-        setSemester("")
         router.refresh()
         setModal(false)
         
@@ -62,23 +62,13 @@ export default function addMataKuliah(){
                     <h1 className="font-bold text-2xl">Tambah Mata Kuliah</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
+                            <label className="label font-bold">Kode Mata Kuliah</label>
+                            <input type="text" value={kode} onChange={(e)=> setKode(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input>
+                        </div>
+                        <div className="form-control">
                             <label className="label font-bold">Nama Mata Kuliah</label>
                             <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input>
                         </div>
-                        <div className="form-control">
-                            <label className="label font-bold">Semester</label>
-                            <select onChange={(e)=> setSemester(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option value="1">Semester 1</option>
-                                <option value="2">Semester 2</option>
-                                <option value="3">Semester 3</option>
-                                <option value="4">Semester 4</option>
-                                <option value="5">Semester 5</option>
-                                <option value="6">Semester 6</option>
-                                <option value="7">Semester 7</option>
-                                <option value="8">Semester 8</option>
-                                <option value="9">Mata Kuliah Pilihan</option>
-                            </select>
-                        </div>  
                         <div className="form-control">
                             <label className="label font-bold">Kelas</label>
                             <select value={kelas} onChange={(e)=> setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">

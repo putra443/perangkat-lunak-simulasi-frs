@@ -61,7 +61,7 @@ export default async function HomeAdmin({params}){
                         </thead>
                         <tbody>
                         {mataKuliah.map((mataKuliah, index)=>(
-                            <tr  key={mataKuliah.idJadwalMataKuliah}>
+                            <tr  key={mataKuliah.idJadwalMataKuliah}className='hover:text-indigo-700 transition-all'>
                                 <td className=" font-semibold">{index+1}</td>
                                 <td className=" font-semibold" >{mataKuliah.namaMataKuliah}</td>
                                 <td className=" font-semibold" >{mataKuliah.hari}</td>
