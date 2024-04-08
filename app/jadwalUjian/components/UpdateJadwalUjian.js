@@ -20,7 +20,7 @@ export default function UpdateJadwalUjian(jadwalUjian){
     async function handleUpdate(e){
         setIsMutating(true)
         e.preventDefault();
-        await fetch(`http://localhost:3000/api/homeAdmin/ujian`,{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/ujian`,{
             method:"PATCH",
             headers:{
                 'Content-Type': 'application/json'

@@ -23,7 +23,7 @@ export default function AddJadwalUjian(mataKuliah){
     async function handleSubmit(e){
         setIsMutating(true)
         e.preventDefault();
-        await fetch("http://localhost:3000/api/homeAdmin/ujian",{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/ujian`,{
             method:"POST",
             body: JSON.stringify({
                 nama:nama,

@@ -16,7 +16,7 @@ export default function DeleteJadwalUjian(jadwalUjian){
 
     async function handleDelete(){
         setIsMutating(true)
-        await fetch(`http://localhost:3000/api/homeAdmin/ujian`,{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/ujian`,{
             method:"DELETE",
             body: JSON.stringify({
                 idUjian:idJadwalUjian,

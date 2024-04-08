@@ -15,7 +15,7 @@ export default function DeleteMataKuliah(mataKuliah){
 
     async function handleDelete(){
         setIsMutating(true)
-        await fetch(`http://localhost:3000/api/homeAdmin`,{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin`,{
             method:"DELETE",
             headers:{
                 'Content-type': 'application/json'

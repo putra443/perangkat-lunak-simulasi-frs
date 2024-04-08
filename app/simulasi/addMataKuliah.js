@@ -21,7 +21,7 @@ export default function AddMataKuliah(mataKuliah){
         // console.log(matakuliah.user);
         setIsMutating(true)
         // e.preventDefault();
-        await fetch(`http://localhost:3000/api/simulasi/${mataKuliah.user}`,{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/simulasi/${mataKuliah.user}`,{
             method:"POST",
             body: JSON.stringify({
                 nama:nama,

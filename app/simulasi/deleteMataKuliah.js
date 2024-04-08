@@ -16,7 +16,7 @@ export default function DeleteMataKuliah(mataKuliah){
 
     async function handleDelete(){
         setIsMutating(true)
-        await fetch(`http://localhost:3000/api/simulasi/${mataKuliah.user}`,{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/simulasi/${mataKuliah.user}`,{
             method:"DELETE",
             body: JSON.stringify({
                 idJadwalMataKuliah:idMataKuliah,

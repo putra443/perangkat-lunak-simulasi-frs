@@ -23,7 +23,7 @@ export default function UpdateMataKuliah(mataKuliah){
     async function handleUpdate(e){
         setIsMutating(true)
         e.preventDefault();
-        await fetch(`http://localhost:3000/api/homeAdmin`,{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin`,{
             method:"PATCH",
             headers:{
                 'Content-Type': 'application/json'

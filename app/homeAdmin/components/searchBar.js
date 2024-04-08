@@ -14,7 +14,7 @@ export default function SearchBar(){
         }
         else{
             // console.log(searchRef.current.value);
-        router.replace(`http://localhost:3000/homeAdmin/search/${searchRef.current.value}`)
+        router.replace(`${process.env.NEXT_PUBLIC_API_URL}/homeAdmin/search/${searchRef.current.value}`)
         }
     }
 

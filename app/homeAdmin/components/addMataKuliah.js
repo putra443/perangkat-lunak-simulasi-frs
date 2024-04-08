@@ -24,7 +24,7 @@ export default function AddMataKuliah(){
     async function handleSubmit(e){
         setIsMutating(true)
         e.preventDefault();
-        await fetch("http://localhost:3000/api/homeAdmin",{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin`,{
             method:"POST",
             body: JSON.stringify({
                 kode:kode,
