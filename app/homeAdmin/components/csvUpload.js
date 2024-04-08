@@ -67,7 +67,7 @@ export default function CsvUpload(){
     }
 
     async function upload(res){
-        await fetch(`http://${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin`,{
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin`,{
                 method:"POST",
                 body:JSON.stringify({
                     dataExcel:res
