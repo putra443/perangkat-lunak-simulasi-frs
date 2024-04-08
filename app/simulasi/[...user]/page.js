@@ -203,7 +203,7 @@ export default async function Simulasi({params}){
                         {/* untuk add mata kuliah */}
                         <AddMataKuliah  user={userId}>{...mataKuliah}</AddMataKuliah>
                     </div>
-                    <p className='text-xl text-left text-white bg-sky-700 lg:w-1/5 p-3 rounded-2xl'>Jadwal Kuliah</p>
+                    <p className='text-xl text-center text-white bg-sky-700 lg:w-1/5 p-3 rounded-2xl'>Jadwal Kuliah</p>
 
                     <div className='overflow-x-scroll no-scrollbar rounded-xl mt-5'>
                         <table className=' table text-center rounded-2xl bg-gray-200'>
