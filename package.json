@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.17",
     "@phosphor-icons/react": "^2.0.15",
     "@react-pdf/renderer": "^3.3.8",
+    "@vercel/postgres": "^0.8.0",
     "classnames": "^2.5.1",
     "csv": "^6.3.5",
     "csv-parser": "^3.0.0",
