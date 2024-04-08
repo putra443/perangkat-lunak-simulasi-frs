@@ -11,13 +11,13 @@ export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
 async function getMataKuliah(){
-    const res = await fetch('http://localhost:3000/api/homeAdmin',{cache:'no-store'})
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin`,{cache:'no-store'})
     const result = await res.json();
     return result
 }
 
 async function getNamaMataKuliah(){
-    const res = await fetch('http://localhost:3000/api/homeAdmin/ujianAdd',{cache:'no-store'})
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/ujianAdd`,{cache:'no-store'})
     const result = await res.json();
     return result
 }
