@@ -9,21 +9,21 @@ import ModalPrint from '../ModalPrint';
 let conflictsStatus = false
 //untuk get jadwal master
 async function getJadwalMataKuliah(){
-    const res = await fetch('http://localhost:3000/api/jadwalKuliah',{cache:'no-store'});
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/jadwalKuliah`,{cache:'no-store'});
     const result = await res.json()
     return result
 }
 
 //untuk get jadwal per mahasiswa
 async function getJadwalMahasiswa(params){
-    const res = await fetch(`http://localhost:3000/api/simulasi/${params}`,{cache:'no-store'});
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/simulasi/${params}`,{cache:'no-store'});
     const result = await res.json()
     return result
 }
 
 // untuk get jadwal ujian per mahasiswa
 async function getJadwalUjian(params){
-    const res = await fetch(`http://localhost:3000/api/ujian/${params}`,{cache:'no-store'});
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ujian/${params}`,{cache:'no-store'});
     const result = await res.json()
     return result
 }

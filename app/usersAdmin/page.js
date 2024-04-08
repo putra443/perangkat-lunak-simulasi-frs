@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
 async function getUsers(){
-    const res = await fetch('http://localhost:3000/api/usersAdmin',{cache:'no-store'})
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/usersAdmin`,{cache:'no-store'})
     const result = await res.json();
     return result
 }

@@ -10,13 +10,13 @@ import bg from '@/assets/background_unpar.jpg'
 
 async function getMataKuliah(params){
     // console.log(params);
-    const res = await fetch(`http://localhost:3000/api/homeAdmin/search/${params}`,{cache:'no-store'})
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/search/${params}`,{cache:'no-store'})
     const result = await res.json();
     return result
 }
 
 async function getNamaMataKuliah(){
-    const res = await fetch('http://localhost:3000/api/homeAdmin/ujian',{cache:'no-store'})
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/ujian`,{cache:'no-store'})
     const result = await res.json();
     return result
 }
