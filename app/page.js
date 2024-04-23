@@ -58,8 +58,8 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center w-full flex-1 justify-center text-center">
       <div className='bg-white rounded-2xl flex shadow-2xl w-full max-w-4xl'>
         <div className='w-3/6 lg:w-3/5 px-5  py-20'>
-          <p className='text-3xl font-bold'>Sign in to Account</p>
-          <p className='mt-2'>Gunakan akun google unpar untuk masuk</p>
+          <p className='text-3xl font-bold'>Sign in</p>
+          <p className='mt-2'>Gunakan akun google unpar untuk masuk ke dalam perangkat lunak simulasi FRS</p>
           <div className='border-2 w-10 border-black inline-block mb-2'></div>
           <form action="" method="get" className='mt-8 space-y-6' onSubmit={(e) => handleLogin(e)}>
             <div className='flex flex-col items-center'>
@@ -69,7 +69,7 @@ export default function Home() {
                 {(loading?(<span>Signing in...</span>):(<span>Sign in</span>))}
               </button> */}
               <button type='button' className='mt-5 btn bg-sky-500 hover:bg-sky-600 text-white border-none rounded-2xl px-5 py-2' onClick={()=>handleLoginGoogle()}>
-                Sign in with Google
+                Masuk dengan Akun Google
               </button>
             </div>
           </form>

@@ -36,7 +36,7 @@ export default function LayoutUser() {
       signOut()
       router.push("/")
     }
-  }, [status])
+  }, [router, session?.user?.role, status])
   return (
           <div className=' w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
             <img src={logodouble.src} className='float-left w-24 h-13 rounded-xl scale-150 m-5'></img>
