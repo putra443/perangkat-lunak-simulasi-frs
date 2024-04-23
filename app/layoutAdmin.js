@@ -29,7 +29,7 @@ export default function LayoutAdmin() {
       signOut()
       router.push("/")
     }
-  }, [router, session?.user?.role, status])
+  })
   return (
           <div className='w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
             <img className='float-left w-24 h-13 rounded-xl scale-150 m-5' src={logodouble.src}></img>
@@ -42,7 +42,7 @@ export default function LayoutAdmin() {
             (<a href={`/simulasi/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}/${session?.user?.id}`} className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Simulasi</h1></a>):
             (<span></span>)}
             {status === "authenticated" ? (
-              <a href='/' onClick={()=>signOut()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Keluar</a>
+              <a href='/' onClick={()=>signOut('google')} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Keluar</a>
 
             ) : (
               // <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left  hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>

@@ -36,7 +36,7 @@ export default function LayoutUser() {
       signOut()
       router.push("/")
     }
-  }, [router, session?.user?.role, status])
+  })
   return (
           <div className=' w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
             <img src={logodouble.src} className='float-left w-24 h-13 rounded-xl scale-150 m-5'></img>
@@ -53,7 +53,7 @@ export default function LayoutUser() {
             <a href={`/simulasi/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2 mt-1.5'>Simulasi</a>
             )}
             {status === "authenticated" ? (
-              <a onClick={()=>signOut({callbackUrl: 'http://localhost:3000/'})} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Keluar</a>
+              <a onClick={()=>signOut('google')} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Keluar</a>
 
             ) : (
               <span></span>

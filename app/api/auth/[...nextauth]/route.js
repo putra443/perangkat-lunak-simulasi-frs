@@ -75,8 +75,8 @@ const options = {
                 // console.log(result);
                 if(result.rowCount!=1){
                     if(data.email.includes("@student.unpar.ac.id") && data.email.includes("618")){
-                        // console.log("login pass");
-                        // console.log(data);
+                        console.log("login pass");
+                        console.log(data.email);
                         query(`insert into "user" (email, fullname, role) values ('${data.email}','${data.fullname}','Mahasiswa')`)
                         const resultId = await query(`select * from "user" where email='${data.email}'`)
                         // console.log(resultId);
