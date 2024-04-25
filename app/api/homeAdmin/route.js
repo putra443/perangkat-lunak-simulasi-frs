@@ -5,7 +5,7 @@ import {query} from "@/db"
 export async function GET (req, res){
     try {
       // const client = await pool.connect();
-      const result = await query('SELECT * FROM jadwal_mata_kuliah ORDER BY "idJadwalMataKuliah"');
+      const result = await query('SELECT * FROM jadwal_mata_kuliah join master_mata_kuliah on jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah" ORDER BY "idJadwalMataKuliah"');
       // res.status(200).json(result);
       // return new Response(JSON.stringify(result.rows));
       // client.release()
@@ -26,8 +26,8 @@ export async function POST(req,res){
       if(!request.dataExcel){
         // const client = await pool.connect();
         const result = await query(`INSERT INTO jadwal_mata_kuliah
-        (kode ,"namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
-        ('${request.kode}','${request.nama}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
+        ("kodeMataKuliah" , hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
+        ('${request.kode}','${request.hari}','${request.jamMulai}','${request.jamSelesai}','${request.kelas}','${request.sesiKelas}')`)
         // return new Response(result);
         // client.release()
         return new NextResponse(result)
@@ -36,16 +36,15 @@ export async function POST(req,res){
         const data = request.dataExcel
         // const client = await pool.connect()
         data.map((element)=>{
-          const kode = element.kode
-          const nama = element.nama_mata_kuliah
-          const hari = element.hari
-          const jam_mulai = element.jam_mulai
-          const jam_selesai = element.jam_selesai
-          const kelas = element.kelas
-          const sesi = element.sesi
+          const kode = element['Kode']
+          const hari = element['Hari']
+          const jam_mulai = element['Jam Mulai']
+          const jam_selesai = element['Jam Selesai']
+          const kelas = element['Kelas']
+          const sesi = element['Sesi']
           const result = query(`INSERT INTO jadwal_mata_kuliah
-          (kode ,"namaMataKuliah", hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
-          ('${kode}','${nama}','${hari}','${jam_mulai}','${jam_selesai}','${kelas}','${sesi}')`)
+          ("kodeMataKuliah" , hari, jam_mulai, jam_selesai, kelas,sesi) VALUES 
+          ('${kode}','${hari}','${jam_mulai}','${jam_selesai}','${kelas}','${sesi}')`)
           return new Response(result)
           // return new NextResponse(result)
         })
@@ -80,7 +79,7 @@ export async function POST(req,res){
 
       // const client = await pool.connect();
       const result = await query(`UPDATE jadwal_mata_kuliah
-      SET "namaMataKuliah"='${request.nama}',kelas='${request.kelas}',hari='${request.hari}', 
+      SET kelas='${request.kelas}',hari='${request.hari}', 
       sesi='${request.sesiKelas}', jam_mulai='${request.jamMulai}', jam_selesai='${request.jamSelesai}'
       WHERE "idJadwalMataKuliah"=${request.idJadwalMataKuliah};`)
       // return new Response(result);
@@ -99,7 +98,8 @@ export async function POST(req,res){
       const request = await req.json();
       if(request.deleteAll==true){
         // const client = await pool.connect();
-        const result = await query(`DELETE FROM jadwal_mata_kuliah`);
+        const result = await query(`DELETE FROM jadwal_mata_kuliah;
+        ALTER TABLE jadwal_mata_kuliah ALTER COLUMN "idJadwalMataKuliah" RESTART WITH 1;`);
         // client.release()
         return new NextResponse(result)
       }

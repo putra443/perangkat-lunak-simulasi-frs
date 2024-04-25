@@ -6,7 +6,7 @@ export async function GET (req, {params}){
     try {
         // const request = await req.json()
         // const client = await pool.connect();
-        const result = await query(`SELECT * FROM jadwal_mata_kuliah WHERE "namaMataKuliah" ILIKE '%${params.keyword}%' ORDER BY "idJadwalMataKuliah"`);
+        const result = await query(`SELECT * FROM jadwal_mata_kuliah join master_mata_kuliah on jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah" WHERE "namaMataKuliah" ILIKE '%${params.keyword}%' ORDER BY "idJadwalMataKuliah"`);
         //res.status(200).json(result);
         // console.log(params);
         // console.log(result);

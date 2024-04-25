@@ -6,7 +6,7 @@ import {query} from "@/db"
     try {
       // const client = await pool.connect();
       const result = await query(`SELECT DISTINCT ON ("namaMataKuliah","kelas") "namaMataKuliah",* FROM jadwal_mata_kuliah 
-      join master_mata_kuliah on jadwal_mata_kuliah."kode" = master_mata_kuliah."kodeMataKuliah" ORDER BY "namaMataKuliah"`);
+      join master_mata_kuliah on jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah" ORDER BY "namaMataKuliah"`);
       // res.status(200).json(result);
       // return new Response(JSON.stringify(result.rows));
       // client.release()

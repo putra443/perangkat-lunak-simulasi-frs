@@ -46,11 +46,11 @@ export default function LayoutUser() {
                 <a href={`/homeAdmin`} className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Kuliah</h1></a>
                 <a href={`/jadwalUjian`} className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Ujian</h1></a>
                 <a href={`/usersAdmin`} className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Pengguna</h1></a>
-                <a href={`/simulasi/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2 mt-1.5'>Simulasi</a>
+                {/* <a href={`/simulasi/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2 mt-1.5'>Simulasi</a> */}
               </>
               ):
-            (
-            <a href={`/simulasi/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2 mt-1.5'>Simulasi</a>
+            (null
+            // <a href={`/simulasi/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`} className='btn bg-sky-600 border-none hover:bg-sky-700 text-white rounded-md px-3 py-2 mt-1.5'>Simulasi</a>
             )}
             {status === "authenticated" ? (
               <a onClick={()=>signOut('google')} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left hover:bg-sky-700 text-white rounded-md px-3 py-2'>Keluar</a>

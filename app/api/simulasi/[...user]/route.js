@@ -25,7 +25,7 @@ import {query} from '@/db'
       join jadwal_mata_kuliah on
       jadwal_mahasiswa."idJadwalMataKuliah" = jadwal_mata_kuliah."idJadwalMataKuliah"
       join master_mata_kuliah on
-      jadwal_mata_kuliah."kode" = master_mata_kuliah."kodeMataKuliah"
+      jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
       where "idMahasiswa"= ${params.user[0]}
       ORDER BY CASE 
         when hari = 'Senin' then 1
@@ -55,11 +55,13 @@ import {query} from '@/db'
       const request = await req.json()
       // const client = await pool.connect();
       const result = await query(`INSERT INTO jadwal_mahasiswa("idJadwalMataKuliah","idMahasiswa") 
-      select "idJadwalMataKuliah",${params.user[0]} from jadwal_mata_kuliah
+      select "idJadwalMataKuliah",${params.user[0]} from jadwal_mata_kuliah join master_mata_kuliah on
+      jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
       where kelas='${request.kelas}' and 
       "namaMataKuliah"='${request.nama}';
       insert into jadwal_ujian_mahasiswa("idJadwalUjian","idMahasiswa")
-      select "idUjian",${params.user[0]} from jadwal_ujian
+      select "idUjian",${params.user[0]} from jadwal_ujian join master_mata_kuliah on 
+      jadwal_ujian."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
       where "namaMataKuliah"='${request.nama}'`)
       // client.release()
       // return new Response(result);
@@ -76,8 +78,8 @@ import {query} from '@/db'
     try{
       const request = await req.json();
       // const client = await pool.connect(); 
-      const result = await query(`DELETE FROM jadwal_mahasiswa WHERE "idMahasiswa"=${params.user[0]} and "idJadwalMataKuliah" IN (select "idJadwalMataKuliah" from jadwal_mata_kuliah where "namaMataKuliah" ='${request.namaMataKuliah}');
-      delete from jadwal_ujian_mahasiswa  where "idJadwalUjian" IN (select "idUjian" from jadwal_ujian
+      const result = await query(`DELETE FROM jadwal_mahasiswa WHERE "idMahasiswa"=${params.user[0]} and "idJadwalMataKuliah" IN (select "idJadwalMataKuliah" from jadwal_mata_kuliah join master_mata_kuliah on jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah" where "namaMataKuliah" ='${request.namaMataKuliah}');
+      delete from jadwal_ujian_mahasiswa  where "idJadwalUjian" IN (select "idUjian" from jadwal_ujian join master_mata_kuliah on jadwal_ujian."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
       where "namaMataKuliah"= '${request.namaMataKuliah}');
       `);
       // return new Response(result);

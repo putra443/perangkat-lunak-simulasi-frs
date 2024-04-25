@@ -60,8 +60,11 @@ export async function DELETE(req, res){
       }else{
         // const client = await pool.connect();
         const result = await query(`DELETE FROM jadwal_mahasiswa;
+        ALTER TABLE jadwal_mahasiswa ALTER COLUMN "idJadwalMahasiswa" RESTART WITH 1;
         DELETE FROM jadwal_ujian_mahasiswa;
-        DELETE FROM "user" where role ILIKE '%mahasiswa%';`);
+        ALTER TABLE jadwal_ujian_mahasiswa ALTER COLUMN "idJadwalUjianMahasiswa" RESTART WITH 1;
+        DELETE FROM "user" where role ILIKE '%mahasiswa%';
+        ALTER TABLE "user" ALTER COLUMN "idUser" RESTART WITH 1;`);
         // res.status(200).json(result);
         // return new Response(JSON.stringify(result.rows));
         // client.release()

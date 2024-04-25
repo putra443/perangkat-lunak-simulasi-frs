@@ -85,7 +85,7 @@
 3 AIF233410-03 Data Science pada Domain Spesifik                           0 3 
 4 AIF233412-03 Topik Khusus Data Science 2                                 0 3 
 5 AIF233414-03 Pengantar Data Mining dengan Python                         0 3 
-6 AIF233004-03 Pengabdian kepada Masyarakat2                               0 3 
+6 AIF233004-03 Pengabdian kepada Masyarakat 2                               0 3 
 7 AIF233304-03 Teknologi Basis Data                                        0 3 
 8 AIF233306-03 Sistem Informasi                                            0 3 
 9 AIF233308-03 Fundamental dan Aplikasi Intelijen Bisnis                   0 3 

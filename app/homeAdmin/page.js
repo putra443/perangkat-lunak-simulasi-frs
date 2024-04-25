@@ -42,7 +42,7 @@ export default async function HomeAdmin(){
                     <div className='lg:w-2/5 mt-3 mb-3'>
                         <SearchBar></SearchBar>
                     </div>
-                    <div className='overflow-scroll no-scrollbar'>
+                    <div className='overflow-scroll no-scrollbar rounded-xl'>
                         <table className='mb-10 table text-center mt-5 rounded-2xl bg-gray-200'>
                         <thead>
                             <tr className='bg-sky-600 text-white'>

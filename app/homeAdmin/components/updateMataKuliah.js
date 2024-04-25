@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation"
 export default function UpdateMataKuliah(mataKuliah){
     // console.log(mataKuliah);
     const[idJadwalMataKuliah, setIdJadwal] = useState(mataKuliah.idJadwalMataKuliah)
-    const [nama, setNama] = useState(mataKuliah.namaMataKuliah)
     const [hari, setHari] = useState(mataKuliah.hari)
     const [jamMulai, setJamMulai] = useState(mataKuliah.jam_mulai)
     const [jamSelesai, setJamSelesai] = useState(mataKuliah.jam_selesai)
@@ -30,7 +29,6 @@ export default function UpdateMataKuliah(mataKuliah){
             },
             body: JSON.stringify({
                 idJadwalMataKuliah:idJadwalMataKuliah,
-                nama:nama,
                 hari:hari,
                 jamMulai: jamMulai,
                 jamSelesai: jamSelesai,
@@ -55,14 +53,13 @@ export default function UpdateMataKuliah(mataKuliah){
                     <h3 className="font-bold text-lg">Edit Mata Kuliah : {mataKuliah.namaMataKuliah}</h3>
                     <form onSubmit={handleUpdate}>
                         <div className="form-control">
-                            <label className="label font-bold">Nama Mata Kuliah</label>
-                            <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input>
-                        </div>
-                        <div className="form-control">
                             <label className="label font-bold">Kelas</label>
                             <select value={kelas} onChange={(e)=> setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 <option value="A" >A</option>
                                 <option value="B" >B</option>
+                                <option value="B" >C</option>
+                                <option value="B" >D</option>
+
                             </select>
                         </div>
                         <div className="form-control">

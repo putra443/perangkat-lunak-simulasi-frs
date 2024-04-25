@@ -3,7 +3,6 @@ import { SyntheticEvent,useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function AddMataKuliah(){
-    const [nama, setNama] = useState("")
     const [kode, setKode] = useState("")
     const [hari, setHari] = useState("Senin")
     const [jamMulai, setJamMulai] = useState("")
@@ -28,7 +27,6 @@ export default function AddMataKuliah(){
             method:"POST",
             body: JSON.stringify({
                 kode:kode,
-                nama:nama,
                 hari:hari,
                 jamMulai: jamMulai,
                 jamSelesai: jamSelesai,
@@ -40,7 +38,6 @@ export default function AddMataKuliah(){
         setIsMutating(false)
         // console.log(nama,jamMulai,jamSelesai,2," ",hari,3, " ", sesiKelas);
         setKode("")
-        setNama("")
         setJamMulai("")
         setJamSelesai("")
         setHari("Senin")
@@ -66,14 +63,12 @@ export default function AddMataKuliah(){
                             <input type="text" value={kode} onChange={(e)=> setKode(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input>
                         </div>
                         <div className="form-control">
-                            <label className="label font-bold">Nama Mata Kuliah</label>
-                            <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input>
-                        </div>
-                        <div className="form-control">
                             <label className="label font-bold">Kelas</label>
                             <select value={kelas} onChange={(e)=> setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 <option value="A">A</option>
                                 <option value="B">B</option>
+                                <option value="B">C</option>
+                                <option value="B">D</option>
                             </select>
                         </div>
                         <div className="form-control">

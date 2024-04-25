@@ -47,7 +47,7 @@ export default function CsvUpload(){
     }
 
     function downloadTemplate(){
-        const headers = ['nama_mata_kuliah', 'tanggalUTS', 'tanggalUAS', 'jam_mulai', 'jam_selesai']
+        const headers = ['Kode', 'Tanggal UTS', 'Tanggal UAS', 'Jam Mulai', 'Jam Selesai']
         const csv = headers.join(';') + '\n'
         const encodedURI = encodeURIComponent(csv)
         const blob = new Blob([csv], { type: 'text/csv' });
