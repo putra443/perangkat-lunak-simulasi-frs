@@ -102,8 +102,8 @@ function cekBentrokUjian(schedules) {
     for (let i = 0; i < schedules.length - 1; i++) {
         for (let j = i + 1; j < schedules.length; j++) {
             // console.log(schedules[i], schedules[j]);
-            const tanggalUTS1 = schedules[i].tanggalUAS.split("-");
-            const tanggalUTS2 = schedules[j].tanggalUAS.split("-");
+            const tanggalUTS1 = schedules[i].tanggalUAS.split("/");
+            const tanggalUTS2 = schedules[j].tanggalUAS.split("/");
 
             if (parseInt(tanggalUTS1[0]) === parseInt(tanggalUTS2[0]) &&
                 parseInt(tanggalUTS1[1]) === parseInt(tanggalUTS2[1])) {
