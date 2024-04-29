@@ -60,7 +60,7 @@ export default function ModalPrint(jadwalMahasiswa){
             <div className="overflow-auto modal  modal-middle">
                 <div className="my-5 lg:scale-100 p-10 rounded-xl bg-white text-black">
                     <div className="actual-receipt">
-                        <div className="m-10">
+                        <div className="m-10 pt-20 px-10">
                             <Image className=" w-78 h-24 float-right" src={logoifunpar.src} priority sizes='(max-width: 350px)' width={350} height={24}  alt="logoIfUnpar"/>
                             <h1 className="my-4 text-xl font-bold">Hasil Simulasi FRS</h1>
                             <h1 className="my-4 text-xl font-bold">Nama : {session?.user?.name}</h1>
