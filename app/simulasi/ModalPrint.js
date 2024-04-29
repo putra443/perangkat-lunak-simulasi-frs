@@ -5,7 +5,7 @@ import html2canvas from "html2canvas";
 import html2canvaspro from 'html2canvas-pro'
 import jsPDF from "jspdf";
 import logoifunpar from '@/assets/logoifunpar3.png'
-
+import Image from "next/image";
 
 export default function ModalPrint(jadwalMahasiswa){
     const [modal, setModal] = useState(false)
@@ -61,7 +61,7 @@ export default function ModalPrint(jadwalMahasiswa){
                 <div className="my-5 lg:scale-100 p-10 rounded-xl bg-white text-black">
                     <div className="actual-receipt">
                         <div className="m-10">
-                            <img className=" w-78 h-24 float-right" src={logoifunpar.src} alt="logoIfUnpar"></img>
+                            <Image className=" w-78 h-24 float-right" src={logoifunpar.src} priority sizes='(max-width: 350px)' width={350} height={24}  alt="logoIfUnpar"/>
                             <h1 className="my-4 text-xl font-bold">Hasil Simulasi FRS</h1>
                             <h1 className="my-4 text-xl font-bold">Nama : {session?.user?.name}</h1>
                             <h1 className="my-4 text-xl font-bold">NPM : {session?.user?.email.substring(0,10)}</h1>

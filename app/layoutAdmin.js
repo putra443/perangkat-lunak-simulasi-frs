@@ -4,6 +4,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import logodouble from '@/assets/logoifunpar3.png'
+import Image from 'next/image';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -32,7 +33,7 @@ export default function LayoutAdmin() {
   })
   return (
           <div className='w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
-            <img className='float-left w-24 h-13 rounded-xl scale-150 m-5' src={logodouble.src}></img>
+            <Image src={logodouble.src} className='float-left w-24 h-13 rounded-xl scale-150 m-5' priority sizes='(max-width: 24px)' width={24} height={13} alt="Logo"/>
             {session?.user?.role=="Admin / Mahasiswa" ? (<a href={`/home/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>)
             :(<a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>)}
             <a href='/homeAdmin' className='mt-1.5 btn bg-sky-600 border-none float-left   hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Kuliah</h1></a>
@@ -48,7 +49,7 @@ export default function LayoutAdmin() {
               // <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left  hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
               <span></span>
             )}
-            <img className="float-right w-10 h-10 mt-3.5 rounded-full" src={session?.user?.image}></img>
+            <Image className="float-right w-10 h-10 mt-3.5 rounded-full" priority sizes='(max-width: 10px)' src={session?.user?.image} width={10} height={10} alt='ProfilePic'/>
             <p className='float-right text-white px-3 py-2 lg:mt-1.5 mt-4 text-sm lg:text-base '>{session?.user?.name}</p>
 
           </div>

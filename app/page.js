@@ -55,7 +55,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center w-full flex-1 justify-center text-center">
+    <main className="flex min-h-screen flex-col items-center mx-5 flex-1 justify-center text-center">
       <div className='bg-white rounded-2xl flex shadow-2xl w-full max-w-4xl'>
         <div className='w-3/6 lg:w-3/5 px-5  py-20'>
           <p className='text-3xl font-bold'>Sign in</p>
@@ -68,7 +68,7 @@ export default function Home() {
               <button type='submit' className='btn bg-sky-500 hover:bg-sky-600 text-white border-none rounded-2xl px-5 py-2'>
                 {(loading?(<span>Signing in...</span>):(<span>Sign in</span>))}
               </button> */}
-              <button type='button' className='mt-5 btn bg-sky-500 hover:bg-sky-600 text-white border-none rounded-2xl px-5 py-2' onClick={()=>handleLoginGoogle()}>
+              <button type='button' className='mt-5 btn bg-sky-500 hover:bg-sky-600 text-white border-none rounded-2xl p-3' onClick={()=>handleLoginGoogle()}>
                 Masuk dengan Akun Google
               </button>
             </div>
@@ -78,7 +78,7 @@ export default function Home() {
           <p className='lg:text-3xl font-bold mt-12 text-2xl'>Perangkat Lunak Simulasi FRS</p>
           <div className='border-2 w-10 border-white inline-block mb-2'></div>
           <p className='mb-2'>Rencanakan Studimu dengan Baik!</p>
-          <img className=' rounded-3xl' src={bg.src}></img>
+          <Image className=' rounded-3xl' src={bg.src} alt='logoIfUnpar' width={350} height={350}/>
         </div> {/*sign up */}
       </div>
     </main>

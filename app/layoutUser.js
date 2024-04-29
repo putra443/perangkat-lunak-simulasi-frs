@@ -7,7 +7,7 @@ import LogoIF from '@/assets/logoIF.jpg'
 import LogoUnpar from '@/assets/logoUnpar.png'
 import logodouble from '@/assets/logoifunpar3.png'
 import { PathParamsContext } from 'next/dist/shared/lib/hooks-client-context.shared-runtime';
-import { images } from '@/next.config';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -39,7 +39,7 @@ export default function LayoutUser() {
   })
   return (
           <div className=' w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
-            <img src={logodouble.src} className='float-left w-24 h-13 rounded-xl scale-150 m-5'></img>
+            <Image src={logodouble.src} className='float-left w-24 h-13 rounded-xl scale-150 m-5' priority sizes='(max-width: 24px)' width={24} height={13} alt="Logo"/>
             <a href={`/home/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}`} className='mt-1.5 btn bg-sky-600 border-none float-left text-xl hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
             {session?.user?.role=="Admin / Mahasiswa" ? 
             ( <> 
@@ -59,7 +59,7 @@ export default function LayoutUser() {
               <span></span>
             )}
             {/* <a href='/' className='btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a> */}
-            <img className="float-right w-10 h-10 mt-3.5 rounded-full" src={session?.user?.image}></img>
+            <Image className="float-right w-10 h-10 mt-3.5 rounded-full" priority sizes='(max-width: 10px)' src={session?.user?.image} width={10} height={10} alt='ProfilePic'/>
             <p className=' text-xs lg:text-base mt-4 lg:mt-2 float-right text-white px-3 py-2'>{session?.user?.name}</p>
           </div>
   )
