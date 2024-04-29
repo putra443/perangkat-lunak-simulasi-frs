@@ -45,7 +45,7 @@ export async function POST(req,res){
           const jam_selesai = element['Jam Selesai']
           const result = query(`INSERT INTO jadwal_ujian
           ("kodeMataKuliah", tanggal_uts, tanggal_uas, jam_mulai_uts, jam_selesai_uts, jam_mulai_uas, jam_selesai_uas) VALUES 
-          ('${kode}','${tanggalUTS}','${tanggalUAS}','${jam_mulai}','${jam_selesai}','${jam_mulai}','${jam_selesai}')`)
+          ('${kode}',TO_DATE('${tanggalUTS}', 'DD/MM/YYYY'),TO_DATE('${tanggalUAS}','DD/MM/YYYY'),'${jam_mulai}','${jam_selesai}','${jam_mulai}','${jam_selesai}')`)
           return new Response(result) 
         })
         // const result = "data masuk"
