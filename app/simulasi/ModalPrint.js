@@ -94,7 +94,7 @@ export default function ModalPrint(jadwalMahasiswa){
                                     ))}
                                     </tbody>
                                 </table>
-                                <h1 className="my-2 border-black text-center text-xl font-bold">Jadwal ujian</h1>
+                                <h1 className="my-2 border-black text-center text-xl font-bold mt-5">Jadwal ujian</h1>
                                 <table className='table text-center'>
                                 <thead>
                                     <tr className='text-black'>
