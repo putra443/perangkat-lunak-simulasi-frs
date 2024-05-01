@@ -74,7 +74,10 @@ export async function DELETE(req, res){
       else if(request.idMahasiswa!=null){
 
         // console.log(request.idMahasiswa);
-        const result = await query(`DELETE FROM "user" where "idUser" = ${request.idMahasiswa}`);
+        const result = await query(`
+        DELETE FROM jadwal_mahasiswa where "idMahasiswa" = ${request.idMahasiswa};
+        DELETE FROM jadwal_ujian_mahasiswa where "idMahasiswa = ${request.idMahasiswa};
+        DELETE FROM "user" where "idUser" = ${request.idMahasiswa};`);
 
         return NextResponse.json(result)
       }
