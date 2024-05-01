@@ -72,7 +72,7 @@ function cekBentrok(schedules){
         for (let i = startIndex; i < endIndex; i++) {
             if (timeWindow[indexHari][i] !== undefined) {
                 conflicts = true; conflictsStatus = true;
-                string += (`Ditemukan konflik pada Hari ${schedule.hari}: ${timeWindow[indexHari][i].name} ${timeWindow[indexHari][i].startTime} - ${timeWindow[indexHari][i].endTime} dengan ${schedule.name} ${schedule.startTime} - ${schedule.endTime}` + "\n" + "\n");
+                string += (`Ditemukan konflik pada Hari ${schedule.hari}: ${timeWindow[indexHari][i].name} ${timeWindow[indexHari][i].startTime} - ${timeWindow[indexHari][i].endTime} dengan ${schedule.name} ${schedule.startTime} - ${schedule.endTime}.` + "\n" + "\n");
                 break;
             } else {
                 timeWindow[indexHari][i] = schedule;
@@ -100,7 +100,6 @@ function cekBentrokUjian(schedules) {
     let conflicts = false;
     let string = ""
     for (let i = 0; i < schedules.length - 1; i++) {
-        const timeWindow = Array.from({ length: 1 }, () => Array(18).fill(null));
         for (let j = i + 1; j < schedules.length; j++) {
             // console.log(schedules[i], schedules[j]);
             const tanggalUTS1 = schedules[i].tanggalUTS.split("/");
@@ -108,6 +107,7 @@ function cekBentrokUjian(schedules) {
 
             if (parseInt(tanggalUTS1[0]) === parseInt(tanggalUTS2[0]) &&
                 parseInt(tanggalUTS1[1]) === parseInt(tanggalUTS2[1])) {
+                const timeWindow = Array.from({ length: 1 }, () => Array(18).fill(null));
 
                 const startTokenUTS1 = schedules[i].jam_mulai_uts.split(":");
                 const endTokenUTS1 = schedules[i].jam_selesai_uts.split(":");
@@ -124,12 +124,13 @@ function cekBentrokUjian(schedules) {
                 }
 
                 for (let x = startIndex2; x < endIndex2; x++) {
+                    
                     if (timeWindow[0][x] !== null) {
                         conflicts = true; conflictsStatus = true;
-                        string += `Konflik ditemukan pada jadwal ujian mata kuliah : ${schedules[i].namaMataKuliah} pada jam ${schedules[i].jam_mulai_uts}-${schedules[i].jam_selesai_uts} dengan ${schedules[j].namaMataKuliah} pada jam ${schedules[j].jam_mulai_uts}-${schedules[j].jam_selesai_uts}`
+                        string += `Ditemukan konflik pada jadwal ujian mata kuliah : ${schedules[i].namaMataKuliah} ${schedules[i].jam_mulai_uts}-${schedules[i].jam_selesai_uts} dengan ${schedules[j].namaMataKuliah} ${schedules[j].jam_mulai_uts}-${schedules[j].jam_selesai_uts} \n \n`
                         // console.log(`konflik ditemukan: ${schedules[i].name} dengan ${schedules[j].name}`);
-                        console.log(timeWindow[0][x]);
-                        console.log(timeWindow);
+                        // console.log(timeWindow[0][x]);
+                        // console.log(timeWindow);
                         
                         break;
                     } else {
