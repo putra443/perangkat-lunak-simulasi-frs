@@ -125,7 +125,7 @@ function cekBentrokUjian(schedules) {
                 for (let x = startIndex2; x < endIndex2; x++) {
                     if (timeWindow[0][x] !== null) {
                         conflicts = true; conflictsStatus = true;
-                        string += `Konflik ditemukan pada jadwal ujian mata kuliah : ${schedules[i].namaMataKuliah} dengan ${schedules[j].namaMataKuliah}`
+                        string += `Konflik ditemukan pada jadwal ujian mata kuliah : ${schedules[i].namaMataKuliah} pada jam ${schedules[i].jam_mulai_uts}-${schedules[i].jam_selesai_uts} dengan ${schedules[j].namaMataKuliah} pada jam ${schedules[j].jam_mulai_uts}-${schedules[j].jam_selesai_uts}`
                         // console.log(`konflik ditemukan: ${schedules[i].name} dengan ${schedules[j].name}`);
                         break;
                     } else {
