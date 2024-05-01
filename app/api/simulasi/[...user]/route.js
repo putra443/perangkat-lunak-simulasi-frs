@@ -61,7 +61,6 @@ import {query} from '@/db'
       console.log(duplicate.rowCount);
       if(duplicate.rowCount>0){
         throw Error("Tidak boleh mengambil mata kuliah yang sama lebih dari satu kali")
-        const result = "error"
       }
       else{
         const result = await query(`INSERT INTO jadwal_mahasiswa("idJadwalMataKuliah","idMahasiswa") 
@@ -73,11 +72,12 @@ import {query} from '@/db'
         select "idUjian",${params.user[0]} from jadwal_ujian join master_mata_kuliah on 
         jadwal_ujian."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
         where "namaMataKuliah"='${request.nama}'`)
+        return new NextResponse(result)
       }
       
       // client.release()
       // return new Response(result);
-      return new NextResponse(result)
+      // return new NextResponse(result)
     }catch (err){
       console.error(err);
       // return new Response(json({error: 'an error occured'}),{status:500});
