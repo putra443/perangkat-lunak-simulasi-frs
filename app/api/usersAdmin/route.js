@@ -57,7 +57,8 @@ export async function DELETE(req, res){
       // return new Response(JSON.stringify(result.rows));
       // client.release()
       return NextResponse.json(result)
-      }else{
+      }
+      else if(request.idMahasiswa=="all"){
         // const client = await pool.connect();
         const result = await query(`DELETE FROM jadwal_mahasiswa;
         ALTER TABLE jadwal_mahasiswa ALTER COLUMN "idJadwalMahasiswa" RESTART WITH 1;
@@ -68,6 +69,13 @@ export async function DELETE(req, res){
         // res.status(200).json(result);
         // return new Response(JSON.stringify(result.rows));
         // client.release()
+        return NextResponse.json(result)
+      }
+      else if(request.idMahasiswa!=null){
+
+        // console.log(request.idMahasiswa);
+        const result = await query(`DELETE FROM "user" where "idUser" = ${request.idMahasiswa}`);
+
         return NextResponse.json(result)
       }
     } catch (err) {

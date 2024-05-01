@@ -4,7 +4,7 @@ import UpdateUser from './components/updateUser'
 import DeleteUser from './components/deleteMahasiswa'
 import AddAdmin from './components/addAdmin'
 import DeleteAdmin from './components/deleteAdmin'
-
+import DeleteMahasiswa from './components/deleteMahasiswaSingle'
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
@@ -32,6 +32,7 @@ export default async function UsersAdmin(){
                         <AddAdmin/>
                         <DeleteUser/>
                         <DeleteAdmin>{...listUser}</DeleteAdmin>
+                        <DeleteMahasiswa>{...listUser}</DeleteMahasiswa>
                     </div>
                 </div>
                 <div className='overflow-scroll no-scrollbar'>

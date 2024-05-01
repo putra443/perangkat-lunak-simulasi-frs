@@ -95,11 +95,12 @@ function createScheduleUjian(tanggalUTS,tanggalUAS,namaMataKuliah,jam_mulai_uts,
 }
 // untuk cek bentrok jadwal ujian
 function cekBentrokUjian(schedules) {
-    const timeWindow = Array.from({ length: 1 }, () => Array(18).fill(null));
+    
 
     let conflicts = false;
     let string = ""
     for (let i = 0; i < schedules.length - 1; i++) {
+        const timeWindow = Array.from({ length: 1 }, () => Array(18).fill(null));
         for (let j = i + 1; j < schedules.length; j++) {
             // console.log(schedules[i], schedules[j]);
             const tanggalUTS1 = schedules[i].tanggalUTS.split("/");
@@ -127,6 +128,9 @@ function cekBentrokUjian(schedules) {
                         conflicts = true; conflictsStatus = true;
                         string += `Konflik ditemukan pada jadwal ujian mata kuliah : ${schedules[i].namaMataKuliah} pada jam ${schedules[i].jam_mulai_uts}-${schedules[i].jam_selesai_uts} dengan ${schedules[j].namaMataKuliah} pada jam ${schedules[j].jam_mulai_uts}-${schedules[j].jam_selesai_uts}`
                         // console.log(`konflik ditemukan: ${schedules[i].name} dengan ${schedules[j].name}`);
+                        console.log(timeWindow[0][x]);
+                        console.log(timeWindow);
+                        
                         break;
                     } else {
                         timeWindow[0][x] = schedules[j];
@@ -240,7 +244,7 @@ export default async function Simulasi({params}){
                     </div>
                     
 
-                    <p className='text-xl text-left text-white mt-5 bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
+                    <p className='text-xl text-white mt-5 bg-sky-700 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
                     <div className='overflow-scroll no-scrollbar rounded-xl mt-5'>
                         <table className='table text-center rounded-2xl bg-gray-200'>
                             <thead>

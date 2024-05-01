@@ -54,15 +54,27 @@ import {query} from '@/db'
     try{
       const request = await req.json()
       // const client = await pool.connect();
-      const result = await query(`INSERT INTO jadwal_mahasiswa("idJadwalMataKuliah","idMahasiswa") 
-      select "idJadwalMataKuliah",${params.user[0]} from jadwal_mata_kuliah join master_mata_kuliah on
-      jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
-      where kelas='${request.kelas}' and 
-      "namaMataKuliah"='${request.nama}';
-      insert into jadwal_ujian_mahasiswa("idJadwalUjian","idMahasiswa")
-      select "idUjian",${params.user[0]} from jadwal_ujian join master_mata_kuliah on 
-      jadwal_ujian."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
-      where "namaMataKuliah"='${request.nama}'`)
+      const duplicate = await query(`Select * from jadwal_mahasiswa join jadwal_mata_kuliah on 
+      jadwal_mahasiswa."idJadwalMataKuliah"= jadwal_mata_kuliah."idJadwalMataKuliah" join master_mata_kuliah on
+      master_mata_kuliah."kodeMataKuliah" =  jadwal_mata_kuliah."kodeMataKuliah" 
+      where master_mata_kuliah."namaMataKuliah" = '${request.nama}'`)
+      console.log(duplicate.rowCount);
+      if(duplicate.rowCount>0){
+        throw Error("Tidak boleh mengambil mata kuliah yang sama lebih dari satu kali")
+        const result = "error"
+      }
+      else{
+        const result = await query(`INSERT INTO jadwal_mahasiswa("idJadwalMataKuliah","idMahasiswa") 
+        select "idJadwalMataKuliah",${params.user[0]} from jadwal_mata_kuliah join master_mata_kuliah on
+        jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
+        where kelas='${request.kelas}' and 
+        "namaMataKuliah"='${request.nama}';
+        insert into jadwal_ujian_mahasiswa("idJadwalUjian","idMahasiswa")
+        select "idUjian",${params.user[0]} from jadwal_ujian join master_mata_kuliah on 
+        jadwal_ujian."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
+        where "namaMataKuliah"='${request.nama}'`)
+      }
+      
       // client.release()
       // return new Response(result);
       return new NextResponse(result)

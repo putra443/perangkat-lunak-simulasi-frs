@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function DeleteMahasiswa(listUser){
+export default function DeleteAdmin(listUser){
     const [idAdmin, setIdAdmin] = useState("")
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
@@ -40,6 +40,7 @@ export default function DeleteMahasiswa(listUser){
                         <div className="form-control">
                             <label className="label font-bold">Pilih Admin yang ingin dihapus : </label>
                             <select onChange={(e) => setIdAdmin(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                                <option>Pilih Admin</option>
                                {listUser.children.filter((user)=>(
                                 user.role==="Admin" ? user : null
                                )).map((user, index)=>(
