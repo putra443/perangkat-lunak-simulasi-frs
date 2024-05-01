@@ -57,7 +57,7 @@ import {query} from '@/db'
       const duplicate = await query(`Select * from jadwal_mahasiswa join jadwal_mata_kuliah on 
       jadwal_mahasiswa."idJadwalMataKuliah"= jadwal_mata_kuliah."idJadwalMataKuliah" join master_mata_kuliah on
       master_mata_kuliah."kodeMataKuliah" =  jadwal_mata_kuliah."kodeMataKuliah" 
-      where master_mata_kuliah."namaMataKuliah" = '${request.nama}'`)
+      where master_mata_kuliah."namaMataKuliah" = '${request.nama}' and jadwal_mahasiswa."idMahasiswa"= ${params.user[0]}`)
       console.log(duplicate.rowCount);
       if(duplicate.rowCount>0){
         throw Error("Tidak boleh mengambil mata kuliah yang sama lebih dari satu kali")
