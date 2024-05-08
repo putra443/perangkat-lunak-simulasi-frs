@@ -162,9 +162,10 @@ function handlePrint(conflictsStatus){
 export default async function Simulasi({params}){
     const mataKuliah = await getJadwalMataKuliah();
     const userId = params.user[2]
+    // console.log(params.user[1]);
     // console.log(params.user);
-    const jadwalMahasiswa = await getJadwalMahasiswa(userId)
-    const jadwalUjian = await getJadwalUjian(userId)
+    const jadwalMahasiswa = await getJadwalMahasiswa(params.user[1])
+    const jadwalUjian = await getJadwalUjian(params.user[1])
     // console.log(jadwalUjian);
     // const ujian = await getJadwalUjian()
     // const dataMaster = await getJadwalMaster()
@@ -206,7 +207,7 @@ export default async function Simulasi({params}){
                     <p className='text-4xl text-left my-4 text-white'>Simulasi FRS</p>
                     <div className=' justify-start text-left my-5'>
                         {/* untuk add mata kuliah */}
-                        <AddMataKuliah  user={userId}>{...mataKuliah}</AddMataKuliah>
+                        <AddMataKuliah  user={params.user[1]}>{...mataKuliah}</AddMataKuliah>
                     </div>
                     <p className='text-xl text-center text-white bg-sky-700 lg:w-1/5 p-3 rounded-2xl'>Jadwal Kuliah</p>
 
@@ -235,7 +236,7 @@ export default async function Simulasi({params}){
                                         <td className='font-semibold' >{jadwalMahasiswa.kelas}</td>
                                         <td className='font-semibold' >{jadwalMahasiswa.sesi}</td>
                                         <td className=" font-semibold pt-3 pb-3">
-                                            <DeleteMataKuliah user={userId} {...jadwalMahasiswa} className="m-3"/>
+                                            <DeleteMataKuliah user={params.user[1]} {...jadwalMahasiswa} className="m-3"/>
                                             </td>
 
                                     </tr>

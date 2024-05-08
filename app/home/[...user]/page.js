@@ -20,7 +20,7 @@ export default function Home({params}) {
           <div className='flex text-xl mt-2 p-5 space-x-10'>
             {session?.user?.role=="Admin / Mahasiswa" ? (<a href={`/simulasi/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}/${session?.user?.id}`}    className='btn border-none hover:bg-sky-900 text-lg px-4 py-2 rounded-3xl bg-sky-800 text-white hover:bg-sky-700'>Simulasi FRS</a>) 
             : 
-            (<a href={`/simulasi/${session?.user?.role}/${session?.user?.email}/${session?.user?.id}`}    className='btn border-none hover:bg-sky-900 text-lg px-4 py-2 rounded-3xl bg-sky-800 text-white hover:bg-sky-700'>Simulasi FRS</a>)}
+            (<a href={`/simulasi/${session?.user?.role}/${session?.user?.email}`}    className='btn border-none hover:bg-sky-900 text-lg px-4 py-2 rounded-3xl bg-sky-800 text-white'>Simulasi FRS</a>)}
             
           </div>
         </div>

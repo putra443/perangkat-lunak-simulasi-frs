@@ -33,7 +33,7 @@ export default function AddMataKuliah(mataKuliah){
 
         setNama("")
         setKelas("A")
-        router.refresh()
+        // router.refresh()
         setModal(false)
     }
     return (
