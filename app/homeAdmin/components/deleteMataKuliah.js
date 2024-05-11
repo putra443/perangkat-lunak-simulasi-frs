@@ -39,8 +39,9 @@ export default function DeleteMataKuliah(mataKuliah){
             
             <div className="modal">
                 <div className="modal-box text-black bg-white">
-                    <h3 className="font-bold text-lg">Apakah anda yakin akan menghapus mata kuliah {mataKuliah.nama}?</h3>
-                    
+                    <h3 className="text-left text-lg">HAPUS</h3> 
+                    <p className="font-bold text-lg">Apakah anda yakin akan menghapus jadwal mata kuliah {mataKuliah.namaMataKuliah}?</p>
+
                         <div className="modal-action">
                             <button className="btn text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (

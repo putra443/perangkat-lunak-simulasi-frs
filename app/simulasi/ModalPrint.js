@@ -55,7 +55,7 @@ export default function ModalPrint(jadwalMahasiswa){
     return (
         <div>
             <button className='float-left btn border-none text-white bg-green-700 hover:bg-green-800 mt-5 mx-3' onClick={handleChange} disabled={!statusConflict===false}>
-                {statusConflict?(<span>Jadwal Bentrok</span>):(<span>Cetak PDF</span>)}</button>
+                {statusConflict?(<span className= "text-white">Jadwal Bentrok</span>):(<span>Cetak PDF</span>)}</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             <div className="overflow-auto modal  modal-middle">
                 <div className="my-5 lg:scale-100 p-10 rounded-xl bg-white text-black">

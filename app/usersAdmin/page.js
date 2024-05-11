@@ -1,6 +1,5 @@
 import LayoutAdmin from '../layoutAdmin'
 import bg from '../../assets/background_unpar.jpg'
-import UpdateUser from './components/updateUser'
 import DeleteUser from './components/deleteMahasiswa'
 import AddAdmin from './components/addAdmin'
 import DeleteAdmin from './components/deleteAdmin'
@@ -23,7 +22,7 @@ export default async function UsersAdmin(){
         <div className="flex overflow-y-auto overflow-x-hidden min-h-screen max-h-content flex-col items-center px-20 text-center bg-auto bg-center" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>
             <div className='flex flex-col lg:px-20 px-5 w-screen min-h-screen max-h-content bg-gradient-to-br from-sky-500'>
-                <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
+                <div className="flex flex-col text-left mt-10 text-xl" >
                     <p className='text-4xl text-white text-center lg:text-left'>Selamat Datang di Perangkat Lunak Simulasi FRS</p>
                     <p className='text-l text-white bg-sky-600 rounded-2xl p-2 my-5 lg:w-1/6 text-center'> Tabel User</p>
                 </div>
@@ -36,7 +35,7 @@ export default async function UsersAdmin(){
                     </div>
                 </div>
                 <div className='overflow-scroll no-scrollbar'>
-                        <table className='mb-10 table text-center mt-5 rounded-2xl bg-gray-200'>
+                        <table className='mb-10 table text-center mt-5  bg-gray-200'>
                         <thead>
                             <tr className='bg-sky-600 text-white'>
                                 <th className='p-5'>No</th>
@@ -44,20 +43,16 @@ export default async function UsersAdmin(){
                                 <th className='p-5'>Nama Lengkap</th>
                                 <th className='p-5'>Email</th>
                                 <th className='p-5'>Role</th>
-                                <th className='p-5'>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
                         {listUser.map((user, index)=>(
                             <tr  key={user.idUser}>
-                                <td className=" font-semibold">{index+1}</td>
+                                <td className=" font-semibold py-5">{index+1}</td>
                                 <td className=" font-semibold" >{user.email.includes("618") ? (user.email.substring(0,10)):("ADMIN")}</td>
                                 <td className=" font-semibold" >{user.fullname=="" ? ("To be Updated") : (user.fullname)}</td>
                                 <td className=" font-semibold" >{user.email}</td>
                                 <td className=" font-semibold" >{user.role}</td>
-                                <td className=" font-semibold" >
-                                    <UpdateUser>{user}</UpdateUser>
-                                </td>
                             </tr>
                         ))}
                         </tbody>
