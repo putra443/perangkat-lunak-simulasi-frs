@@ -43,7 +43,7 @@ export default function DeleteMataKuliah(mataKuliah){
                     <p className="font-bold text-lg">Apakah anda yakin akan menghapus jadwal mata kuliah {mataKuliah.namaMataKuliah}?</p>
 
                         <div className="modal-action">
-                            <button className="btn text-white border-none" type="button" onClick={handleChange}>Tutup</button>
+                            <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
                             <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="button" onClick={() => handleDelete(mataKuliah.idMataKuliah)}>Hapus</button>   
                             ):(

@@ -36,7 +36,7 @@ export default function DeleteMahasiswa(listUser){
             
             <div className="modal">
                 <div className="lg:w-3/5 overflow-hidden overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
-                    <h3 className="font-bold text-lg">DELETE</h3>
+                    <h3 className="font-bold text-lg">HAPUS</h3>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label font-bold">Pilih Mahasiswa yang ingin dihapus : </label>
@@ -51,9 +51,9 @@ export default function DeleteMahasiswa(listUser){
                             </select>
                         </div>
                         <div className="modal-action">
-                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
+                            <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary hover:bg-red-800 bg-red-600 text-white border-none" type="submit">Hapus</button>   
+                            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="submit">Hapus</button>   
                             ):(
                             <button type="button" className="btn loading">Sedang menghapus . . .</button>
                             )}

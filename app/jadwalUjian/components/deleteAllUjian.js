@@ -40,9 +40,9 @@ export default function DeleteMahasiswa(){
                             <label className="label font-bold">Apakah anda yakin ingin menghapus semua jadwal ujian?</label>
                         </div>
                         <div className="modal-action">
-                            <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
+                            <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary hover:bg-red-800 bg-red-600 text-white border-none" type="submit">Hapus</button>   
+                            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="submit">Hapus</button>   
                             ):(
                             <button type="button" className="btn loading">Sedang menghapus . . .</button>
                             )}
