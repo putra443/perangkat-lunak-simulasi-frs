@@ -39,7 +39,7 @@ export default function DeleteMataKuliah(mataKuliah){
             
             <div className="modal">
                 <div className="modal-box text-black bg-white">
-                    <h3 className="text-left text-lg">HAPUS</h3> 
+                    <h3 className="text-left font-bold text-lg">HAPUS</h3> 
                     <p className="font-bold text-lg">Apakah anda yakin akan menghapus jadwal mata kuliah {mataKuliah.namaMataKuliah}?</p>
 
                         <div className="modal-action">

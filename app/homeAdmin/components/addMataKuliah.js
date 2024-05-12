@@ -60,7 +60,7 @@ export default function AddMataKuliah(){
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label font-bold">Kode Mata Kuliah</label>
-                            <input type="text" value={kode} onChange={(e)=> setKode(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input>
+                            <input type="text" value={kode} onChange={(e)=> setKode(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Kode Mata Kuliah"></input>
                         </div>
                         <div className="form-control">
                             <label className="label font-bold">Kelas</label>
