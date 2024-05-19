@@ -41,7 +41,7 @@ export default function AddAdmin(){
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
-                <div className=" lg:w-3/5  overflow-scroll overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
+                <div className=" lg:w-3/5  overflow-scroll no-scrollbar overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
                     <h1 className="font-bold text-2xl">Tambah Admin</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">

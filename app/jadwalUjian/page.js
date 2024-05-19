@@ -2,7 +2,7 @@ import bg from '../../assets/background_unpar.jpg'
 import LayoutAdmin from '../layoutAdmin'
 import DeleteUjian from './components/deleteJadwalUjian'
 import UpdateUjian from './components/UpdateJadwalUjian'
-import AddJadwalUjian from '../homeAdmin/components/addJadwalUjian'
+import AddJadwalUjian from './components/addJadwalUjian'
 import DeleteAllUjian from './components/deleteAllUjian'
 import CsvUploadUjian from './components/csvUploadUjian'
 

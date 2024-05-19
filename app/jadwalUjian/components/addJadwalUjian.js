@@ -54,7 +54,7 @@ export default function AddJadwalUjian(mataKuliah){
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
-                <div className=" lg:w-3/5  overflow-scroll overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
+                <div className=" lg:w-3/5  overflow-scroll no-scrollbar overflow-x-hidden p-10 rounded-2xl  bg-white text-black">
                     <h1 className="font-bold text-2xl">Tambah Jadwal Ujian</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
@@ -76,11 +76,11 @@ export default function AddJadwalUjian(mataKuliah){
                         </div>
                         <div className="form-control">
                             <label className="label font-bold">Jam Mulai Ujian</label>
-                            <input type="text" onChange={(e)=>setStartUjian(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
+                            <input type="text" onChange={(e)=>setStartUjian(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Jam Mulai Ujian"></input>
                         </div>
                         <div className="form-control">
                             <label className="label font-bold">Jam Selesai Ujian</label>
-                            <input type="text" onChange={(e)=>setEndUjian(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"></input>
+                            <input type="text" onChange={(e)=>setEndUjian(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Jam Selesai Ujian"></input>
                         </div>
                         <div className="modal-action">
                             <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>

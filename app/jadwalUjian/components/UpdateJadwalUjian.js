@@ -48,7 +48,7 @@ export default function UpdateJadwalUjian(jadwalUjian){
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal">
-                <div className="w-3/5 overflow-scroll overflow-x-hidden p-10 rounded-2xl bg-white text-black">
+                <div className="w-3/5 overflow-scroll no-scrollbar overflow-x-hidden p-10 rounded-2xl bg-white text-black">
                     <h3 className="font-bold text-lg">Edit Jadwal Ujian : {jadwalUjian.namaMataKuliah}</h3>
                     <form onSubmit={handleUpdate}>
                         <div className="form-control">

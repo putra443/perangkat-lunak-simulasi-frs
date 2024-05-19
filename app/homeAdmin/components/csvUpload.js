@@ -83,7 +83,7 @@ export default function CsvUpload(){
                 <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
                 
                 <div className={`modal`}>
-                    <div className=" lg:w-3/5 w-4/5  overflow-scroll overflow-x-hidden lg:p-10 p-5 rounded-2xl  bg-white text-black">
+                    <div className=" lg:w-3/5 w-4/5  overflow-scroll no-scrollbar overflow-x-hidden lg:p-10 p-5 rounded-2xl  bg-white text-black">
                         <h1 className="font-bold text-2xl">Tambah Mata Kuliah</h1>
                         <form onSubmit={onFileChangeHandler}>
                             <div className="form-control">
