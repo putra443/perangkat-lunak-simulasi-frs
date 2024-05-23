@@ -25,6 +25,7 @@
     "html2canvas-pro": "^1.4.3",
     "json-server": "^0.17.4",
     "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.2",
     "next": "14.0.2",
     "next-auth": "^4.24.6",
     "next-intl": "^3.2.0",
