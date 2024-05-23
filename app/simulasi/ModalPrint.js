@@ -59,9 +59,9 @@ export default function ModalPrint(jadwalMahasiswa){
 
         setLoader(true)
         const doc = new jsPDF('p','mm','a4')
-        doc.setFontSize(10)
-        doc.addImage(image,"png",140,5,60,18,"logoifunpar")
-        let y = 10
+        doc.setFontSize(9)
+        doc.addImage(image,"png",140,15,60,18,"logoifunpar")
+        let y = 20
         const lines = capture.split('\n')
         for(let i =0; i<8;i++){
             if(i==7){
@@ -69,7 +69,7 @@ export default function ModalPrint(jadwalMahasiswa){
             }
             if(lines[i]!=""){
                 if(i==0 || i==1 || i==2){
-                    doc.setFontSize(14)
+                    doc.setFontSize(11)
                     doc.setFont("helvetica","bold")
                     doc.text(lines[i],10,y)
                     y+=8
@@ -89,7 +89,7 @@ export default function ModalPrint(jadwalMahasiswa){
                  
             }
         }
-        doc.setFontSize(14)
+        doc.setFontSize(13)
         doc.text("Jadwal Kuliah",10,y)
         const tableKuliah = document.querySelector('.actual-receipt .kuliah')
         const headers = Array.from(tableKuliah.querySelectorAll('thead th')).map(header => header.innerText)
@@ -118,7 +118,7 @@ export default function ModalPrint(jadwalMahasiswa){
                 doc.text("Jadwal Ujian",10,y+10)
 
             },
-            margin: {left: 10 , bottom:10}
+            margin: {left: 10 , bottom:10,right:10}
         })
 
         const tableUjian = document.querySelector('.actual-receipt .ujian')
@@ -141,7 +141,7 @@ export default function ModalPrint(jadwalMahasiswa){
             tableLineColor: [0, 0, 0],
             tableLineWidth: 0.1,
             startY: y+15,
-            margin: {left: 10 , bottom:10}
+            margin: {left: 10 , bottom:10,right:10}
         })
         // doc.text("Jadwal Ujian",10,y)
         // doc.text(capture,20,20)
