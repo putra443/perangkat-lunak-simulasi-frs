@@ -146,7 +146,7 @@ export default function ModalPrint(jadwalMahasiswa){
         // doc.text("Jadwal Ujian",10,y)
         // doc.text(capture,20,20)
         setLoader(false)
-        doc.save(`testing file`)
+        doc.save(`SimulasiFRS-${session?.user?.name}.pdf`)
     }
 
 
