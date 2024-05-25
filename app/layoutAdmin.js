@@ -49,7 +49,7 @@ export default function LayoutAdmin() {
               // <a href='/' onClick={()=>signIn()} className='mt-1.5 btn bg-sky-600 border-none lg:float-right float-left  hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a>
               <span></span>
             )}
-            <Image className="float-right w-10 h-10 mt-5 rounded-full" priority sizes='(max-width: 10px)' src={session?.user?.image} width={10} height={10} alt='ProfilePic'/>
+            {session?.user?.image && (<Image className="float-right w-10 h-10 mt-5 rounded-full" priority sizes='(max-width: 10px)' src={session.user.image} width={10} height={10} alt='ProfilePic'/>)}
             <p className='float-right text-white px-3 py-2 lg:mt-3.5 mt-4 text-sm lg:text-base '>{session?.user?.name}</p>
 
           </div>

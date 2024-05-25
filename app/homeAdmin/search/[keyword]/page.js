@@ -15,18 +15,12 @@ async function getMataKuliah(params){
     return result
 }
 
-async function getNamaMataKuliah(){
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/ujian`,{cache:'no-store'})
-    const result = await res.json();
-    return result
-}
 
 export default async function HomeAdmin({params}){
     const keyword = params.keyword
     // console.log(keyword);
     const mataKuliah = await getMataKuliah(keyword)
     // console.log(mataKuliah);
-    const namaMataKuliah = await getNamaMataKuliah(keyword)
     // console.log(params);
     return(
         <div className="flex overflow-y-auto overflow-x-hidden min-h-screen max-h-content flex-col items-center px-20 text-center bg-auto bg-center" style={{backgroundImage: `url(${bg.src})`}}>

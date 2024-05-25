@@ -50,7 +50,7 @@ export default function LayoutUser() {
               <span></span>
             )}
             {/* <a href='/' className='btn bg-sky-600 border-none float-right hover:bg-sky-700 text-white rounded-md px-3 py-2'>Sign Out</a> */}
-            <Image className="float-right w-10 h-10 mt-5 rounded-full" priority sizes='(max-width: 10px)' src={session?.user?.image} width={10} height={10} alt='ProfilePic'/>
+            {session?.user?.image && (<Image className="float-right w-10 h-10 mt-5 rounded-full" priority sizes='(max-width: 10px)' src={session.user.image} width={10} height={10} alt='ProfilePic'/>)}
             <p className=' text-xs lg:text-base mt-4 lg:mt-3.5 lg:float-right float-right text-white px-3 py-2'>{session?.user?.name}</p>
           </div>
   )

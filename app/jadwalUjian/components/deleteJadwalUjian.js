@@ -14,7 +14,7 @@ export default function DeleteJadwalUjian(jadwalUjian){
         setModal(!modal)
     }
 
-    async function handleDelete(){
+    async function handleDelete(idJadwalUjian){
         setIsMutating(true)
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/ujian`,{
             method:"DELETE",

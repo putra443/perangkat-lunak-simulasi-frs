@@ -13,7 +13,7 @@ export default function DeleteMataKuliah(mataKuliah){
         setModal(!modal)
     }
 
-    async function handleDelete(){
+    async function handleDelete(idMataKuliah){
         setIsMutating(true)
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin`,{
             method:"DELETE",

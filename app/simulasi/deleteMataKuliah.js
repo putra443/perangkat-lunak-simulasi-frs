@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function DeleteMataKuliah(mataKuliah){
     const[idMataKuliah, setId] = useState(mataKuliah.idJadwalMataKuliah)
-    const[namaMataKuliah, setIdUjian] = useState(mataKuliah.namaMataKuliah)
+    const[namaMataKuliah, setNama] = useState(mataKuliah.namaMataKuliah)
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
     const router = useRouter();
@@ -14,7 +14,7 @@ export default function DeleteMataKuliah(mataKuliah){
         setModal(!modal)
     }
 
-    async function handleDelete(){
+    async function handleDelete(idMataKuliah, namaMataKuliah){
         setIsMutating(true)
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/simulasi/${mataKuliah.user}`,{
             method:"DELETE",
@@ -25,7 +25,8 @@ export default function DeleteMataKuliah(mataKuliah){
         })
 
         setIsMutating(false)
-
+        setId("")
+        setNama("")
         router.refresh()
         setModal(false)
     }
@@ -37,7 +38,7 @@ export default function DeleteMataKuliah(mataKuliah){
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal">
-                <div className="modal-box text-black bg-white">
+                <div className="modal-box no-scrollbar text-black bg-white">
                     <h1 className="text-lg font-bold text-left">HAPUS</h1>
                     <h3 className="font-bold text-lg">Apakah anda yakin akan menghapus mata kuliah {mataKuliah.namaMataKuliah}?</h3>
                     
