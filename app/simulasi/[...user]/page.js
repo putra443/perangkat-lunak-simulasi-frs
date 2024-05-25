@@ -7,6 +7,9 @@ import ModalPrint from '../ModalPrint';
 
 
 let conflictsStatus = false
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 //untuk get jadwal master
 async function getJadwalMataKuliah(){
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/jadwalKuliah`,{cache:'no-store'});
