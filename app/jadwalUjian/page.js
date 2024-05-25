@@ -68,7 +68,7 @@ export default async function Simulasi(){
                                         <td className='font-semibold'>{jadwalUjian.jam_mulai_uas}</td>
                                         <td className=" font-semibold pt-3 pb-3">{jadwalUjian.jam_selesai_uas}</td>
                                         <td>
-                                            <UpdateUjian {...jadwalUjian}/>
+                                            <UpdateUjian {...jadwalUjian}></UpdateUjian>
                                             <DeleteUjian {...jadwalUjian}/>
                                         </td>
                                     </tr>

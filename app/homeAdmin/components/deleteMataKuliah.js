@@ -45,7 +45,7 @@ export default function DeleteMataKuliah(mataKuliah){
                         <div className="modal-action">
                             <button className="btn bg-cyan-600 hover:bg-cyan-900 text-white border-none" type="button" onClick={handleChange}>Tutup</button>
                             {!isMutating? (
-                            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="button" onClick={() => handleDelete(mataKuliah.idMataKuliah)}>Hapus</button>   
+                            <button className="btn btn-primary bg-cyan-600 text-white border-none hover:bg-red-600" type="button" onClick={() => handleDelete(mataKuliah.idJadwalMataKuliah)}>Hapus</button>   
                             ):(
                             <button type="button" className="btn loading">Sedang menghapus . . .</button>
                             )}
