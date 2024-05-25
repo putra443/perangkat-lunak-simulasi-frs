@@ -34,7 +34,7 @@ export default async function Simulasi(){
            <LayoutAdmin/>
             <div className='flex flex-col lg:px-20 px-5 w-screen min-h-screen max-h-content bg-gradient-to-br from-sky-500 pb-5'>
                 <div className="rounded-2xl flex flex-col text-left mt-10 text-xl" >
-                    <p className='text-xl  text-white mt-5 bg-sky-600 lg:w-1/5 text-center p-3 rounded-2xl'>Jadwal Ujian</p>
+                    <p className='text-l  text-white mt-5 bg-sky-600 lg:w-1/6 text-center p-3 rounded-2xl'>Kelola Jadwal Ujian</p>
                     <div className='flex flex-col text-left'>
                         <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian>
                         <CsvUploadUjian></CsvUploadUjian>

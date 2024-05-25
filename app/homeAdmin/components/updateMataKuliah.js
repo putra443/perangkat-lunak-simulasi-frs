@@ -45,7 +45,7 @@ export default function UpdateMataKuliah(mataKuliah){
     return (
         <div>
 
-            <button className="btn m-3 text-white btn-info btn-sm" onClick={handleChange}>Edit</button>
+            <button className="btn mt-2 text-white btn-info btn-sm" onClick={handleChange}>Edit</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">

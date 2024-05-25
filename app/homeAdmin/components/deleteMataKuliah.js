@@ -34,7 +34,7 @@ export default function DeleteMataKuliah(mataKuliah){
     return (
         <div>
 
-            <button className="btn m-3 btn-error bg-red-600 hover:bg-red-700 btn-sm text-white" onClick={handleChange}>Hapus</button>
+            <button className="btn m-1.5 btn-error bg-red-600 hover:bg-red-700 btn-sm text-white" onClick={handleChange}>Hapus</button>
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal">
