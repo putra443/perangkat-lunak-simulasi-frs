@@ -70,12 +70,12 @@ import {query} from '@/db'
         select "idJadwalMataKuliah",${id.rows[0].idUser} from jadwal_mata_kuliah join master_mata_kuliah on
         jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
         where kelas='${request.kelas}' and 
-        "namaMataKuliah"='${request.nama}';
-        insert into jadwal_ujian_mahasiswa("idJadwalUjian","idMahasiswa")
+        "namaMataKuliah"='${request.nama}';`)
+        const resultUjian = await query (`insert into jadwal_ujian_mahasiswa("idJadwalUjian","idMahasiswa")
         select "idUjian",${id.rows[0].idUser} from jadwal_ujian join master_mata_kuliah on 
         jadwal_ujian."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
         where "namaMataKuliah"='${request.nama}'`)
-        return new NextResponse(result)
+        return new NextResponse(result + resultUjian)
       }
       
       // client.release()
