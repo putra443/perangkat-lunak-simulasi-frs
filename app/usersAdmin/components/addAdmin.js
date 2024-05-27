@@ -46,7 +46,7 @@ export default function AddAdmin(){
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label font-bold">Email</label>
-                            <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="....@gmail.com"></input>
+                            <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" required placeholder="....@gmail.com"></input>
                         </div>
                         <div className="form-control">
                             <label className="label font-bold">Nama Lengkap</label>

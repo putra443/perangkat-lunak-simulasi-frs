@@ -14,7 +14,7 @@ export default function DeleteMahasiswa(){
     async function handleSubmit(e){
         // console.log(matakuliah.user);
         setIsMutating(true)
-        // e.preventDefault();
+        e.preventDefault();
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/usersAdmin`,{
             method:"DELETE",
             body: JSON.stringify({

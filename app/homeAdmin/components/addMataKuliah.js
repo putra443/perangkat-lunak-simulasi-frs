@@ -60,7 +60,7 @@ export default function AddMataKuliah(){
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label font-bold">Kode Mata Kuliah</label>
-                            <input type="text" value={kode} onChange={(e)=> setKode(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Kode Mata Kuliah"></input>
+                            <input type="text" value={kode} onChange={(e)=> setKode(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" required placeholder="Input Kode Mata Kuliah"></input>
                         </div>
                         <div className="form-control">
                             <label className="label font-bold">Kelas</label>
@@ -92,11 +92,11 @@ export default function AddMataKuliah(){
                         </div>
                         <div className="form-control">
                             <label className="label font-bold">Jam Mulai Kuliah</label>
-                            <input type="text" value={jamMulai} onChange={(e)=> setJamMulai(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Jam Mulai"></input>
+                            <input type="text" value={jamMulai} onChange={(e)=> setJamMulai(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1"required placeholder="Input Jam Mulai"></input>
                         </div>
                         <div className="form-control">
                             <label className="label font-bold">Jam Selesai Kuliah</label>
-                            <input type="text" value={jamSelesai} onChange={(e)=> setJamSelesai(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Jam Selesai"></input>
+                            <input type="text" value={jamSelesai} onChange={(e)=> setJamSelesai(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" required placeholder="Input Jam Selesai"></input>
                         </div>
                         <div className="modal-action">
                             <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>

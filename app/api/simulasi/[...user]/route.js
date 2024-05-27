@@ -36,7 +36,9 @@ import {query} from '@/db'
         when hari = 'Kamis' then 4
         when hari = 'Jumat' then 5
         else 6
-        end`);
+        end,
+        jam_mulai ASC
+        `);
       // client.release();
       // // res.status(200).json(result);
       // // return new Response(JSON.stringify(result.rows));
@@ -55,6 +57,9 @@ import {query} from '@/db'
   export async function POST(req,{params}){
     try{
       const request = await req.json()
+      if(request.kelas=="default"){
+        throw Error("Masukkan Kelas Pararel!")
+      }
       // const client = await pool.connect();
       const id = await query(`select "idUser" from "user" where email = '${params.user[0]}'`)
       const duplicate = await query(`Select * from jadwal_mahasiswa join jadwal_mata_kuliah on 

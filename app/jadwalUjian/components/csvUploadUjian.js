@@ -22,7 +22,7 @@ export default function CsvUpload(){
     }
 
     function onFileChangeHandler(e){
-            // e.preventDefault();
+            e.preventDefault();
             setIsMutating(true)
 
             if(!dataExcel){
@@ -86,7 +86,7 @@ export default function CsvUpload(){
                         <form onSubmit={onFileChangeHandler}>
                             <div className="form-control">
                                 <label className="label font-bold">Unggah Berkas Excel Disini : </label>
-                                <input onChange={(e)=>setDataExcel(e.target.files[0])} type="file" name="file" id="file" accept={acceptableCSVFileTypes} className=" text-sm lg:text-base lg:m-3  p-3 rounded-2xl btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none"></input>
+                                <input onChange={(e)=>setDataExcel(e.target.files[0])} type="file" name="file" id="file" required accept={acceptableCSVFileTypes} className=" text-sm lg:text-base lg:m-3  p-3 rounded-2xl btn-primary hover:bg-green-700 bg-cyan-700 text-white border-none"></input>
                             </div>
                             <div className="modal-action">
                                     <button className="btn bg-cyan-700 text-white border-none" type="button" onClick={handleChange}>Tutup</button>

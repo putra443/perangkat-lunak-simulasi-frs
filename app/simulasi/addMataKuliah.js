@@ -7,11 +7,11 @@ import { set } from "date-fns"
 
 export default function AddMataKuliah(mataKuliah){
     const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
-    const [nama, setNama] = useState("")
-    const [kelas,setKelas] = useState("A")
+    const [nama, setNama] = useState('default')
+    const [kelas,setKelas] = useState('default')
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
-    const [curSemester, SetCurSemester] = useState("1")
+    const [curSemester, SetCurSemester] = useState('default')
     const router = useRouter();
     function handleChange(){
         setModal(!modal)
@@ -30,9 +30,9 @@ export default function AddMataKuliah(mataKuliah){
         })
 
         setIsMutating(false)
-
-        setNama("")
-        setKelas("A")
+        SetCurSemester('default')
+        setNama('default')
+        setKelas('default')
         router.refresh()
         setModal(false)
     }
@@ -49,7 +49,7 @@ export default function AddMataKuliah(mataKuliah){
                         <div className="form-control">
                             <label className="label font-bold">Pilih Semester / Mata Kuliah Pilihan</label>
                             <select value={curSemester} onChange={(e) => SetCurSemester(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option value=''>Pilih Semester</option>
+                                <option value='default'>Pilih Semester</option>
                                 <option value='1'>Semester 1</option>
                                 <option value='2'>Semester 2</option>
                                 <option value='3'>Semester 3</option>
@@ -65,7 +65,7 @@ export default function AddMataKuliah(mataKuliah){
                             <label className="label font-bold">Pilih Mata Kuliah</label>
                             {/* <input type="text" value={nama} onChange={(e)=> setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1" placeholder="Input Nama Mata Kuliah"></input> */}
                             <select onChange={(e)=>setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
-                                <option>Pilih Mata Kuliah</option>
+                                <option value='default'>Pilih Mata Kuliah</option>
                                 {mataKuliah.children.filter((mataKuliah)=> {
                                     return curSemester === '' ? mataKuliah : mataKuliah.semester == curSemester
                                 }).filter((mataKuliah,index, self)=>{
@@ -79,6 +79,7 @@ export default function AddMataKuliah(mataKuliah){
                         <div className="form-control">
                             <label className="label font-bold">Pilih Kelas</label>
                             <select onChange={(e)=>setKelas(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                                <option value='default'>Pilih Kelas</option>
                                 {mataKuliah.children.filter((mataKuliah)=> {
                                         return nama === '' ? mataKuliah : mataKuliah.namaMataKuliah == nama
                                     })

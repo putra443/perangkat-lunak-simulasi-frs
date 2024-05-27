@@ -102,6 +102,7 @@ function cekBentrokUjian(schedules) {
 
     let conflicts = false;
     let string = ""
+    if(schedules.length<1) return string="Belum ada jadwal yang dimasukkan."
     for (let i = 0; i < schedules.length - 1; i++) {
         for (let j = i + 1; j < schedules.length; j++) {
             // console.log(schedules[i], schedules[j]);

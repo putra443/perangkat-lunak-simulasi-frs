@@ -15,7 +15,7 @@ export default function DeleteMahasiswa(listUser){
     async function handleSubmit(e){
         // console.log(matakuliah.user);
         setIsMutating(true)
-        // e.preventDefault();
+        e.preventDefault();
         // console.log(idMahasiswa);
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/usersAdmin`,{
             method:"DELETE",
