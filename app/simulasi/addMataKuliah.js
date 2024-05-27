@@ -1,5 +1,5 @@
 "use client"
-import { SyntheticEvent,useEffect,useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Josefin_Sans } from "next/font/google"
 import { set } from "date-fns"
@@ -19,8 +19,8 @@ export default function AddMataKuliah(mataKuliah){
     //untuk filter current semester yang dipilih  
     async function handleSubmit(e){
         // console.log(matakuliah.user);
+        e.preventDefault();
         setIsMutating(true)
-        // e.preventDefault();
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/simulasi/${mataKuliah.user}`,{
             method:"POST",
             body: JSON.stringify({
