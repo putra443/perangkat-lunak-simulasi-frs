@@ -95,7 +95,7 @@ import {query} from '@/db'
       // const client = await pool.connect(); 
       const id = await query(`select "idUser" from "user" where email = '${params.user[0]}'`)
       const result = await query(`DELETE FROM jadwal_mahasiswa WHERE "idMahasiswa"=${id.rows[0].idUser} and "idJadwalMataKuliah" IN (select "idJadwalMataKuliah" from jadwal_mata_kuliah join master_mata_kuliah on jadwal_mata_kuliah."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah" where "namaMataKuliah" ='${request.namaMataKuliah}');
-      delete from jadwal_ujian_mahasiswa  where "idJadwalUjian" IN (select "idUjian" from jadwal_ujian join master_mata_kuliah on jadwal_ujian."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
+      delete from jadwal_ujian_mahasiswa  where "idMahasiswa"=${id.rows[0].idUser} and "idJadwalUjian" IN (select "idUjian" from jadwal_ujian join master_mata_kuliah on jadwal_ujian."kodeMataKuliah" = master_mata_kuliah."kodeMataKuliah"
       where "namaMataKuliah"= '${request.namaMataKuliah}');
       `);
       // return new Response(result);
