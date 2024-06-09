@@ -28,7 +28,6 @@ export default async function HomeAdmin(){
                     <p className='text-l text-white bg-sky-600 rounded-2xl p-2 my-5 lg:w-1/6 text-center'> Kelola Mata kuliah</p>
                     <div className='flex flex-col'>
                         <AddMataKuliah/> 
-                        {/* <AddJadwalUjian>{...namaMataKuliah}</AddJadwalUjian> */}
                         <CsvUpload/>
                         <DeleteAllMataKuliah/>
                     </div>
@@ -51,7 +50,8 @@ export default async function HomeAdmin(){
                             </tr>
                         </thead>
                         <tbody>
-                        {mataKuliah.map((mataKuliah, index)=>(
+                        {mataKuliah[0]!=null ? (
+                        mataKuliah.map((mataKuliah, index)=>(
                             <tr  key={mataKuliah?.idJadwalMataKuliah} className='hover:text-indigo-700 transition-all'>
                                 <td className=" font-semibold">{index+1}</td>
                                 <td className=" font-semibold" >{mataKuliah?.namaMataKuliah}</td>
@@ -66,7 +66,9 @@ export default async function HomeAdmin(){
                                 </td>
 
                             </tr>
-                        ))}
+                        ))) :
+                        (<tr className='hover:text-indigo-700 transition-all font-semibold text-l'><td colSpan={8} className=' text-center'>Belum ada jadwal</td></tr>)
+                        }
                         </tbody>
                         </table>
                     </div>

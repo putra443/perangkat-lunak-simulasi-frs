@@ -25,10 +25,6 @@ async function getNamaMataKuliah (){
 export default async function Simulasi(){
     const jadwalUjian = await getJadwalUjian()
     const namaMataKuliah = await getNamaMataKuliah()
-    // console.log(jadwalUjian);
-    // const ujian = await getJadwalUjian()
-    // const dataMaster = await getJadwalMaster()
-    // console.log(mataKuliah);
     return(
         <main className="flex overflow-y-auto overflow-x-hidden min-h-screen max-h-content flex-col items-center px-20 text-center bg-auto bg-center" style={{backgroundImage: `url(${bg.src})`}}>
            <LayoutAdmin/>
@@ -57,8 +53,9 @@ export default async function Simulasi(){
                                 </tr>
                             </thead>
                             <tbody>
-                                {jadwalUjian.map((jadwalUjian, index)=>(
-                                    <tr  key={index} className='hover:text-indigo-700 transition-all'>
+                                {jadwalUjian[0]!=null ? (
+                                jadwalUjian.map((jadwalUjian, index)=>(
+                                    <tr  key={jadwalUjian?.idUjian} className='hover:text-indigo-700 transition-all'>
                                         <td className=" font-semibold">{index+1}</td>
                                         <td className=" font-semibold">{jadwalUjian.namaMataKuliah}</td>
                                         <td className=" font-semibold">{jadwalUjian.formatteduts}</td>
@@ -72,7 +69,9 @@ export default async function Simulasi(){
                                             <DeleteUjian {...jadwalUjian}/>
                                         </td>
                                     </tr>
-                                ))}
+                                ))) :
+                                (<tr className='hover:text-indigo-700 transition-all font-semibold text-l'><td colSpan={9} className=' text-center'>Belum ada jadwal</td></tr>)
+                            }
                             </tbody>
                         </table>                 
                     </div>

@@ -1,8 +1,6 @@
 "use client"
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
-// import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr"
-import { headers } from "@/next.config"
 
 export default function SearchBar(){
    const [param, setParam] = useState("")

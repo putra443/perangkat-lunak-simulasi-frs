@@ -27,7 +27,7 @@ export default async function UsersAdmin(){
                     <p className='text-l text-white bg-sky-600 rounded-2xl p-2 my-5 lg:w-1/6 text-center'> Tabel User</p>
                 </div>
                 <div className='float-left'>
-                    <div className='flex flex-row space-x-5'>
+                    <div className='flex flex-row space-x-5 overflow-scroll no-scrollbar'>
                         <AddAdmin/>
                         <DeleteUser/>
                         <DeleteAdmin>{...listUser}</DeleteAdmin>
@@ -46,15 +46,18 @@ export default async function UsersAdmin(){
                             </tr>
                         </thead>
                         <tbody>
-                        {listUser.map((user, index)=>(
-                            <tr  key={user.idUser}>
+                        {listUser[0]!=null ? (
+                        listUser.map((user, index)=>(
+                            <tr  key={user.idUser} className='hover:text-indigo-700 transition-all'>
                                 <td className=" font-semibold py-5">{index+1}</td>
                                 <td className=" font-semibold" >{user.email.includes("618") ? (user.email.substring(0,10)):("ADMIN")}</td>
                                 <td className=" font-semibold" >{user.fullname=="" ? ("To be Updated") : (user.fullname)}</td>
                                 <td className=" font-semibold" >{user.email}</td>
                                 <td className=" font-semibold" >{user.role}</td>
                             </tr>
-                        ))}
+                        ))):
+                        (<tr className='hover:text-indigo-700 transition-all font-semibold text-l'><td colSpan={5} className=' text-center'>Belum ada pengguna</td></tr>)
+                        }
                         </tbody>
                         </table>
                     </div>            

@@ -25,4 +25,3 @@ export async function query(text,params){
     client.release(); // Release the client back to the pool
   }
 }
-// export default pool;

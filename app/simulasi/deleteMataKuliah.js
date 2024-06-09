@@ -3,13 +3,9 @@ import { useRouter } from "next/navigation"
 import { useState } from "react";
 
 export default function DeleteMataKuliah(mataKuliah){
-    const[idMataKuliah, setId] = useState(mataKuliah.idJadwalMataKuliah)
-    const[namaMataKuliah, setNama] = useState(mataKuliah.namaMataKuliah)
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
     const router = useRouter();
-    // console.log(mataKuliah.idJadwalMataKuliah);
-    // console.log(mataKuliah.namaMataKuliah);
     function handleChange(){
         setModal(!modal)
     }
@@ -25,8 +21,6 @@ export default function DeleteMataKuliah(mataKuliah){
         })
 
         setIsMutating(false)
-        setId("")
-        setNama("")
         router.refresh()
         setModal(false)
     }

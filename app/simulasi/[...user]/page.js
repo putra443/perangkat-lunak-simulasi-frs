@@ -178,10 +178,13 @@ export default async function Simulasi({params}){
     //penambahan sks
     let totalSKS = 0;
     const jadwalSks = jadwalMahasiswa
-    jadwalSks.filter((jadwalSks, index, self)=>{
-        return self.findIndex((m) => m.namaMataKuliah === jadwalSks.namaMataKuliah)=== index
-    })
-    .forEach((jadwalSks)=>totalSKS+=parseInt(jadwalSks.sks))
+    if(jadwalSks[0]!=null){
+        jadwalSks.filter((jadwalSks, index, self)=>{
+            return self.findIndex((m) => m.namaMataKuliah === jadwalSks.namaMataKuliah)=== index
+        })
+        .forEach((jadwalSks)=>totalSKS+=parseInt(jadwalSks.sks))
+    }
+    
 
     //pembuatan kelas schedule untuk cek jadwal kuliah
     const hasil  = Object.keys(jadwalMahasiswa).length
@@ -230,8 +233,9 @@ export default async function Simulasi({params}){
                                 </tr>
                             </thead>
                             <tbody>
-                                {jadwalMahasiswa.map((jadwalMahasiswa, index)=>(
-                                    <tr  key={index} className='hover:text-indigo-700 transition-all'>
+                                {jadwalMahasiswa[0]!=null ? (
+                                jadwalMahasiswa.map((jadwalMahasiswa, index)=>(
+                                    <tr  key={jadwalMahasiswa?.idJadwalMahasiswa} className='hover:text-indigo-700 transition-all'>
                                         <td className=" font-semibold">{index+1}</td>
                                         <td className=" font-semibold">{jadwalMahasiswa.namaMataKuliah}</td>
                                         <td className=" font-semibold">{jadwalMahasiswa.hari}</td>
@@ -244,7 +248,9 @@ export default async function Simulasi({params}){
                                             </td>
 
                                     </tr>
-                                ))}
+                                ))) :
+                                (<tr className='hover:text-indigo-700 transition-all font-semibold text-l'><td colSpan={9} className=' text-center'>Belum ada mata kuliah yang dipilih</td></tr>)
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -266,8 +272,9 @@ export default async function Simulasi({params}){
                                 </tr>
                             </thead>
                             <tbody>
-                                {jadwalUjian.map((jadwalUjian, index)=>(
-                                    <tr  key={index} className='hover:text-indigo-700 transition-all'>
+                                {jadwalUjian[0]!=null ? (
+                                jadwalUjian.map((jadwalUjian, index)=>(
+                                    <tr  key={jadwalUjian?.idjadwalUjianMahasiswa} className='hover:text-indigo-700 transition-all'>
                                         <td className=" font-semibold">{index+1}</td>
                                         <td className=" font-semibold">{jadwalUjian.namaMataKuliah}</td>
                                         <td className=" font-semibold">{jadwalUjian.formatteduts}</td>
@@ -278,11 +285,13 @@ export default async function Simulasi({params}){
                                         <td className=" font-semibold pt-3 pb-3">{jadwalUjian.jam_selesai_uas}</td>
 
                                     </tr>
-                                ))}
+                                ))) :
+                                (<tr className='hover:text-indigo-700 transition-all font-semibold text-l'><td colSpan={8} className=' text-center'>Belum ada jadwal ujian</td></tr>)
+                                }
                             </tbody>
                         </table>                 
                     </div>
-                    <div className='my-5 w-1/4 self-center text-center bg-slate-200 rounded-xl p-4'>
+                    <div className='my-5 lg:w-1/4 self-center text-center bg-slate-200 rounded-xl p-4'>
                             <p>Total SKS = {totalSKS}</p>
                     </div>
                     <div className='mb-5 justify-start text-left float-left'>

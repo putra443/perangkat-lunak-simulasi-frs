@@ -9,7 +9,6 @@ import bg from '@/assets/background_unpar.jpg'
 
 
 async function getMataKuliah(params){
-    // console.log(params);
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/search/${params}`,{cache:'no-store'})
     const result = await res.json();
     return result
@@ -18,10 +17,7 @@ async function getMataKuliah(params){
 
 export default async function HomeAdmin({params}){
     const keyword = params.keyword
-    // console.log(keyword);
     const mataKuliah = await getMataKuliah(keyword)
-    // console.log(mataKuliah);
-    // console.log(params);
     return(
         <div className="flex overflow-y-auto overflow-x-hidden min-h-screen max-h-content flex-col items-center px-20 text-center bg-auto bg-center" style={{backgroundImage: `url(${bg.src})`}}>
             <LayoutAdmin/>

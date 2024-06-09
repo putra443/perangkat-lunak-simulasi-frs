@@ -36,7 +36,6 @@ export default function AddMataKuliah(){
         })
 
         setIsMutating(false)
-        // console.log(nama,jamMulai,jamSelesai,2," ",hari,3, " ", sesiKelas);
         setKode("")
         setJamMulai("")
         setJamSelesai("")

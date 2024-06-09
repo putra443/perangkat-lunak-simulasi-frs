@@ -7,10 +7,8 @@ import { Download } from "@phosphor-icons/react"
 
 
 export default function CsvUpload(){
-    const [hari, setHari] = useState("Senin")
 
     const [dataExcel, setDataExcel] = useState(null)
-    const [parsedData, setParsedData] = useState(null)
 
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
@@ -37,15 +35,13 @@ export default function CsvUpload(){
                 header:true,
                 skipEmptyLines:true,
                 complete: function(result){
-                    // console.log(result.data[0]);
                     upload(result.data)
                 }
             })
             setDataExcel()
-            setHari("Senin")
             setIsMutating(false)
-            setModal(false)
             router.refresh()   
+            setModal(false)
     }
 
     function downloadTemplate(){
@@ -56,7 +52,6 @@ export default function CsvUpload(){
         const filename = 'template_jadwal_kuliah.csv'
         const url = window.URL.createObjectURL(blob)
 
-        // fs.writeFileSync(filename, csv);
         const element = document.createElement('a')
         element.href = url
         element.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodedURI)
@@ -83,7 +78,7 @@ export default function CsvUpload(){
                 <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
                 
                 <div className={`modal`}>
-                    <div className=" lg:w-3/5 w-4/5  overflow-scroll no-scrollbar overflow-x-hidden lg:p-10 p-5 rounded-2xl  bg-white text-black">
+                    <div className=" lg:w-3/5  overflow-scroll no-scrollbar lg:p-10 p-5 rounded-2xl  bg-white text-black">
                         <h1 className="font-bold text-2xl">Tambah Mata Kuliah</h1>
                         <form onSubmit={onFileChangeHandler}>
                             <div className="form-control">

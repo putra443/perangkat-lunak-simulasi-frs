@@ -1,9 +1,8 @@
 "use client"
-import { SyntheticEvent,useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function UpdateMataKuliah(mataKuliah){
-    // console.log(mataKuliah);
     const[idJadwalMataKuliah, setIdJadwal] = useState(mataKuliah.idJadwalMataKuliah)
     const [hari, setHari] = useState(mataKuliah.hari)
     const [jamMulai, setJamMulai] = useState(mataKuliah.jam_mulai)
@@ -49,7 +48,7 @@ export default function UpdateMataKuliah(mataKuliah){
             <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
             
             <div className="modal ">
-                <div className="w-3/5 overflow-scroll no-scrollbar overflow-x-hidden p-10 rounded-2xl bg-white text-black">
+                <div className="lg:w-3/5 w-4/5 overflow-scroll no-scrollbar overflow-x-hidden p-10 rounded-2xl bg-white text-black">
                     <h3 className="font-bold text-lg">Edit Mata Kuliah : {mataKuliah.namaMataKuliah}</h3>
                     <form onSubmit={handleUpdate}>
                         <div className="form-control">

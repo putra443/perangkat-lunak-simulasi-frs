@@ -1,6 +1,5 @@
 "use client"
-import { Inter } from 'next/font/google'
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import logodouble from '@/assets/logoifunpar3.png'
@@ -10,15 +9,11 @@ import Image from 'next/image';
 export default function LayoutUser() {
   const {data:session, status} = useSession();
   const router = useRouter();
-  // console.log(session);
-  // console.log(status);
   useEffect(()=>{
     if(status === "unauthenticated"){
       router.push('/')
     }
     else if(status==="authenticated" && session?.user?.role == "Mahasiswa" || status==="authenticated" && session?.user?.role == "Admin / Mahasiswa" ){
-      // console.log(session,status);
-      // router.push(`/home/${session?.user?.role}/${session?.user?.email}`)
     }
     else if(status==="authenticated" && session?.user?.role == "Admin"){
       router.push("/homeAdmin")

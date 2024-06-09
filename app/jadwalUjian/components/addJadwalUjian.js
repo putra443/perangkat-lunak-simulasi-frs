@@ -3,8 +3,6 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function AddJadwalUjian(mataKuliah){
-    // console.log(mataKuliah.namaMataKuliah);
-    const[idJadwalMataKuliah, setIdJadwalMataKuliah] = useState(mataKuliah.idJadwalMataKuliah)
     const [tanggalUTS, setTanggalUTS] = useState()
     const [tanggalUAS, setTanggalUAS] = useState()
     const [nama, setNama] = useState("")
@@ -33,15 +31,12 @@ export default function AddJadwalUjian(mataKuliah){
                 jamSelesaiUjian: endUjian
             })
         })
-        // console.log(nama,tanggalUTS,startUTS,endUTS,tanggalUAS,startUAS,endUAS);
         setIsMutating(false)
-        // console.log(nama,jamMulai,jamSelesai,2," ",hari,3, " ", sesiKelas);
         setNama("")
         setStartUjian("")
         setEndUjian("")
         setTanggalUTS("")
         setTanggalUAS("")
-        setIdJadwalMataKuliah("")
         router.refresh()
         setModal(false)
         
@@ -59,11 +54,14 @@ export default function AddJadwalUjian(mataKuliah){
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label font-bold">Nama Mata Kuliah</label>
-                            <select onChange={(e)=>setNama(e.target.value)} onInput={(e)=>setIdJadwalMataKuliah(e.target.key)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
+                            <select onChange={(e)=>setNama(e.target.value)} className="input w-full input-berdered bg-white text-black border-cyan-400 border-1">
                                 <option>Pilih Mata Kuliah</option>
-                                {mataKuliah.children.map((mataKuliah,index)=>(
+                                {mataKuliah.children[0]!=null ? (
+                                mataKuliah.children.map((mataKuliah,index)=>(
                                         <option key={index}>{mataKuliah.namaMataKuliah}</option>
-                                    ))}
+                                    ))) :
+                                    (<option key={1}>Belum ada jadwal</option>)
+                                }
                             </select>
                         </div>
                         <div className="form-control">

@@ -3,14 +3,12 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function UpdateMataKuliah(user){
-    // console.log(user.children.role);
     const [userId, setUserId] = useState(user.children.idUser)
     const[role, setRole] = useState(user.children.role)
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
 
     const router = useRouter();
-    // console.log(user);
     function handleChange(){
         setModal(!modal)
     }

@@ -6,7 +6,6 @@ import { set } from "date-fns"
 
 
 export default function AddMataKuliah(mataKuliah){
-    const[idMataKuliah, setId] = useState(mataKuliah.idMataKuliah)
     const [nama, setNama] = useState('default')
     const [kelas,setKelas] = useState('default')
     const [modal, setModal] =useState(false);
@@ -18,7 +17,6 @@ export default function AddMataKuliah(mataKuliah){
     }
     //untuk filter current semester yang dipilih  
     async function handleSubmit(e){
-        // console.log(matakuliah.user);
         e.preventDefault();
         setIsMutating(true)
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/simulasi/${mataKuliah.user}`,{

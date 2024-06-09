@@ -12,7 +12,6 @@ export default function DeleteMahasiswa(){
         setModal(!modal)
     }
     async function handleSubmit(e){
-        // console.log(matakuliah.user);
         setIsMutating(true)
         e.preventDefault();
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/homeAdmin/ujian`,{

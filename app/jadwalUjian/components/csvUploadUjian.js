@@ -5,10 +5,8 @@ import { useState} from 'react'
 
 
 export default function CsvUpload(){
-    const [hari, setHari] = useState("Senin")
 
     const [dataExcel, setDataExcel] = useState(null)
-    const [parsedData, setParsedData] = useState(null)
 
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
@@ -40,10 +38,9 @@ export default function CsvUpload(){
                 }
             })
             setDataExcel()
-            setHari("Senin")
             setIsMutating(false)
-            setModal(false)
             router.refresh()   
+            setModal(false)
     }
 
     function downloadTemplate(){
@@ -81,7 +78,7 @@ export default function CsvUpload(){
                 <input type="checkbox" checked={modal} onChange={handleChange} className="modal-toggle"></input>
                 
                 <div className={`modal`}>
-                    <div className=" lg:w-3/5 w-4/5  overflow-scroll no-scrollbar overflow-x-hidden lg:p-10 p-5 rounded-2xl  bg-white text-black">
+                    <div className=" lg:w-3/5 overflow-scroll no-scrollbar overflow-x-hidden lg:p-10 p-5 rounded-2xl  bg-white text-black">
                         <h1 className="font-bold text-2xl">Tambah Jadwal Ujian</h1>
                         <form onSubmit={onFileChangeHandler}>
                             <div className="form-control">

@@ -11,46 +11,6 @@ const options = {
     },
     secret:process.env.NEXTAUTH_SECRET,
     providers: [
-        // Credentials({
-        //     type:"credentials",
-        //     name:"credentials",
-        //     credentials:{
-        //         email:{label:"email", type:"email"},
-        //         password:{label:"password", type:"password"},
-        //     },
-        //     async authorize(credentials){
-        //         const{email,password} = credentials
-        //         // const client = await pool.connect();
-        //         const resultAdmin = await client.query(`SELECT "idAdmin", username, password from admin 
-        //         where "username"='${email}' and "password"='${password}'`)
-        //         const resultMahasiswa = await client.query(`SELECT "idMahasiswa",username, password from mahasiswa
-        //         where "username"='${email}' and "password"='${password}'`)
-        //         // console.log(resultAdmin);
-        //         // console.log(resultMahasiswa.rows[0].idMahasiswa);
-        //         // client.release()
-        //         if(resultMahasiswa.rowCount!=0){
-        //             const user = {
-        //                 id: resultMahasiswa.rows[0].idMahasiswa,
-        //                 name: resultMahasiswa.rows[0].username,
-        //                 email: resultMahasiswa.rows[0].username,
-        //                 role: "mahasiswa",
-        //             }
-        //             // console.log(user);
-        //             return user
-        //         }else if(resultAdmin.rowCount!=0){
-        //             const user = {
-        //                 id: resultAdmin.rows[0].idAdmin,
-        //                 name: resultAdmin.rows[0].username,
-        //                 email: resultAdmin.rows[0].username,
-        //                 role: "admin",
-        //             }
-        //             return user
-        //         }
-        //         else{
-        //             return null
-        //         }
-        //     }
-        // }),
         GoogleProvider({
             clientId:process.env.GOOGLE_OAUTH_CLIENT_ID || "",
             clientSecret:process.env.GOOGLE_OAUTH_CLIENT_SECRET ||"",
@@ -106,10 +66,8 @@ const options = {
                         token.id = result.rows[0].idUser
                     }
                 }
-            // client.release()
                 
             }
-            // console.log(token);
             return token
         },
         async session({session, token}){
@@ -125,7 +83,6 @@ const options = {
             if("id" in token) {
                 session.user.id = token.id
             }
-            // console.log(session);
             return session
      }   
     },

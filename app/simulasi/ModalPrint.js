@@ -1,8 +1,6 @@
 'use client'
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import { useSession } from 'next-auth/react';
-import html2canvas from "html2canvas";
-import html2canvaspro from 'html2canvas-pro'
 import jsPDF from "jspdf";
 import jsPDFautotable from "jspdf-autotable";
 
@@ -15,20 +13,11 @@ export default function ModalPrint(jadwalMahasiswa){
     const statusConflict = jadwalMahasiswa.statusConflict
     const curdate = new Date()
     const [currentTime, setCurrentTime] = useState(curdate)
-    // console.log(statusConflict);
     const {data:session, status} = useSession()
-    // console.log(jadwalMahasiswa);
     function handleChange(){
         setModal(!modal)
     }
 
-    // useEffect(() => {
-    //     const intervalId = setInterval(() => {
-    //       setCurrentTime(new Date());
-    //     }, 1000); // Update every second
-    
-    //     return () => clearInterval(intervalId);
-    //   }, []);
 
     const options = { 
         year: 'numeric', 
@@ -38,20 +27,6 @@ export default function ModalPrint(jadwalMahasiswa){
         minute: '2-digit' 
       };
 
-    // const downloadPDF = () => {
-    //     const capture = document.querySelector('.actual-receipt')
-    //     setLoader(true)
-    //     html2canvaspro(capture).then((canvas)=>{
-    //         const imgData = canvas.toDataURL('img/png',1)
-    //         const doc = new jsPDF('p','mm','a4')
-    //         const componentWidth = 208
-    //         const componentHeight = canvas.height * componentWidth / canvas.width
-    //         doc.addImage(imgData,'PNG',0,0,componentWidth,componentHeight)
-    //         setLoader(false)
-    //         doc.save(`SimulasiFRS-${session?.user?.name}.pdf`)
-    //     })
-    
-    // }
 
     const downloadPDF = () => {
         const capture = document.querySelector('.actual-receipt').innerText
@@ -76,12 +51,6 @@ export default function ModalPrint(jadwalMahasiswa){
                     doc.setFontSize(10)
                     doc.setFont("helvetica","normal")
                 }
-                // if(i==3 || i==4){
-                //     doc.setFontSize(9)
-                //     doc.text(lines[i],10,y)
-                //     y+=5
-                //     doc.setFontSize(10)
-                // }
                 else{
                     doc.text(lines[i],10,y)
                     y+=5  
@@ -143,8 +112,6 @@ export default function ModalPrint(jadwalMahasiswa){
             startY: y+15,
             margin: {left: 10 , bottom:10,right:10}
         })
-        // doc.text("Jadwal Ujian",10,y)
-        // doc.text(capture,20,20)
         setLoader(false)
         doc.save(`SimulasiFRS-${session?.user?.name}.pdf`)
     }
@@ -229,13 +196,13 @@ export default function ModalPrint(jadwalMahasiswa){
                         
                     </div>
                     
-                    <button className="btn btn-primary bg-cyan-700 text-white border-none mx-4" 
+                    <button className="btn btn-primary bg-cyan-700 text-white border-none mx-4 float-right" 
                     onClick={downloadPDF}
                     disabled={!(loader===false)}
                     > 
                     {loader?(<span>Sedang mengunduh</span>):(<span>Unduh</span>)}
                     </button>
-                    <button className="btn btn-primary bg-cyan-700 text-white border-none" onClick={handleChange}>Tutup</button>
+                    <button className="btn btn-primary bg-cyan-700 text-white border-none float-right" onClick={handleChange}>Tutup</button>
                 </div>
             </div>
         </div>
