@@ -24,7 +24,7 @@ export default function LayoutAdmin() {
   })
   return (
           <div className='w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
-            <Image src={logodouble.src} className='float-left w-28 h-13 rounded-xl scale-150 m-5 lg:mr-5 mr-10 lg:mb-5 mb-2' priority sizes='(max-width: 30px)' width={27} height={15} alt="Logo"/>
+            <Image src={logodouble.src} className='float-left w-28 h-13 rounded-xl scale-150 m-5 lg:ml-10 lg:mr-5 mr-10 lg:mb-5 mb-2' priority sizes='(max-width: 30px)' width={27} height={15} alt="Logo"/>
             {session?.user?.role=="Admin / Mahasiswa" ? (<a href={`/home/${session?.user?.role.substring(8,session?.user?.role.length)}/${session?.user?.email}`} className='mt-3.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>)
             :(<a href='/homeAdmin' className='mt-3.5 btn bg-sky-600 border-none float-left text-xl  hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>)}
             <a href='/homeAdmin' className='mt-3.5 btn bg-sky-600 border-none lg:float-left float-right  hover:bg-sky-700 text-white rounded-md px-3 '><h1>Jadwal Kuliah</h1></a>

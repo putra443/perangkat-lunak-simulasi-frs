@@ -25,7 +25,7 @@ export default function LayoutUser() {
   })
   return (
           <div className=' w-screen text-left lg:space-x-5 p-5 bg-sky-600'>
-            <Image src={logodouble.src} className='float-left w-28 h-13 rounded-xl scale-150 m-5 lg:mr-5 mr-10' priority sizes='(max-width: 24px)' width={24} height={13} alt="Logo"/>
+            <Image src={logodouble.src} className='float-left w-28 h-13 rounded-xl scale-150 m-5 lg:ml-10 lg:mr-5 mr-10' priority sizes='(max-width: 24px)' width={24} height={13} alt="Logo"/>
             <a href={`/home`} className='mt-3.5 btn bg-sky-600 border-none float-left text-xl hover:bg-sky-700 text-white rounded-md px-3 '><h1>SIMULASI FRS</h1></a>
             {session?.user?.role=="Admin / Mahasiswa" ? 
             ( <> 
