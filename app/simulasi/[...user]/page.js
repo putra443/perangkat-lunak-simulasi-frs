@@ -39,7 +39,7 @@ function createSchedule(hari, name, startTime, endTime){
 
 //untuk cek bentrok jadwal kuliah
 function cekBentrok(schedules){
-    const timeWindow = new Array(7).fill(null).map(() => new Array(24)); // 24 hours in a day
+    const timeWindow = new Array(5).fill(null).map(() => new Array(18)); // 24 hours in a day
 
     let conflicts = false;
     let string = ""

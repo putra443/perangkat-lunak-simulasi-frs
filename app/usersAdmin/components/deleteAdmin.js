@@ -2,12 +2,13 @@
 'use client'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function DeleteAdmin(listUser){
     const [idAdmin, setIdAdmin] = useState("")
     const [modal, setModal] =useState(false);
     const [isMutating, setIsMutating] =useState(false)
-
+    const {data:session, status} = useSession()
     const router = useRouter();
     function handleChange(){
         setModal(!modal)
@@ -15,16 +16,26 @@ export default function DeleteAdmin(listUser){
     async function handleSubmit(e){
         setIsMutating(true)
         e.preventDefault();
-        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/usersAdmin`,{
-            method:"DELETE",
-            body: JSON.stringify({
-                idAdmin:idAdmin
+        if(session?.user?.id == idAdmin){
+            setIdAdmin("")
+            setIsMutating(false)
+            router.refresh()
+            setModal(false)
+            return null
+        }
+        else{
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/usersAdmin`,{
+                method:"DELETE",
+                body: JSON.stringify({
+                    idAdmin:idAdmin
+                })
             })
-        })
-        setIdAdmin("")
-        setIsMutating(false)
-        router.refresh()
-        setModal(false)
+            setIdAdmin("")
+            setIsMutating(false)
+            router.refresh()
+            setModal(false)
+        }
+        
     }
     return (
         <div>
