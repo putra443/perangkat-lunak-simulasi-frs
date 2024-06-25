@@ -1,0 +1,76 @@
+
+
+unpar harus huruf besar semua
+
+google G besar
+
+kata depan imbuhan dari dokumen
+
+space kosong dan baigan yg urutannya salah dokumen
+
+abstrak paragraph pertama baris kedua terakhir ->tulis spesifik apa yg dicek
+
+seragamkan jadi tugas akhir ->abstrak
+
+menyimulasikan kpst hilang
+
+abstrak par terakhir sesi dituliskan dengan jelas
+
+pencetakan hasil simulasi -> pencetakan jadwal
+
+
+
+judul diganti jadi tugas akhir
+
+
+BAB1
+isi excel sebelum perwalian untuk mmeenuhi aturan yang ada.
+
+jika sudah diacc FRS
+
+benerin kepeluan administrasi
+
+aturan harus dijelaskan lebih detail, prasyarat lulus kadang salah, cek bentrok gaada tambahin
+
+ux bisa dibuat merah yg bentrok
+
+
+semua terkait perwalian dan pengisian frs bisa di analisis saja (pake buku saku aja buat perwalian)
+
+dasar teori salah untuk dosen yang ditunjuk untuk membagikan jadwal
+
+dasar teori bentrok bisa lebih dari 2 halaman 10, benerin lagi  penjelsan terkait bentrok
+
+
+untuk ujian bisa dilakukan pengecekan UAS juga
+
+referensi bisa dari email ataupun buku saku juga bisa
+
+timewindow bisa di rename
+
+Bab3
+klaim hati2 untuk keuntungannya -> bisa diganti ke fokusnya aja cek bentrok, trus kemudahan perwalian
+
+ANALISIS ALGO DIGANTI MODIFIKASI ALGORITMA
+
+bentrok awal bentrok pas sama bentrok akhir untuk studi kasus harus ditambah
+
+methode split bisa diganti
+
+table 31
+
+integer parse int harusnya masih ke implementasi
+
+analisis student portal harus ada, apa yg disediakan student portal itu, apa yg kurang BAB3
+
+usecase pake draw io
+
+
+dibuat 2 ennttas berbeda buat USER ERD
+
+
+BAB4
+
+
+pengujian experimental bisa diganti usability testing 
+
