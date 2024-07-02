@@ -15,8 +15,10 @@ export default function CekBentrok(hasilCek){
                 <div className="overflow-scroll no-scrollbar modal-box bg-white text-black">
                     <h1 className="my-2 font-bold lg:text-xl text-lg">Hasil cek bentrok jadwal kuliah :</h1>
                     <p style={{ whiteSpace: 'pre-line' }} className="text-sm lg:text-base">{hasilCek.children}</p>
-                    <h1 className="my-2 font-bold lg:text-xl text-lg">Hasil cek bentrok jadwal ujian :</h1>
+                    <h1 className="my-2 font-bold lg:text-xl text-lg">Hasil cek bentrok jadwal ujian UTS :</h1>
                     <p style={{ whiteSpace: 'pre-line' }} className="my-2 text-sm lg:text-base">{hasilCek.cekUjian}</p>
+                    <h1 className="my-2 font-bold lg:text-xl text-lg">Hasil cek bentrok jadwal ujian UAS :</h1>
+                    <p style={{ whiteSpace: 'pre-line' }} className="my-2 text-sm lg:text-base">{hasilCek.cekUjian2}</p>
                     <button className="btn btn-primary bg-cyan-700 text-white border-none float-right" onClick={handleChange}>Tutup</button>
                 </div>
             </div>

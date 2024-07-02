@@ -54,21 +54,20 @@ function cekBentrok(schedules){
         // Convert start and end times to time window indices
         const startIndex = startHour;
         const endIndex = endHour;
-
         let indexHari = 0
-            if(schedule.hari == "senin" || schedule.hari == "Senin"){
+            if(schedule.hari.toLowerCase() == "senin"){
                 indexHari=0;
             }
-            else if(schedule.hari == "selasa" || schedule.hari == "Selasa"){
+            else if(schedule.hari.toLowerCase() == "selasa"){
                 indexHari=1;
             }
-            else if(schedule.hari == "rabu" || schedule.hari == "Rabu"){
+            else if(schedule.hari.toLowerCase() == "rabu"){
                 indexHari=2;
             }
-            else if(schedule.hari == "kamis" || schedule.hari == "Kamis"){
+            else if(schedule.hari.toLowerCase() == "kamis"){
                 indexHari=3;
             }
-            else{
+            else if(schedule.hari.toLowerCase() == "jumat"){
                 indexHari=4;
             }
         // Check for overlapping time within the time window
@@ -153,14 +152,62 @@ function cekBentrokUjian(schedules) {
     return string;
 }
 
-function handlePrint(conflictsStatus){
-    if(conflictsStatus){
-        console.log("masih ada jadwal bentrok");
+function cekBentrokUjian2(schedules) {
+    
+
+    let conflicts = false;
+    let string = ""
+    if(schedules.length<1) return string="Belum ada jadwal yang dimasukkan."
+    for (let i = 0; i < schedules.length - 1; i++) {
+        for (let j = i + 1; j < schedules.length; j++) {
+            // console.log(schedules[i], schedules[j]);
+            const tanggalUAS1 = schedules[i].tanggalUAS.split("/");
+            const tanggalUAS2 = schedules[j].tanggalUAS.split("/");
+
+            if (parseInt(tanggalUAS1[0]) === parseInt(tanggalUAS2[0]) &&
+                parseInt(tanggalUAS1[1]) === parseInt(tanggalUAS2[1])) {
+                const timeWindow = Array.from({ length: 1 }, () => Array(18).fill(null));
+
+                const startTokenUAS1 = schedules[i].jam_mulai_uas.split(":");
+                const endTokenUAS1 = schedules[i].jam_selesai_uas.split(":");
+                const startTokenUAS2 = schedules[j].jam_mulai_uas.split(":");
+                const endTokenUAS2 = schedules[j].jam_selesai_uas.split(":");
+
+                const startIndex1 = parseInt(startTokenUAS1[0]);
+                const endIndex1 = parseInt(endTokenUAS1[0]);
+                const startIndex2 = parseInt(startTokenUAS2[0]);
+                const endIndex2 = parseInt(endTokenUAS2[0]);
+
+                for (let x = startIndex1; x < endIndex1; x++) {
+                    timeWindow[0][x] = schedules[i];
+                }
+
+                for (let x = startIndex2; x < endIndex2; x++) {
+                    
+                    if (timeWindow[0][x] !== null) {
+                        conflicts = true; conflictsStatus = true;
+                        string += `Ditemukan konflik pada jadwal ujian mata kuliah : ${schedules[i].namaMataKuliah} ${schedules[i].jam_mulai_uas}-${schedules[i].jam_selesai_uas} dengan ${schedules[j].namaMataKuliah} ${schedules[j].jam_mulai_uas}-${schedules[j].jam_selesai_uas} \n \n`
+                        // console.log(`konflik ditemukan: ${schedules[i].name} dengan ${schedules[j].name}`);
+                        // console.log(timeWindow[0][x]);
+                        // console.log(timeWindow);
+                        
+                        break;
+                    } else {
+                        timeWindow[0][x] = schedules[j];
+                    }
+                }
+            }
+        }
     }
-    else{
-        console.log("print jadwal");
+
+    if (!conflicts) {
+        return string = "Tidak ditemukan konflik pada kumpulan jadwal."
+        // console.log("tidak ada konflik dalam jadwal.");
     }
+
+    return string;
 }
+
 
 
 export default async function Simulasi({params}){
@@ -196,7 +243,7 @@ export default async function Simulasi({params}){
     // console.log(conflictsStatus);
 
 
-    //pembuatan kelas scheduleujian untuk cek jadwal ujian
+    //pembuatan kelas scheduleujian untuk cek jadwal ujian UTS dan UAS
     const hasilUjian = Object.keys(jadwalUjian).length
     const schedulesUjian = new Array(hasilUjian)
     for(let i=0;i<hasilUjian;i++) {
@@ -204,6 +251,7 @@ export default async function Simulasi({params}){
     }
 
     const hasilCekUjian = cekBentrokUjian(schedulesUjian)
+    const hasilCekUjian2 = cekBentrokUjian2(schedulesUjian)
 
 
     return(
@@ -295,7 +343,7 @@ export default async function Simulasi({params}){
                             <p>Total SKS = {totalSKS}</p>
                     </div>
                     <div className='mb-5 justify-start text-left float-left'>
-                        <CekBentrok cekUjian={hasilCekUjian}>{hasilCek}</CekBentrok>
+                        <CekBentrok cekUjian={hasilCekUjian} cekUjian2={hasilCekUjian2}>{hasilCek}</CekBentrok>
                         <ModalPrint totalSKS={totalSKS} statusConflict = {conflictsStatus} jadwalUjian={jadwalUjian}>{jadwalMahasiswa}</ModalPrint>
                     </div>
                 </div>

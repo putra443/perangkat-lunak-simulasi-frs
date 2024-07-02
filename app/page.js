@@ -32,7 +32,7 @@ export default function Home() {
       <div className='bg-white rounded-2xl flex shadow-2xl w-full max-w-4xl'>
         <div className='w-3/6 lg:w-3/5 px-5  py-20'>
           <p className='text-3xl font-bold'>Sign in</p>
-          <p className='mt-2'>Gunakan akun google unpar untuk masuk ke dalam perangkat lunak simulasi FRS</p>
+          <p className='mt-2'>Gunakan akun Google UNPAR untuk masuk ke dalam perangkat lunak simulasi FRS</p>
           <div className='border-2 w-10 border-black inline-block mb-2'></div>
           <form action="" method="get" className='mt-8 space-y-6' >
             <div className='flex flex-col items-center'>
